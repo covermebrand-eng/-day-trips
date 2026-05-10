@@ -783,7 +783,7 @@
 // ---- Service Worker Registration ----
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/day-trips/sw.js', { scope: '/day-trips/' })
+    navigator.serviceWorker.register('/-day-trips/sw.js', { scope: '/-day-trips/' })
       .then(reg => {
         console.log('[PWA] Service worker registered:', reg.scope);
 

@@ -1,27 +1,16 @@
-const CACHE_NAME = 'day-trips-v1';
+const CACHE_NAME = 'day-trips-v2';
 
-// All files to cache for offline use
+// Only cache files that actually exist right now
 const STATIC_FILES = [
-  '/day-trips/',
-  '/day-trips/00_TRIP_INDEX.html',
-  '/day-trips/01_montegrotto_relilax.html',
-  '/day-trips/02_abano_terme.html',
-  '/day-trips/03_levico_terme.html',
-  '/day-trips/04_merano.html',
-  '/day-trips/05_desenzano_sirmione.html',
-  '/day-trips/06_lago_di_garda_north.html',
-  '/day-trips/07_belluno_dolomites.html',
-  '/day-trips/08_lago_di_caldonazzo.html',
-  '/day-trips/09_trento_mountains.html',
-  '/day-trips/10_peschiera_garda.html',
-  '/day-trips/11_bologna.html',
-  '/day-trips/12_trieste.html',
-  '/day-trips/13_ferrara.html',
-  '/day-trips/14_mantova.html',
-  '/day-trips/15_milan.html',
-  '/day-trips/manifest.json',
-  '/day-trips/icons/icon-192.png',
-  '/day-trips/icons/icon-512.png'
+  '/-day-trips/00_TRIP_INDEX.html',
+  '/-day-trips/01_montegrotto_relilax.html',
+  '/-day-trips/02_abano_terme.html',
+  '/-day-trips/03_levico_terme.html',
+  '/-day-trips/04_merano.html',
+  '/-day-trips/05_desenzano_sirmione.html',
+  '/-day-trips/manifest.json',
+  '/-day-trips/icons/icon-192.png',
+  '/-day-trips/icons/icon-512.png'
 ];
 
 // ---- INSTALL: cache all static files ----
