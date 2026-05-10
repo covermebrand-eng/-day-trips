@@ -133,6 +133,169 @@ footer .glyph{font-family:'Fraunces',serif;font-style:italic;color:var(--terra-d
 footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 @media(max-width:760px){.inner{padding:0 22px}.stats-bar{padding:18px 20px;margin:28px 22px 44px}.masthead{left:22px;right:22px}.hero-title-panel{margin:-50px 22px 0;padding:32px 26px}.stats{grid-template-columns:repeat(2,1fr);gap:14px}.stat{padding:10px 12px;border-right:none;border-bottom:1px solid var(--rule)}.stat:nth-last-child(-n+2){border-bottom:none}h2{font-size:28px}.weather-grid,.eats,.pack-grid,.feature-row{grid-template-columns:1fr}.moment{grid-template-columns:1fr;gap:6px}.clock{font-size:18px;padding-top:0}.clock::after{display:none}.route-legs{grid-template-columns:1fr}.map-wrap{height:280px}.hero-art{height:240px}.hotel-perks{grid-template-columns:1fr;gap:6px}.hotel-card{padding:28px 22px}.day-label .sub{display:none}}
 </style>
+
+<style id="dynamic-components">
+/* ===== DATE PICKER ===== */
+.trip-date-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 20px 28px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.trip-date-bar .date-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+.trip-date-bar input[type="date"] {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg-deep, #e7decb);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 8px 14px;
+  outline: none;
+  cursor: pointer;
+  display: block;
+}
+.trip-date-bar input[type="date"]:focus { border-color: var(--moss); }
+.trip-date-bar .date-go {
+  background: var(--moss, #2f4a3a);
+  color: #f5efe2;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.trip-date-bar .date-go:hover { background: var(--moss-deep, #1a2b21); }
+.trip-date-bar .date-selected {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  align-self: flex-end;
+  padding-bottom: 2px;
+}
+
+/* ===== WEATHER CARDS ===== */
+.weather-live { margin-bottom: 16px; }
+.weather-live .weather-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.weather-day-card {
+  border-radius: 3px;
+  padding: 24px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.weather-day-card::before {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+}
+.weather-day-card .w-day { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; color: var(--moss-deep, #1a2b21); margin-bottom: 4px; position: relative; }
+.weather-day-card .w-date { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 14px; font-weight: 600; position: relative; }
+.weather-day-card .w-icon { font-size: 26px; margin-bottom: 8px; position: relative; }
+.weather-day-card .w-temps { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; position: relative; }
+.weather-day-card .w-high { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; color: var(--ink); line-height: 1; }
+.weather-day-card .w-low { font-family: 'Fraunces', serif; font-size: 20px; color: var(--ink-soft); font-weight: 400; }
+.weather-day-card .w-cond { font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--moss-deep, #1a2b21); line-height: 1.4; position: relative; }
+
+/* weather state boxes */
+.weather-state {
+  background: var(--bg-deep, #e7decb);
+  border: 1px dashed var(--rule);
+  border-radius: 3px;
+  padding: 28px 24px;
+  text-align: center;
+  grid-column: span 2;
+}
+.weather-state .ws-icon { font-size: 32px; margin-bottom: 10px; }
+.weather-state p { font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; color: var(--ink-soft); line-height: 1.55; max-width: 440px; margin: 0 auto; }
+.weather-state strong { font-style: normal; font-weight: 600; color: var(--moss, #2f4a3a); }
+.weather-loading-box { background: var(--bg-deep, #e7decb); border-radius: 3px; padding: 28px; text-align: center; grid-column: span 2; font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-soft); font-size: 15px; }
+
+/* ===== ROUTE REDESIGN ===== */
+.route-track {
+  margin: 28px 0 24px;
+  padding: 26px 20px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow-x: auto;
+}
+.route-nodes {
+  display: flex;
+  align-items: flex-start;
+  min-width: min-content;
+}
+.route-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  max-width: 110px;
+  flex-shrink: 0;
+}
+.rn-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+.rn-dot.start { background: var(--bg-card); border: 2.5px solid var(--moss, #2f4a3a); }
+.rn-dot.via { background: var(--terra, #b35a3b); border: 2px solid var(--terra, #b35a3b); width: 10px; height: 10px; margin-top: 2px; }
+.rn-dot.end { background: var(--moss, #2f4a3a); border: 2.5px solid var(--moss, #2f4a3a); }
+.rn-name { font-family: 'Fraunces', serif; font-size: 12px; font-weight: 500; color: var(--ink); text-align: center; line-height: 1.3; }
+.rn-time { font-size: 10px; color: var(--ink-soft); margin-top: 3px; text-align: center; }
+
+.route-segment {
+  flex: 1;
+  min-width: 50px;
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rs-line {
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--terra, #b35a3b) 0, var(--terra, #b35a3b) 5px, transparent 5px, transparent 12px);
+  margin-bottom: 5px;
+  opacity: 0.55;
+}
+.rs-label {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .weather-live .weather-grid { grid-template-columns: 1fr; }
+  .trip-date-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .trip-date-bar .date-selected { display: none; }
+}
+</style>
+
 </head>
 <body>
 <div class="paper">
@@ -168,7 +331,23 @@ footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:
 <div class="kicker-hero">The Valsugana Swimming Lake</div>
 <h1 class="title">Lago di Caldonazzo,<br><em>swim in the Alps.</em></h1>
 <p class="dek-hero">Italy's warmest alpine lake — 24°C in summer, crystal clear, ringed by mountains. One stop before Levico on the same Valsugana line. The beach trip you didn't know you needed.</p>
-<div class="date-badge"><strong>Best season</strong>July – August for swimming · May–Sept for walking</div>
+<div class="trip-date-bar">
+  <div>
+    <span class="date-label">Pick your travel dates</span>
+    <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:10px;color:var(--ink-soft);margin-bottom:4px;letter-spacing:0.1em;text-transform:uppercase;">Arrive (Sat)</div>
+        <input type="date" id="trip-date-from" onchange="loadTripWeather()">
+      </div>
+      <div>
+        <div style="font-size:10px;color:var(--ink-soft);margin-bottom:4px;letter-spacing:0.1em;text-transform:uppercase;">Leave (Sun)</div>
+        <input type="date" id="trip-date-to" onchange="loadTripWeather()">
+      </div>
+      <button class="date-go" onclick="loadTripWeather()">Check weather</button>
+    </div>
+  </div>
+  <div class="date-selected" id="date-hint">Select dates to see forecast</div>
+</div>
 </div>
 
 <div class="stats-bar">
@@ -186,10 +365,7 @@ footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:
 <div class="section-num">i.</div>
 <h2>The <em>weather window.</em></h2>
 <p class="lead">Caldonazzo sits at 450m in the Valsugana valley. Warmer than Levico (the lake is bigger and shallower, heats faster), cooler than the Veneto plain. Peak swimming July–August.</p>
-<div class="weather-grid">
-<div class="weather-day"><div class="day-name">Saturday · Summer</div><div class="day-date">July – August</div><div class="temps"><div class="high">80°<small style="font-size:18px;">F</small></div><div class="low">/ 60°F low</div></div><div class="cond">Lake hits 24°C — Italy's warmest alpine swimming. Kayaking, pedalos, jump platforms, lakeside bars. Prime beach season.</div></div>
-<div class="weather-day"><div class="day-name">Saturday · Spring/Autumn</div><div class="day-date">May – June · Sept</div><div class="temps"><div class="high">70°<small style="font-size:18px;">F</small></div><div class="low">/ 52°F low</div></div><div class="cond">Lake cooler (18–20°C) but walkable perimeter is perfect. Less crowded. Mountain views vivid. Fewer tourists.</div></div>
-</div>
+<div class="weather-live"><div class="weather-grid" id="weather-grid"></div></div>
 <div class="weather-note"><strong>Caldonazzo vs. Levico:</strong> same train line, one stop earlier. Caldonazzo is bigger, more infrastructure (more beach facilities, kayak rentals, restaurants on the water). Levico is prettier and quieter. Pick Caldonazzo if you want an active beach day; Levico if you want a nature walk.</div>
 </section>
 
@@ -199,14 +375,7 @@ footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:
 <p class="lead">Identical route to Levico — via Bassano del Grappa, then the Valsugana line. Caldonazzo is one stop earlier on the same train.</p>
 <div class="route-vis">
 <div class="route-line">
-<svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
-<line x1="40" y1="35" x2="860" y2="35" stroke="#c8d8d0" stroke-width="2" stroke-dasharray="4 4"/>
-<line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity=".7"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/></line>
-<circle cx="40" cy="35" r="9" fill="#f8fcfa" stroke="#2f4a3a" stroke-width="2.5"/>
-<circle cx="430" cy="35" r="7" fill="#b35a3b"/>
-<circle cx="860" cy="35" r="11" fill="#0f4838" stroke="#f8fcfa" stroke-width="2.5"/>
-<circle cx="860" cy="35" r="4" fill="#b8893f"/>
-</svg>
+
 </div>
 <div class="route-stops">
 <div class="stop"><div class="name">Vicenza</div><div class="time">~3:00 PM</div></div>
@@ -365,5 +534,180 @@ footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:
 <footer><div class="glyph">⁂</div><div class="meta">Best July–August · Buon viaggio.</div></footer>
 </div>
 </div>
+<script>
+window.TRIP_LAT  = 46.01;
+window.TRIP_LON  = 11.2483;
+window.TRIP_CITY = 'Lago di Caldonazzo';
+window.TRIP_NOTE = 'Valsugana · 450m · warmest alpine lake in Italy';
+</script>
+
+<script id="weather-script">
+(function() {
+  // ---- Config (overridden per-trip) ----
+  var TRIP_LAT  = window.TRIP_LAT  || 45.35;
+  var TRIP_LON  = window.TRIP_LON  || 11.79;
+  var TRIP_CITY = window.TRIP_CITY || 'your destination';
+  var TRIP_NOTE = window.TRIP_NOTE || '';
+
+  // ---- Helpers ----
+  function pad(n) { return String(n).padStart(2,'0'); }
+  function toISO(d) { return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function fromISO(s) {
+    var p = s.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2], 12, 0, 0);
+  }
+  function fmtLong(d) {
+    return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  }
+  function fmtShort(d) {
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase();
+  }
+
+  // ---- Weather code ----
+  function wIcon(c) {
+    if (c===0) return '☀️';
+    if (c<=3) return '⛅';
+    if (c<=49) return '🌫️';
+    if (c<=59) return '🌦️';
+    if (c<=69) return '🌧️';
+    if (c<=79) return '❄️';
+    if (c<=84) return '🌦️';
+    return '⛈️';
+  }
+  function wDesc(c) {
+    if (c===0) return 'Clear skies';
+    if (c<=2) return 'Partly cloudy';
+    if (c===3) return 'Overcast';
+    if (c<=49) return 'Foggy';
+    if (c<=59) return 'Light drizzle';
+    if (c<=69) return 'Rain';
+    if (c<=79) return 'Snow or sleet';
+    if (c<=84) return 'Showers likely';
+    if (c<=94) return 'Thunderstorms possible';
+    return 'Severe weather';
+  }
+
+  // ---- Card HTML ----
+  function dayCard(label, date, max, min, code) {
+    // Choose background based on weather
+    var bg = (code <= 3) ? 'linear-gradient(135deg,#a8ccd0 0%,#8ab4ba 100%)'
+           : (code <= 59) ? 'linear-gradient(135deg,#b8c4c8 0%,#9aa8ac 100%)'
+           : 'linear-gradient(135deg,#b0b8c4 0%,#98a0ac 100%)';
+    return '<div class="weather-day-card" style="background:'+bg+'">'
+      + '<div class="w-day">'+label+'</div>'
+      + '<div class="w-date">'+fmtShort(date)+'</div>'
+      + '<div class="w-icon">'+wIcon(code)+'</div>'
+      + '<div class="w-temps"><div class="w-high">'+Math.round(max)+'°<small style="font-size:16px">F</small></div><div class="w-low">/ '+Math.round(min)+'°F</div></div>'
+      + '<div class="w-cond">'+wDesc(code)+'</div>'
+      + '</div>';
+  }
+
+  // ---- Main load ----
+  window.loadTripWeather = function() {
+    var fromVal = document.getElementById('trip-date-from').value;
+    var toVal   = document.getElementById('trip-date-to').value;
+    var grid    = document.getElementById('weather-grid');
+    var hint    = document.getElementById('date-hint');
+    var note    = document.getElementById('weather-note-bar');
+
+    if (!fromVal) {
+      grid.innerHTML = '<div class="weather-state"><div class="ws-icon">📅</div><p>Select your travel dates above to see the forecast.</p></div>';
+      return;
+    }
+
+    var arrival  = fromISO(fromVal);
+    var depart   = toVal ? fromISO(toVal) : new Date(arrival.getTime() + 86400000);
+    var today    = new Date(); today.setHours(0,0,0,0);
+    var daysOut  = Math.round((arrival - today) / 86400000);
+
+    if (hint) hint.textContent = fmtLong(arrival) + ' → ' + fmtLong(depart);
+
+    if (daysOut < 0) {
+      grid.innerHTML = '<div class="weather-state"><div class="ws-icon">📆</div><p>Those dates have already passed. Pick upcoming dates to see a forecast.</p></div>';
+      if (note) note.style.display = 'none';
+      return;
+    }
+
+    if (daysOut > 14) {
+      var wks = daysOut > 13 ? Math.round(daysOut/7) : null;
+      var msg = wks ? wks+' week'+(wks>1?'s':'')+' away' : daysOut+' days away';
+      grid.innerHTML = '<div class="weather-state"><div class="ws-icon">🗓</div>'
+        + '<p>Your trip is <strong>'+msg+'</strong> — reliable forecasts are only available within 14 days of departure.<br><br>'
+        + 'Check back closer to your travel date. Seasonal norms for this destination are well-established — ask if you want them.</p></div>';
+      if (note) note.style.display = 'none';
+      return;
+    }
+
+    // fetch
+    grid.innerHTML = '<div class="weather-loading-box">Loading forecast for '+TRIP_CITY+'…</div>';
+
+    var url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude='+TRIP_LAT+'&longitude='+TRIP_LON
+      + '&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum'
+      + '&temperature_unit=fahrenheit&forecast_days=16&timezone=Europe%2FRome';
+
+    fetch(url)
+      .then(function(r){ return r.json(); })
+      .then(function(data) {
+        var dates = data.daily.time;
+        var maxT  = data.daily.temperature_2m_max;
+        var minT  = data.daily.temperature_2m_min;
+        var codes = data.daily.weathercode;
+
+        function getDay(d) {
+          var s = toISO(d);
+          var i = dates.indexOf(s);
+          if (i === -1) return null;
+          return { max: maxT[i], min: minT[i], code: codes[i] };
+        }
+
+        var d1 = getDay(arrival);
+        var d2 = getDay(depart);
+
+        var html = '<div class="weather-grid">';
+        html += d1 ? dayCard('Saturday', arrival, d1.max, d1.min, d1.code)
+               : '<div class="weather-day-card" style="background:linear-gradient(135deg,#b8c8c0,#a0b0a8)"><div class="w-day">Arrival day</div><div class="w-date">'+fmtShort(arrival)+'</div><div class="w-cond" style="margin-top:12px">Date not in forecast window yet.</div></div>';
+        html += d2 ? dayCard('Sunday', depart, d2.max, d2.min, d2.code)
+               : '<div class="weather-day-card" style="background:linear-gradient(135deg,#b8c8c0,#a0b0a8)"><div class="w-day">Departure day</div><div class="w-date">'+fmtShort(depart)+'</div><div class="w-cond" style="margin-top:12px">Date not in forecast window yet.</div></div>';
+        html += '</div>';
+        grid.innerHTML = html;
+
+        if (note) {
+          note.style.display = 'block';
+          note.textContent = 'Live forecast · ' + TRIP_CITY + ' · via Open-Meteo · updates hourly' + (TRIP_NOTE ? ' · ' + TRIP_NOTE : '');
+        }
+      })
+      .catch(function() {
+        grid.innerHTML = '<div class="weather-state"><div class="ws-icon">⚠️</div><p>Couldn't load the forecast. Check your connection and try again.</p></div>';
+      });
+  };
+
+  // ---- Init on DOM ready ----
+  function init() {
+    var fromInput = document.getElementById('trip-date-from');
+    var toInput   = document.getElementById('trip-date-to');
+    if (!fromInput) return;
+
+    // Set default to next weekend
+    var now = new Date();
+    var dow = now.getDay();
+    var toSat = (6 - dow + 7) % 7 || 7;
+    var sat = new Date(now); sat.setDate(now.getDate() + toSat);
+    var sun = new Date(sat); sun.setDate(sat.getDate() + 1);
+    fromInput.value = toISO(sat);
+    toInput.value   = toISO(sun);
+
+    // Auto-load
+    loadTripWeather();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 </body>
 </html>
