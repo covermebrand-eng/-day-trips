@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belluno — Gateway to the Dolomites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0ece0;--bg-card:#f9f5ea;--bg-deep:#e4dcc8;--ink:#1a1c14;--ink-soft:#45463a;--rule:#d4c8a8;--moss:#2f4a3a;--moss-deep:#1a2b21;--dolomite:#7a6a58;--dolomite-deep:#5a4a38;--forest:#4a6a4a;--forest-deep:#2a4a2a;--terra:#b35a3b;--terra-deep:#8a4128;--gold:#b8893f;--gold-soft:#d4ad6e;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;min-height:100vh;background-image:radial-gradient(circle at 20% 10%,rgba(74,106,74,.05) 0%,transparent 40%),radial-gradient(circle at 80% 90%,rgba(184,137,63,.04) 0%,transparent 40%)}
+.paper{max-width:980px;margin:0 auto;padding:0 0 80px}.inner{padding:0 40px}
+.hero-art{position:relative;width:100%;height:300px;overflow:hidden;background:linear-gradient(180deg,#c0ccd8 0%,#d8d4c0 60%,#e4dcc8 100%)}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.masthead{position:absolute;top:28px;left:40px;right:40px;display:flex;justify-content:space-between;align-items:baseline;z-index:3}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(249,245,234,.9);padding:6px 14px;border-radius:2px;color:var(--moss-deep);backdrop-filter:blur(4px)}
+.brand span{color:var(--terra-deep)}.issue{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(249,245,234,.9);padding:6px 14px;border-radius:2px;color:var(--ink);backdrop-filter:blur(4px)}
+.hero-title-panel{background:var(--bg-card);margin:-60px 40px 0;padding:44px 44px 40px;border-radius:4px;position:relative;z-index:5;box-shadow:0 -4px 30px -10px rgba(42,74,42,.15);border-left:5px solid var(--forest)}
+.kicker-hero{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--forest-deep);margin-bottom:14px;font-weight:600}
+h1.title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,7vw,72px);line-height:.96;letter-spacing:-.02em;color:var(--moss-deep);margin-bottom:16px}
+h1.title em{font-style:italic;font-weight:300;color:var(--dolomite-deep)}
+.dek-hero{font-family:'Fraunces',serif;font-size:19px;font-weight:300;color:var(--ink-soft);max-width:580px;line-height:1.4}
+.date-badge{display:inline-block;background:var(--forest-deep);color:var(--bg-card);font-family:'Fraunces',serif;font-style:italic;font-size:15px;padding:6px 16px;border-radius:2px;margin-top:18px}
+.date-badge strong{font-weight:500;font-style:normal;color:var(--gold-soft);margin-right:6px;letter-spacing:.06em;font-size:11px;text-transform:uppercase}
+.stats-bar{background:var(--bg-card);margin:40px 40px 56px;padding:22px 32px;border-radius:3px;border:1px solid var(--rule)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.stat{padding:0 18px;border-right:1px solid var(--rule)}.stat:last-child{border-right:none}.stat:first-child{padding-left:0}
+.stat .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;font-weight:600}
+.stat .value{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);line-height:1.1}
+.stat .value small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:2px}
+section{margin:64px 0}.section-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--terra-deep);margin-bottom:8px}
+h2{font-family:'Fraunces',serif;font-weight:400;font-size:38px;letter-spacing:-.01em;margin-bottom:28px;color:var(--ink);line-height:1.05}
+h2 em{font-style:italic;color:var(--forest-deep)}.lead{font-size:16px;color:var(--ink-soft);max-width:640px;margin-bottom:32px}
+.weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+.weather-day{background:linear-gradient(135deg,#b8c8c0 0%,#a0b4a8 100%);border-radius:3px;padding:26px 28px;position:relative;overflow:hidden}
+.weather-day::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 70%)}
+.weather-day .day-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--moss-deep);margin-bottom:4px;position:relative}
+.weather-day .day-date{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;font-weight:600;position:relative}
+.weather-day .temps{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;position:relative}
+.weather-day .high{font-family:'Fraunces',serif;font-size:38px;font-weight:500;color:var(--ink);line-height:1}
+.weather-day .low{font-family:'Fraunces',serif;font-size:22px;color:var(--ink-soft);font-weight:400}
+.weather-day .cond{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--moss-deep);line-height:1.45;position:relative}
+.weather-note{font-size:13px;color:var(--ink-soft);background:rgba(184,137,63,.1);padding:14px 18px;border-radius:3px;border-left:3px solid var(--gold);font-style:italic;font-family:'Fraunces',serif}
+.route-vis{margin:32px 0 28px;padding:36px 28px;background:var(--bg-card);border:1px solid var(--rule);border-radius:3px}
+.route-line{position:relative;height:70px}.route-svg{width:100%;height:100%}
+.route-stops{display:flex;justify-content:space-between;margin-top:14px;padding:0 4px}
+.stop{text-align:center;flex:1}.stop .name{font-family:'Fraunces',serif;font-size:13px;font-weight:500;color:var(--ink)}.stop .time{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px}
+.route-legs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.route-leg{padding:14px 18px;border-left:2px solid var(--terra);background:rgba(179,90,59,.04);border-radius:0 2px 2px 0}
+.route-leg .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:4px}
+.route-leg .time{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--moss);margin-bottom:2px}
+.route-leg .meta{font-size:12px;color:var(--ink-soft)}
+.route-callout{background:var(--moss);color:#f5efe2;padding:14px 22px;border-radius:3px;margin-top:18px;font-size:14px;font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.route-callout strong{color:var(--gold);font-style:normal;font-weight:600;display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.day-section{margin-bottom:48px}
+.day-label{display:flex;align-items:baseline;gap:18px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.day-label .num{font-family:'Fraunces',serif;font-style:italic;font-size:48px;color:var(--terra-deep);line-height:1;font-weight:400}
+.day-label h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--ink)}
+.day-label .sub{font-size:12px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-left:auto;font-weight:600}
+.timeline{position:relative}
+.moment{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.moment:last-child{border-bottom:none}
+.clock{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--moss);line-height:1;padding-top:4px;position:relative}
+.clock.small{font-size:13px;font-style:italic;color:var(--ink-soft)}
+.clock::after{content:"";position:absolute;right:-14px;top:10px;width:5px;height:5px;background:var(--terra);border-radius:50%}
+.clock.small::after{display:none}
+.moment-body h4{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:6px;color:var(--ink);line-height:1.2}
+.moment-body p{color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+.moment-body p+p{margin-top:8px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);background:rgba(179,90,59,.1);padding:2px 9px;border-radius:2px;margin-bottom:8px;font-weight:600}
+.tag.nature{color:var(--forest-deep);background:rgba(42,74,42,.1)}.tag.eat{color:var(--gold);background:rgba(184,137,63,.12)}
+.hotel-card{background:var(--forest-deep);color:#f0e9d8;padding:36px;border-radius:4px;position:relative;overflow:hidden}
+.hotel-card::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%)}
+.hotel-card .pick-tag{display:inline-block;background:var(--gold);color:var(--moss-deep);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:700}
+.hotel-card .stars{font-size:14px;letter-spacing:.12em;color:var(--gold);margin-bottom:6px}
+.hotel-card h3{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1.1;margin-bottom:8px;color:#f5efe2}
+.hotel-card .meta{font-style:italic;color:rgba(240,233,216,.75);font-size:14px;margin-bottom:20px;font-family:'Fraunces',serif}
+.hotel-perks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin:24px 0}
+.hotel-perks div{font-size:13.5px;color:rgba(240,233,216,.92);padding:6px 0;border-bottom:1px solid rgba(245,239,226,.12);display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:baseline}
+.hotel-perks div::before{content:"✓";color:var(--gold);font-weight:600}
+.hotel-card .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;border-top:1px solid rgba(245,239,226,.2)}
+.hotel-card .price-num{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#f5efe2}
+.hotel-card .price-num small{font-size:14px;color:rgba(240,233,216,.7);font-weight:400}
+.hotel-card .review .score{font-family:'Fraunces',serif;font-size:18px;color:var(--gold);font-weight:500}
+.hotel-card .review{font-size:12px;color:rgba(240,233,216,.7);text-align:right}
+.hotel-card .alert{background:rgba(179,90,59,.18);border-left:3px solid var(--terra);padding:14px 18px;margin-top:20px;font-size:13.5px;color:#f5efe2;font-family:'Fraunces',serif;font-style:italic;line-height:1.55;border-radius:0 2px 2px 0}
+.hotel-card .alert strong{color:var(--gold);font-style:normal;font-weight:600}
+.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.feat{background:var(--bg-card);border:1px solid var(--rule);padding:18px;border-radius:3px;transition:transform .2s}
+.feat:hover{transform:translateY(-2px);border-color:var(--forest)}
+.feat .icon{width:32px;height:32px;background:rgba(42,74,42,.12);border-radius:50%;margin-bottom:12px;display:grid;place-items:center;color:var(--forest-deep);font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:14px}
+.feat h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.feat p{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.map-wrap{position:relative;width:100%;height:380px;border-radius:3px;overflow:hidden;border:1px solid var(--rule)}
+.map-wrap iframe{width:100%;height:100%;border:0}
+.map-caption{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;font-family:'Fraunces',serif}
+.eats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.eat{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px;transition:transform .2s,border-color .2s}
+.eat:hover{transform:translateY(-2px);border-color:var(--moss)}
+.eat .style{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+.eat h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:4px;line-height:1.2}
+.eat .where{font-style:italic;color:var(--ink-soft);font-size:13px;margin-bottom:10px;font-family:'Fraunces',serif}
+.eat p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.budget{border:1px solid var(--rule);background:var(--bg-card);border-radius:3px;overflow:hidden}
+.budget table{width:100%;border-collapse:collapse}
+.budget td{padding:14px 22px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.budget tr:last-child td{border-bottom:none}
+.budget tr.total td{font-family:'Fraunces',serif;font-size:18px;color:var(--moss);font-weight:500;background:rgba(47,74,58,.04)}
+.budget td:last-child{text-align:right;font-family:'Fraunces',serif;font-weight:500;color:var(--ink)}
+.budget td .item-note{font-size:11.5px;color:var(--ink-soft);display:block;margin-top:2px;font-family:'DM Sans',sans-serif;font-weight:400}
+.budget-disclaimer{margin-top:16px;padding:12px 16px;background:rgba(184,137,63,.08);border-left:3px solid var(--gold);font-size:12.5px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;border-radius:0 2px 2px 0}
+.notes{background:var(--forest-deep);color:#f0e9d8;padding:44px 38px;border-radius:3px;margin:56px 0;position:relative;overflow:hidden}
+.notes::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%);pointer-events:none}
+.notes h2{color:#f5efe2;margin-bottom:22px}.notes h2 em{color:var(--gold)}
+.notes ul{list-style:none;counter-reset:notenum}
+.notes li{padding:13px 0;border-bottom:1px solid rgba(245,239,226,.15);font-size:14.5px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.notes li:last-child{border-bottom:none}
+.notes li::before{content:counter(notenum,lower-roman)".";counter-increment:notenum;font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:15px;min-width:28px}
+.notes strong{color:#f5efe2;font-weight:600}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pack-col{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px}
+.pack-col h4{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--moss);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.pack-col ul{list-style:none}
+.pack-col li{padding:6px 0;font-size:13px;color:var(--ink);position:relative;padding-left:18px;line-height:1.45}
+.pack-col li::before{content:"○";position:absolute;left:0;top:6px;color:var(--terra);font-size:10px}
+.pack-col li .who{display:block;font-size:11px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;margin-top:1px}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.links a{font-size:13px;letter-spacing:.05em;color:var(--forest);text-decoration:none;border-bottom:1px solid var(--forest);padding-bottom:1px;transition:color .2s,border-color .2s}
+.links a:hover{color:var(--terra-deep);border-color:var(--terra-deep)}
+.data-note{background:var(--bg-deep);border:1px dashed var(--rule);padding:16px 20px;border-radius:2px;margin:20px 0;font-size:12.5px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.data-note strong{color:var(--moss-deep);font-style:normal;font-weight:600}
+footer{margin-top:80px;padding-top:28px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .glyph{font-family:'Fraunces',serif;font-style:italic;color:var(--terra-deep);font-size:22px}
+footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+@media(max-width:760px){.inner{padding:0 22px}.stats-bar{padding:18px 20px;margin:28px 22px 44px}.masthead{left:22px;right:22px}.hero-title-panel{margin:-50px 22px 0;padding:32px 26px}.stats{grid-template-columns:repeat(2,1fr);gap:14px}.stat{padding:10px 12px;border-right:none;border-bottom:1px solid var(--rule)}.stat:nth-last-child(-n+2){border-bottom:none}h2{font-size:28px}.weather-grid,.eats,.pack-grid,.feature-row{grid-template-columns:1fr}.moment{grid-template-columns:1fr;gap:6px}.clock{font-size:18px;padding-top:0}.clock::after{display:none}.route-legs{grid-template-columns:1fr}.map-wrap{height:280px}.hero-art{height:240px}.hotel-perks{grid-template-columns:1fr;gap:6px}.hotel-card{padding:28px 22px}.day-label .sub{display:none}}
+</style>
+</head>
+<body>
+<div class="paper">
+<div class="hero-art">
+<svg viewBox="0 0 980 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="skyB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8c8d4"/><stop offset="100%" stop-color="#e0d8c0"/></linearGradient>
+<linearGradient id="dolomiteB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8b8a0"/><stop offset="100%" stop-color="#a89880"/></linearGradient>
+<linearGradient id="forestB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a6a4a"/><stop offset="100%" stop-color="#6a8a6a"/></linearGradient>
+<linearGradient id="riverB" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#78a8b8"/><stop offset="100%" stop-color="#5a8898"/></linearGradient>
+</defs>
+<rect width="980" height="300" fill="url(#skyB)"/>
+<circle cx="750" cy="60" r="28" fill="#f4e4c8" opacity=".5"/>
+<!-- Dolomite peaks - the iconic pale rock towers -->
+<path d="M 0 200 L 80 120 L 140 160 L 200 90 L 260 140 L 330 80 L 400 130 L 470 70 L 540 120 L 610 85 L 680 125 L 750 95 L 820 130 L 900 105 L 980 140 L 980 300 L 0 300 Z" fill="url(#dolomiteB)" opacity=".75"/>
+<!-- Snow/pale rock details on peaks -->
+<path d="M 200 90 L 215 105 L 230 90 L 222 98" fill="#e8e0d0" opacity=".7"/>
+<path d="M 330 80 L 345 97 L 360 80 L 350 88" fill="#e8e0d0" opacity=".75"/>
+<path d="M 470 70 L 487 88 L 504 70 L 494 79" fill="#e8e0d0" opacity=".8"/>
+<path d="M 610 85 L 625 100 L 640 85 L 632 93" fill="#e8e0d0" opacity=".65"/>
+<path d="M 750 95 L 763 109 L 776 95 L 768 102" fill="#e8e0d0" opacity=".6"/>
+<!-- Forest lower slopes -->
+<path d="M 0 240 Q 150 200,300 225 Q 450 200,600 220 Q 750 198,900 225 L 980 228 L 980 300 L 0 300 Z" fill="url(#forestB)"/>
+<!-- Piave River valley -->
+<path d="M 200 300 Q 350 265,500 270 Q 650 275,800 260 L 800 278 Q 650 293,500 288 Q 350 283,200 300 Z" fill="url(#riverB)" opacity=".75"/>
+<!-- Belluno old town on the hill -->
+<rect x="440" y="230" width="6" height="10" fill="#6a5840" opacity=".6"/>
+<rect x="450" y="225" width="8" height="15" fill="#5a4830" opacity=".65"/>
+<rect x="462" y="228" width="5" height="12" fill="#6a5840" opacity=".6"/>
+<rect x="470" y="222" width="10" height="18" fill="#5a4830" opacity=".7"/>
+<!-- Church bell tower -->
+<rect x="485" y="215" width="5" height="22" fill="#7a6850" opacity=".65"/>
+<rect x="483" y="213" width="9" height="4" fill="#7a6850" opacity=".65"/>
+</svg>
+<header class="masthead">
+<div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; DOLOMITI N° 07</div>
+<div class="issue">One Night · Vicenza ↔ Belluno</div>
+</header>
+</div>
+
+<div class="hero-title-panel">
+<div class="kicker-hero">Gateway to the Dolomiti Bellunesi</div>
+<h1 class="title">Belluno,<br><em>the quiet one.</em></h1>
+<p class="dek-hero">A charming alpine city where the Piave and Ardo rivers meet. Dolomite peaks visible from every street. No crowds, no tourists — just a beautiful Italian mountain town that most people drive straight through.</p>
+<div class="date-badge"><strong>Best season</strong>May – October · Snow on peaks into June</div>
+</div>
+
+<div class="stats-bar">
+<div class="stats">
+<div class="stat"><div class="label">Leave home</div><div class="value">2:00<small>pm</small></div></div>
+<div class="stat"><div class="label">Travel time</div><div class="value">~2<small>h direct</small></div></div>
+<div class="stat"><div class="label">Transfers</div><div class="value">1<small> @ Conegliano</small></div></div>
+<div class="stat"><div class="label">Dolomite views</div><div class="value">Everywhere</div></div>
+<div class="stat"><div class="label">Trip cost</div><div class="value">$$</div></div>
+</div>
+</div>
+
+<div class="inner">
+<section>
+<div class="section-num">i.</div>
+<h2>The <em>weather window.</em></h2>
+<p class="lead">Belluno sits at 383m in the Piave valley, well within the Dolomite foothills. Distinctly alpine — cooler than Vicenza, especially in the evening. Mountain weather can change fast.</p>
+<div class="weather-grid">
+<div class="weather-day"><div class="day-name">Saturday · Summer</div><div class="day-date">June – August</div><div class="temps"><div class="high">74°<small style="font-size:18px;">F</small></div><div class="low">/ 56°F low</div></div><div class="cond">Warm days, cool evenings. Piave riverside walk stunning. Dolomites vivid against blue sky. Afternoon thunderstorms possible — brief and dramatic.</div></div>
+<div class="weather-day"><div class="day-name">Sunday · Autumn</div><div class="day-date">September – October</div><div class="temps"><div class="high">64°<small style="font-size:18px;">F</small></div><div class="low">/ 48°F low</div></div><div class="cond">Autumn color on the forest slopes is spectacular. Cooler, bring a proper layer. Mountains even more dramatic with first snow on the peaks.</div></div>
+</div>
+<div class="weather-note"><strong>Belluno is higher than it looks on a map.</strong> Pack a real evening layer — it can be 10°F cooler than Vicenza, especially in spring and autumn. Mountain storms build fast and blow through quickly.</div>
+</section>
+
+<section>
+<div class="section-num">ii.</div>
+<h2>The <em>route.</em></h2>
+<p class="lead">Via Conegliano — one of the most scenic train routes in the Veneto. The final stretch from Vittorio Veneto to Belluno follows the Piave valley directly into the mountains.</p>
+<div class="route-vis">
+<div class="route-line">
+<svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+<line x1="40" y1="35" x2="860" y2="35" stroke="#d4c8a8" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity=".7"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/></line>
+<circle cx="40" cy="35" r="9" fill="#f9f5ea" stroke="#2f4a3a" stroke-width="2.5"/>
+<circle cx="450" cy="35" r="7" fill="#b35a3b"/>
+<circle cx="860" cy="35" r="11" fill="#2a4a2a" stroke="#f9f5ea" stroke-width="2.5"/>
+<circle cx="860" cy="35" r="4" fill="#b8893f"/>
+</svg>
+</div>
+<div class="route-stops">
+<div class="stop"><div class="name">Vicenza</div><div class="time">~3:00 PM</div></div>
+<div class="stop"><div class="name">Conegliano</div><div class="time">change ~3:50</div></div>
+<div class="stop"><div class="name">Belluno</div><div class="time">~5:00 PM</div></div>
+</div>
+<div class="route-legs">
+<div class="route-leg"><div class="label">Leg i · Regionale</div><div class="time">~50 min</div><div class="meta">Vicenza → Conegliano · ~€8</div></div>
+<div class="route-leg"><div class="label">Leg ii · Regionale</div><div class="time">~1h 10min</div><div class="meta">Conegliano → Belluno · ~€6 · scenic Piave valley</div></div>
+</div>
+<div class="route-callout"><strong>Sit on the right side facing forward from Conegliano</strong>The Piave valley section is the most dramatic — river gorges, Dolomite peaks appearing one by one. The views come from the right side of the train heading north.</div>
+</div>
+<div class="data-note"><strong>Train note:</strong> Vicenza → Conegliano runs frequently. Conegliano → Belluno is less frequent — roughly hourly. Confirm your connection in Trenitalia app before leaving. Hotel Europa is 5-min walk from Belluno station.</div>
+</section>
+
+<section>
+<div class="section-num">iii.</div>
+<h2>The <em>day, paced.</em></h2>
+<div class="day-section">
+<div class="day-label"><div class="num">i.</div><h3>Saturday — Into the mountains.</h3><div class="sub">Vicenza → Belluno</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock small">Fri night</div><div class="moment-body"><span class="tag">Pack</span><h4>Pack the night before.</h4><p>Small bag. Proper walking shoes and an evening layer — Belluno is mountain country.</p></div></div>
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Wake</span><h4>Slow morning. Breakfast and lunch at home.</h4><p>Relaxed start — the route is direct.</p></div></div>
+<div class="moment"><div class="clock">2:00</div><div class="moment-body"><span class="tag">Walk</span><h4>Via T. dal Molin → Vicenza station.</h4><p>30–40 min walk. Snacks on the way.</p></div></div>
+<div class="moment"><div class="clock">3:00</div><div class="moment-body"><span class="tag">Train</span><h4>Vicenza → Conegliano → Belluno.</h4><p>~2h. Watch the landscape transform — flat Veneto plain to Prosecco hills to full Dolomite foothills. The last 40 minutes are visually stunning.</p></div></div>
+<div class="moment"><div class="clock">5:00</div><div class="moment-body"><span class="tag">Arrive</span><h4>Belluno station. 5-min walk to Hotel Europa.</h4><p>Via Vittorio Veneto 158. 4-star, 8.7/10 on Booking. Right in the center, walking distance to everything.</p></div></div>
+<div class="moment"><div class="clock">5:30</div><div class="moment-body"><span class="tag nature">Walk</span><h4>Piazza Duomo and the centro storico.</h4><p>Belluno's old town is compact and beautiful. Cathedral, Palazzo dei Rettori (Venetian Gothic), painted facades. Then walk to the edge of the promontory — views down the Piave valley with Dolomite towers in every direction.</p></div></div>
+<div class="moment"><div class="clock">7:00</div><div class="moment-body"><span class="tag nature">Sunset views</span><h4>Parco delle Rimembranze.</h4><p>The park at the tip of the old town promontory. Best viewpoint in Belluno — the Piave makes a wide curve below, and the Dolomiti Bellunesi peaks light up orange-pink at sunset (alpenglow). One of the best viewpoints in the Veneto.</p></div></div>
+<div class="moment"><div class="clock">8:00</div><div class="moment-body"><span class="tag eat">Dinner</span><h4>Centro storico trattoria.</h4><p><strong>Trattoria Al Borgo</strong> — local Bellunese cuisine, good wine list, old town setting. Or <strong>Ristorante Taverna</strong> for a more casual option. Bellunese specialties: casunziei (beet ravioli), brasato (braised beef), local polenta.</p></div></div>
+</div>
+</div>
+<div class="day-section">
+<div class="day-label"><div class="num">ii.</div><h3>Sunday — River walk, then home.</h3><div class="sub">Belluno → Vicenza</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Breakfast</span><h4>Hotel Europa breakfast.</h4><p>Classic Italian spread. Coffee and prepare for a morning walk.</p></div></div>
+<div class="moment"><div class="clock">10:00</div><div class="moment-body"><span class="tag nature">Walk</span><h4>Piave riverside trail.</h4><p>Path along the Piave River below the old town. Flat, pebble-banked river, crystal clear mountain water, Dolomite peaks reflected in it on a calm morning. Walk as far as you like, turn back. 1-2 hours round trip at a relaxed pace.</p><p><em>Alternative:</em> Local bus to Feltre (30 min) for a smaller, equally beautiful medieval hill town if you want a change of scenery Sunday morning.</p></div></div>
+<div class="moment"><div class="clock">12:00</div><div class="moment-body"><span class="tag">Checkout</span><h4>Back to hotel, collect bag.</h4></div></div>
+<div class="moment"><div class="clock">12:30</div><div class="moment-body"><span class="tag eat">Light bite</span><h4>Coffee and pastry in the old town.</h4><p>One of the cafés on Piazza Duomo. Don't go heavy — dinner at home tonight.</p></div></div>
+<div class="moment"><div class="clock">1:30</div><div class="moment-body"><span class="tag">Train back</span><h4>Belluno → Conegliano → Vicenza.</h4><p>~2h total. Home by 3:30–4 PM. Same scenic route in reverse.</p></div></div>
+<div class="moment"><div class="clock">4:00</div><div class="moment-body"><span class="tag">Home</span><h4>Back at Via T. dal Molin. Dinner at home.</h4></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-num">iv.</div>
+<h2>Where you're <em>sleeping.</em></h2>
+<div class="hotel-card">
+<div class="pick-tag">Recommended pick</div>
+<div class="stars">★★★★ · 4-star · 8.7/10</div>
+<h3>Hotel Europa Belluno</h3>
+<div class="meta">Via Vittorio Veneto 158, Belluno · Centro storico area · 5-min walk from station</div>
+<div class="hotel-perks">
+<div>4-star, highest-rated hotel in Belluno center</div>
+<div>Soundproof rooms (mountain town quiet)</div>
+<div>Bar on site, express check-in/out</div>
+<div>Free Wi-Fi, elevator, safe in room</div>
+<div>Hypoallergenic rooms available</div>
+<div>Walking distance to Piazza Duomo</div>
+</div>
+<div class="price-row">
+<div class="price-num">$$<small> trip total</small></div>
+<div class="review"><div class="score">8.7 / 10</div>2,600 reviews — most affordable 4-star on the list</div>
+</div>
+<div class="alert"><strong>Budget win:</strong> Belluno is one of the least-touristed cities on this list, which means hotel prices are significantly lower than comparable quality in Garda or Trentino. This is the best value overnight in the collection. Always pick a rate with breakfast included.</div>
+</div>
+<div class="feature-row">
+<div class="feat"><div class="icon">P</div><h4>Parco delle Rimembranze</h4><p>Promontory park with panoramic valley views. Best sunset spot in the city, 10-min walk from hotel.</p></div>
+<div class="feat"><div class="icon">R</div><h4>Piave Riverside Trail</h4><p>Flat riverside walk with mountain reflections. Crystal clear water, Dolomite backdrop.</p></div>
+<div class="feat"><div class="icon">D</div><h4>Piazza Duomo</h4><p>Cathedral, Palazzo dei Rettori, painted medieval facades. One of the most underrated piazzas in the Veneto.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">v.</div>
+<h2>The <em>geography.</em></h2>
+<div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Hotel+Europa+Belluno+Via+Vittorio+Veneto&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hotel Europa Belluno" allowfullscreen></iframe></div>
+<div class="map-caption">Hotel Europa, Via Vittorio Veneto. Piazza Duomo 10-min walk north. Piave river trail begins just below the old town.</div>
+</section>
+
+<section>
+<div class="section-num">vi.</div>
+<h2>Where to <em>eat.</em></h2>
+<div class="eats">
+<div class="eat"><div class="style">Saturday dinner · Local</div><h4>Trattoria Al Borgo</h4><div class="where">Via Anconetta 8, old town</div><p>Bellunese mountain cuisine — casunziei (beet ravioli), brasato, polenta. Local and unpretentious. Exactly right for a mountain town Saturday dinner.</p></div>
+<div class="eat"><div class="style">Saturday dinner · Casual</div><h4>Pizzeria Ristorante Taverna</h4><div class="where">Centro storico</div><p>Pizza and Veneto specialties, local crowd, no fuss. Good for when you just want a relaxed dinner without thinking too hard.</p></div>
+<div class="eat"><div class="style">Coffee · Morning</div><h4>Bar Caffè on Piazza Duomo</h4><div class="where">Piazza Duomo</div><p>Take your espresso standing at the bar like a local, looking up at the cathedral. Best morning coffee ritual on the list.</p></div>
+<div class="eat"><div class="style">Sunday · Quick</div><h4>Pasticceria in the old town</div><div class="where">Via Mezzaterra</div><p>Belluno has excellent pasticcerie. Pastry and coffee before the train. Take one for the ride.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">vii.</div>
+<h2>The <em>budget.</em></h2>
+<div class="budget">
+<table>
+<tr><td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Belluno via Conegliano, regional</span></td><td>included</td></tr>
+<tr><td>Hotel Europa · 1 night, breakfast included<span class="item-note">4-star, 8.7/10 — best value hotel on the list</span></td><td>included</td></tr>
+<tr><td>Saturday dinner + drinks</td><td>included</td></tr>
+<tr><td>Sunday coffee + pastry</td><td>included</td></tr>
+<tr><td>Tourist tax · 2 ppl<span class="item-note">Veneto municipal tax</span></td><td>included</td></tr>
+<tr class="total"><td>Total trip cost</td><td>$$</td></tr>
+</table>
+</div>
+<div class="budget-disclaimer">Belluno is the <strong>lowest-cost overnight</strong> in the collection. The hotel is genuinely good value for a 4-star, dinners are priced for locals not tourists, and there are no entry fees. If budget is tight for a weekend, this is the one to pick.</div>
+</section>
+
+<section>
+<div class="section-num">viii.</div>
+<h2>Pack the <em>night before.</em></h2>
+<div class="pack-grid">
+<div class="pack-col"><h4>Essentials</h4><ul>
+<li>Passports / military ID<span class="who">In backpack</span></li>
+<li>Phones &amp; chargers<span class="who">In backpack</span></li>
+<li>Cash €40 + cards<span class="who">Small mountain town — some places cash only</span></li>
+<li>Water bottles<span class="who">Piave river trail is a real walk</span></li>
+<li>Trenitalia app ready<span class="who">Both phones — Conegliano connection timing matters</span></li>
+<li>Hotel booking offline<span class="who">Screenshot or PDF</span></li>
+</ul></div>
+<div class="pack-col"><h4>Clothes (each)</h4><ul>
+<li>Proper walking shoes<span class="who">Old town is uneven stone, riverside is rocky</span></li>
+<li>Warm layer for evening<span class="who">Belluno can be 10°F colder than Vicenza at night</span></li>
+<li>Smart casual for dinner<span class="who">Al Borgo is a real restaurant</span></li>
+<li>Change of clothes<span class="who">Day 2 outfit</span></li>
+<li>Light rain jacket<span class="who">Mountain storms build fast</span></li>
+<li>Toiletry kit (shared)<span class="who">In backpack</span></li>
+</ul></div>
+<div class="pack-col"><h4>Mountain Trip Specifics</h4><ul>
+<li>Backpack<span class="who">Elijah will carry</span></li>
+<li>Sunscreen SPF 30+<span class="who">In backpack — mountain UV is stronger</span></li>
+<li>Sunglasses<span class="who">Worn — mountain glare</span></li>
+<li>Snacks for the train both days<span class="who">Pick up on way to station</span></li>
+<li>Light snacks for river walk<span class="who">No cafés on the riverside trail</span></li>
+<li>Book / podcast<span class="who">On phone — 2h each way, scenic but long</span></li>
+</ul></div>
+</div>
+</section>
+
+<aside class="notes">
+<h2>Things <em>worth knowing</em> — Belluno specifics.</h2>
+<ul>
+<li><span><strong>This is the least-touristed city on the list.</strong> Almost no English-speaking tourists. Restaurants price for locals. Staff may not speak English — a few words of Italian goes a long way and is warmly received.</span></li>
+<li><span><strong>Conegliano connection.</strong> The gap between trains at Conegliano can be short. Check the Trenitalia app for exact times before leaving Vicenza. If you miss the connection, there's another in an hour — not catastrophic.</span></li>
+<li><span><strong>Alpenglow on the Dolomites.</strong> On clear evenings the pale Dolomite rock turns orange-pink-red at sunset. The viewpoint at Parco delle Rimembranze is the place to be at 7–8 PM for this. One of the genuinely beautiful things in northern Italy.</span></li>
+<li><span><strong>Feltre side trip.</strong> A 30-min bus ride away, Feltre is another beautiful walled medieval hill town — even more intact than Belluno. If you want a second town on Sunday morning, Feltre is an easy add.</span></li>
+<li><span><strong>Mountain weather.</strong> Afternoon thunderstorms are common June–August. Brief, heavy, then clear again. Don't cancel plans — just have a café to duck into.</span></li>
+</ul>
+</aside>
+
+<section>
+<div class="section-num">ix.</div>
+<h2>Quick <em>links.</em></h2>
+<div class="links">
+<a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+<a href="https://www.booking.com/hotel/it/europa-executive.html" target="_blank" rel="noopener">Hotel Europa on Booking ↗</a>
+<a href="https://www.infodolomiti.it/en/" target="_blank" rel="noopener">Dolomiti Bellunesi ↗</a>
+<a href="https://www.google.com/maps/place/Belluno" target="_blank" rel="noopener">Belluno on Maps ↗</a>
+</div>
+</section>
+
+<footer><div class="glyph">⁂</div><div class="meta">Best May–October · Buon viaggio.</div></footer>
+</div>
+</div>
+</body>
+</html>

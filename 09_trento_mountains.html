@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trento — Alpine City & MUSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0ece0;--bg-card:#f9f5ea;--bg-deep:#e4dcc8;--ink:#1a1c14;--ink-soft:#45463a;--rule:#d4c8a8;--moss:#2f4a3a;--moss-deep:#1a2b21;--bronze:#8a6840;--bronze-deep:#5a4020;--amber:#c89840;--terra:#b35a3b;--terra-deep:#8a4128;--gold:#b8893f;--gold-soft:#d4ad6e;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;min-height:100vh}
+.paper{max-width:980px;margin:0 auto;padding:0 0 80px}.inner{padding:0 40px}
+.hero-art{position:relative;width:100%;height:300px;overflow:hidden;background:linear-gradient(180deg,#c0b8a8 0%,#d8d0b8 50%,#e4dcc8 100%)}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.masthead{position:absolute;top:28px;left:40px;right:40px;display:flex;justify-content:space-between;align-items:baseline;z-index:3}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(249,245,234,.9);padding:6px 14px;border-radius:2px;color:var(--moss-deep);backdrop-filter:blur(4px)}
+.brand span{color:var(--terra-deep)}.issue{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(249,245,234,.9);padding:6px 14px;border-radius:2px;color:var(--ink);backdrop-filter:blur(4px)}
+.hero-title-panel{background:var(--bg-card);margin:-60px 40px 0;padding:44px 44px 40px;border-radius:4px;position:relative;z-index:5;box-shadow:0 -4px 30px -10px rgba(90,64,32,.15);border-left:5px solid var(--amber)}
+.kicker-hero{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze-deep);margin-bottom:14px;font-weight:600}
+h1.title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,7vw,72px);line-height:.96;letter-spacing:-.02em;color:var(--moss-deep);margin-bottom:16px}
+h1.title em{font-style:italic;font-weight:300;color:var(--bronze-deep)}
+.dek-hero{font-family:'Fraunces',serif;font-size:19px;font-weight:300;color:var(--ink-soft);max-width:580px;line-height:1.4}
+.date-badge{display:inline-block;background:var(--bronze-deep);color:var(--bg-card);font-family:'Fraunces',serif;font-style:italic;font-size:15px;padding:6px 16px;border-radius:2px;margin-top:18px}
+.date-badge strong{font-weight:500;font-style:normal;color:var(--gold-soft);margin-right:6px;letter-spacing:.06em;font-size:11px;text-transform:uppercase}
+.stats-bar{background:var(--bg-card);margin:40px 40px 56px;padding:22px 32px;border-radius:3px;border:1px solid var(--rule)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.stat{padding:0 18px;border-right:1px solid var(--rule)}.stat:last-child{border-right:none}.stat:first-child{padding-left:0}
+.stat .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;font-weight:600}
+.stat .value{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);line-height:1.1}
+.stat .value small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:2px}
+section{margin:64px 0}.section-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--terra-deep);margin-bottom:8px}
+h2{font-family:'Fraunces',serif;font-weight:400;font-size:38px;letter-spacing:-.01em;margin-bottom:28px;color:var(--ink);line-height:1.05}
+h2 em{font-style:italic;color:var(--bronze-deep)}.lead{font-size:16px;color:var(--ink-soft);max-width:640px;margin-bottom:32px}
+.weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+.weather-day{background:linear-gradient(135deg,#c8b8a0 0%,#b0a088 100%);border-radius:3px;padding:26px 28px;position:relative;overflow:hidden}
+.weather-day::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 70%)}
+.weather-day .day-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--moss-deep);margin-bottom:4px;position:relative}
+.weather-day .day-date{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;font-weight:600;position:relative}
+.weather-day .temps{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;position:relative}
+.weather-day .high{font-family:'Fraunces',serif;font-size:38px;font-weight:500;color:var(--ink);line-height:1}
+.weather-day .low{font-family:'Fraunces',serif;font-size:22px;color:var(--ink-soft);font-weight:400}
+.weather-day .cond{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--moss-deep);line-height:1.45;position:relative}
+.weather-note{font-size:13px;color:var(--ink-soft);background:rgba(184,137,63,.1);padding:14px 18px;border-radius:3px;border-left:3px solid var(--gold);font-style:italic;font-family:'Fraunces',serif}
+.route-vis{margin:32px 0 28px;padding:36px 28px;background:var(--bg-card);border:1px solid var(--rule);border-radius:3px}
+.route-line{position:relative;height:70px}.route-svg{width:100%;height:100%}
+.route-stops{display:flex;justify-content:space-between;margin-top:14px;padding:0 4px}
+.stop{text-align:center;flex:1}.stop .name{font-family:'Fraunces',serif;font-size:13px;font-weight:500;color:var(--ink)}.stop .time{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px}
+.route-legs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.route-leg{padding:14px 18px;border-left:2px solid var(--terra);background:rgba(179,90,59,.04);border-radius:0 2px 2px 0}
+.route-leg .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:4px}
+.route-leg .time{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--moss);margin-bottom:2px}
+.route-leg .meta{font-size:12px;color:var(--ink-soft)}
+.route-callout{background:var(--moss);color:#f5efe2;padding:14px 22px;border-radius:3px;margin-top:18px;font-size:14px;font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.route-callout strong{color:var(--gold);font-style:normal;font-weight:600;display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.day-section{margin-bottom:48px}
+.day-label{display:flex;align-items:baseline;gap:18px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.day-label .num{font-family:'Fraunces',serif;font-style:italic;font-size:48px;color:var(--terra-deep);line-height:1;font-weight:400}
+.day-label h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--ink)}
+.day-label .sub{font-size:12px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-left:auto;font-weight:600}
+.timeline{position:relative}
+.moment{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.moment:last-child{border-bottom:none}
+.clock{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--moss);line-height:1;padding-top:4px;position:relative}
+.clock.small{font-size:13px;font-style:italic;color:var(--ink-soft)}
+.clock::after{content:"";position:absolute;right:-14px;top:10px;width:5px;height:5px;background:var(--terra);border-radius:50%}
+.clock.small::after{display:none}
+.moment-body h4{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:6px;color:var(--ink);line-height:1.2}
+.moment-body p{color:var(--ink-soft);font-size:14.5px;line-height:1.6}.moment-body p+p{margin-top:8px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);background:rgba(179,90,59,.1);padding:2px 9px;border-radius:2px;margin-bottom:8px;font-weight:600}
+.tag.culture{color:var(--bronze-deep);background:rgba(138,104,64,.1)}.tag.eat{color:var(--gold);background:rgba(184,137,63,.12)}
+.hotel-card{background:var(--bronze-deep);color:#f0e9d8;padding:36px;border-radius:4px;position:relative;overflow:hidden}
+.hotel-card::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(200,152,64,.18) 0%,transparent 70%)}
+.hotel-card .pick-tag{display:inline-block;background:var(--amber);color:var(--moss-deep);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:700}
+.hotel-card .stars{font-size:14px;letter-spacing:.12em;color:var(--amber);margin-bottom:6px}
+.hotel-card h3{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1.1;margin-bottom:8px;color:#f5efe2}
+.hotel-card .meta{font-style:italic;color:rgba(240,233,216,.75);font-size:14px;margin-bottom:20px;font-family:'Fraunces',serif}
+.hotel-perks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin:24px 0}
+.hotel-perks div{font-size:13.5px;color:rgba(240,233,216,.92);padding:6px 0;border-bottom:1px solid rgba(245,239,226,.12);display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:baseline}
+.hotel-perks div::before{content:"✓";color:var(--amber);font-weight:600}
+.hotel-card .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;border-top:1px solid rgba(245,239,226,.2)}
+.hotel-card .price-num{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#f5efe2}
+.hotel-card .price-num small{font-size:14px;color:rgba(240,233,216,.7);font-weight:400}
+.hotel-card .review .score{font-family:'Fraunces',serif;font-size:18px;color:var(--amber);font-weight:500}
+.hotel-card .review{font-size:12px;color:rgba(240,233,216,.7);text-align:right}
+.hotel-card .alert{background:rgba(179,90,59,.18);border-left:3px solid var(--terra);padding:14px 18px;margin-top:20px;font-size:13.5px;color:#f5efe2;font-family:'Fraunces',serif;font-style:italic;line-height:1.55;border-radius:0 2px 2px 0}
+.hotel-card .alert strong{color:var(--amber);font-style:normal;font-weight:600}
+.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.feat{background:var(--bg-card);border:1px solid var(--rule);padding:18px;border-radius:3px;transition:transform .2s}
+.feat:hover{transform:translateY(-2px);border-color:var(--bronze)}
+.feat .icon{width:32px;height:32px;background:rgba(138,104,64,.12);border-radius:50%;margin-bottom:12px;display:grid;place-items:center;color:var(--bronze-deep);font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:14px}
+.feat h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.feat p{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.map-wrap{position:relative;width:100%;height:380px;border-radius:3px;overflow:hidden;border:1px solid var(--rule)}
+.map-wrap iframe{width:100%;height:100%;border:0}
+.map-caption{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;font-family:'Fraunces',serif}
+.eats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.eat{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px;transition:transform .2s,border-color .2s}
+.eat:hover{transform:translateY(-2px);border-color:var(--moss)}
+.eat .style{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+.eat h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:4px;line-height:1.2}
+.eat .where{font-style:italic;color:var(--ink-soft);font-size:13px;margin-bottom:10px;font-family:'Fraunces',serif}
+.eat p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.budget{border:1px solid var(--rule);background:var(--bg-card);border-radius:3px;overflow:hidden}
+.budget table{width:100%;border-collapse:collapse}
+.budget td{padding:14px 22px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.budget tr:last-child td{border-bottom:none}
+.budget tr.total td{font-family:'Fraunces',serif;font-size:18px;color:var(--moss);font-weight:500;background:rgba(47,74,58,.04)}
+.budget td:last-child{text-align:right;font-family:'Fraunces',serif;font-weight:500;color:var(--ink)}
+.budget td .item-note{font-size:11.5px;color:var(--ink-soft);display:block;margin-top:2px;font-family:'DM Sans',sans-serif;font-weight:400}
+.budget-disclaimer{margin-top:16px;padding:12px 16px;background:rgba(184,137,63,.08);border-left:3px solid var(--gold);font-size:12.5px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;border-radius:0 2px 2px 0}
+.notes{background:var(--bronze-deep);color:#f0e9d8;padding:44px 38px;border-radius:3px;margin:56px 0;position:relative;overflow:hidden}
+.notes::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(200,152,64,.18) 0%,transparent 70%);pointer-events:none}
+.notes h2{color:#f5efe2;margin-bottom:22px}.notes h2 em{color:var(--amber)}
+.notes ul{list-style:none;counter-reset:notenum}
+.notes li{padding:13px 0;border-bottom:1px solid rgba(245,239,226,.15);font-size:14.5px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.notes li:last-child{border-bottom:none}
+.notes li::before{content:counter(notenum,lower-roman)".";counter-increment:notenum;font-family:'Fraunces',serif;font-style:italic;color:var(--amber);font-size:15px;min-width:28px}
+.notes strong{color:#f5efe2;font-weight:600}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pack-col{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px}
+.pack-col h4{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--moss);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.pack-col ul{list-style:none}
+.pack-col li{padding:6px 0;font-size:13px;color:var(--ink);position:relative;padding-left:18px;line-height:1.45}
+.pack-col li::before{content:"○";position:absolute;left:0;top:6px;color:var(--terra);font-size:10px}
+.pack-col li .who{display:block;font-size:11px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;margin-top:1px}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.links a{font-size:13px;letter-spacing:.05em;color:var(--bronze);text-decoration:none;border-bottom:1px solid var(--bronze);padding-bottom:1px;transition:color .2s,border-color .2s}
+.links a:hover{color:var(--terra-deep);border-color:var(--terra-deep)}
+.data-note{background:var(--bg-deep);border:1px dashed var(--rule);padding:16px 20px;border-radius:2px;margin:20px 0;font-size:12.5px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.data-note strong{color:var(--moss-deep);font-style:normal;font-weight:600}
+footer{margin-top:80px;padding-top:28px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .glyph{font-family:'Fraunces',serif;font-style:italic;color:var(--terra-deep);font-size:22px}
+footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+@media(max-width:760px){.inner{padding:0 22px}.stats-bar{padding:18px 20px;margin:28px 22px 44px}.masthead{left:22px;right:22px}.hero-title-panel{margin:-50px 22px 0;padding:32px 26px}.stats{grid-template-columns:repeat(2,1fr);gap:14px}.stat{padding:10px 12px;border-right:none;border-bottom:1px solid var(--rule)}.stat:nth-last-child(-n+2){border-bottom:none}h2{font-size:28px}.weather-grid,.eats,.pack-grid,.feature-row{grid-template-columns:1fr}.moment{grid-template-columns:1fr;gap:6px}.clock{font-size:18px;padding-top:0}.clock::after{display:none}.route-legs{grid-template-columns:1fr}.map-wrap{height:280px}.hero-art{height:240px}.hotel-perks{grid-template-columns:1fr;gap:6px}.hotel-card{padding:28px 22px}.day-label .sub{display:none}}
+</style>
+</head>
+<body>
+<div class="paper">
+<div class="hero-art">
+<svg viewBox="0 0 980 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="skyT" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8b0a0"/><stop offset="100%" stop-color="#e4dcc8"/></linearGradient>
+<linearGradient id="mtnT" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#908880"/><stop offset="100%" stop-color="#b0a898"/></linearGradient>
+<linearGradient id="hillT" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6a7860"/><stop offset="100%" stop-color="#8a9878"/></linearGradient>
+<linearGradient id="adige" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#78a0b0"/><stop offset="100%" stop-color="#5a8090"/></linearGradient>
+</defs>
+<rect width="980" height="300" fill="url(#skyT)"/>
+<circle cx="180" cy="60" r="24" fill="#f4e4c8" opacity=".5"/>
+<!-- Dolomite Brenta group in background -->
+<path d="M 0 180 L 100 100 L 160 135 L 240 80 L 310 120 L 390 75 L 460 115 L 530 80 L 610 118 L 700 85 L 780 120 L 860 90 L 980 125 L 980 300 L 0 300 Z" fill="url(#mtnT)" opacity=".7"/>
+<path d="M 240 80 L 256 92 L 272 80 L 263 86" fill="#e0dcd0" opacity=".7"/>
+<path d="M 390 75 L 406 89 L 422 75 L 412 82" fill="#e0dcd0" opacity=".75"/>
+<path d="M 530 80 L 546 95 L 562 80 L 552 87" fill="#e0dcd0" opacity=".7"/>
+<path d="M 700 85 L 714 98 L 728 85 L 720 92" fill="#e0dcd0" opacity=".65"/>
+<!-- Green hills Trentino -->
+<path d="M 0 230 Q 120 190,260 215 Q 400 188,540 212 Q 680 186,820 215 L 980 218 L 980 300 L 0 300 Z" fill="url(#hillT)"/>
+<!-- Adige river -->
+<path d="M 0 268 Q 200 258,420 262 Q 640 258,860 268 L 980 266 L 980 282 L 860 284 Q 640 274,420 278 Q 200 274,0 284 Z" fill="url(#adige)" opacity=".75"/>
+<!-- Castel Buonconsiglio silhouette on hill -->
+<rect x="580" y="212" width="5" height="16" fill="#7a6840" opacity=".65"/>
+<rect x="590" y="206" width="8" height="22" fill="#6a5830" opacity=".7"/>
+<rect x="602" y="210" width="5" height="18" fill="#7a6840" opacity=".65"/>
+<rect x="610" y="202" width="7" height="26" fill="#6a5830" opacity=".72"/>
+<!-- Tower -->
+<rect x="620" y="196" width="4" height="32" fill="#8a7850" opacity=".68"/>
+<rect x="618" y="194" width="8" height="4" fill="#8a7850" opacity=".68"/>
+<!-- Cathedral dome hint -->
+<ellipse cx="450" cy="234" rx="12" ry="8" fill="#8a8070" opacity=".5"/>
+<rect x="447" y="234" width="6" height="10" fill="#7a7060" opacity=".5"/>
+</svg>
+<header class="masthead">
+<div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; TRENTINO N° 09</div>
+<div class="issue">One Night · Vicenza ↔ Trento</div>
+</header>
+</div>
+
+<div class="hero-title-panel">
+<div class="kicker-hero">Italy's Most Alpine City</div>
+<h1 class="title">Trento,<br><em>frescoes and mountains.</em></h1>
+<p class="dek-hero">Piazza Duomo frescoed in Renaissance gold, Buonconsiglio Castle on the hill, a Renzo Piano science museum by the river, and Dolomite peaks above it all. An hour and a half from home.</p>
+<div class="date-badge"><strong>Year-round</strong>MUSE and castle open all seasons</div>
+</div>
+
+<div class="stats-bar">
+<div class="stats">
+<div class="stat"><div class="label">Leave home</div><div class="value">2:00<small>pm</small></div></div>
+<div class="stat"><div class="label">Travel time</div><div class="value">~1.5<small>h</small></div></div>
+<div class="stat"><div class="label">Transfers</div><div class="value">1<small> @ Verona</small></div></div>
+<div class="stat"><div class="label">Hotel to Piazza</div><div class="value">200m<small> from station</small></div></div>
+<div class="stat"><div class="label">Trip cost</div><div class="value">$$</div></div>
+</div>
+</div>
+
+<div class="inner">
+<section>
+<div class="section-num">i.</div>
+<h2>The <em>weather window.</em></h2>
+<p class="lead">Trento sits at 194m in the Adige valley — milder than the surrounding mountains, warm summers, cool winters. Works well year-round: MUSE and Buonconsiglio are indoor attractions, Piazza Duomo is spectacular in any weather.</p>
+<div class="weather-grid">
+<div class="weather-day"><div class="day-name">Saturday · Spring/Summer</div><div class="day-date">May – September</div><div class="temps"><div class="high">76°<small style="font-size:18px;">F</small></div><div class="low">/ 58°F low</div></div><div class="cond">Warm sunny days. Outdoor piazza life, Adige riverside walk, cable car to Sardagna. Peak season but Trento is less crowded than Garda or Dolomite towns.</div></div>
+<div class="weather-day"><div class="day-name">Saturday · Autumn/Winter</div><div class="day-date">October – April</div><div class="temps"><div class="high">50°<small style="font-size:18px;">F</small></div><div class="low">/ 36°F low</div></div><div class="cond">Crisp alpine air, snow on peaks visible from the piazza. December Christmas market is one of Italy's best. MUSE and Buonconsiglio are excellent in any weather.</div></div>
+</div>
+<div class="weather-note"><strong>Trento in December</strong> hosts one of the finest Christmas markets in Italy — Piazza Fiera and Piazza Cesare Battisti are transformed. If timing works, the winter version of this trip is exceptional.</div>
+</section>
+
+<section>
+<div class="section-num">ii.</div>
+<h2>The <em>route.</em></h2>
+<p class="lead">Via Verona — quick, frequent, and the hotel is literally across the street from the station. Easiest arrival of any trip on this list.</p>
+<div class="route-vis">
+<div class="route-line">
+<svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+<line x1="40" y1="35" x2="860" y2="35" stroke="#d4c8a8" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity=".7"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/></line>
+<circle cx="40" cy="35" r="9" fill="#f9f5ea" stroke="#2f4a3a" stroke-width="2.5"/>
+<circle cx="400" cy="35" r="7" fill="#b35a3b"/>
+<circle cx="860" cy="35" r="11" fill="#5a4020" stroke="#f9f5ea" stroke-width="2.5"/>
+<circle cx="860" cy="35" r="4" fill="#c89840"/>
+</svg>
+</div>
+<div class="route-stops">
+<div class="stop"><div class="name">Vicenza</div><div class="time">~3:00 PM</div></div>
+<div class="stop"><div class="name">Verona Porta Nuova</div><div class="time">change ~3:35</div></div>
+<div class="stop"><div class="name">Trento</div><div class="time">~4:35 PM</div></div>
+</div>
+<div class="route-legs">
+<div class="route-leg"><div class="label">Leg i · Reg. Veloce</div><div class="time">~35 min</div><div class="meta">Vicenza → Verona Porta Nuova · ~€7</div></div>
+<div class="route-leg"><div class="label">Leg ii · Reg. Veloce</div><div class="time">~1h 00</div><div class="meta">Verona → Trento · ~€10</div></div>
+</div>
+<div class="route-callout"><strong>Grand Hotel Trento is 200m from the station</strong>Walk out of Trento station, cross Piazza Dante — the hotel is right there. You'll be checked in with 5 hours still ahead of you to explore the city.</div>
+</div>
+</section>
+
+<section>
+<div class="section-num">iii.</div>
+<h2>The <em>day, paced.</em></h2>
+<div class="day-section">
+<div class="day-label"><div class="num">i.</div><h3>Saturday — Arrive, explore.</h3><div class="sub">Vicenza → Trento</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock small">Fri night</div><div class="moment-body"><span class="tag">Pack</span><h4>Pack the night before.</h4><p>Small bag. Comfortable shoes — the old town is cobblestone. A layer for the evening.</p></div></div>
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Wake</span><h4>Slow morning. Breakfast and lunch at home.</h4></div></div>
+<div class="moment"><div class="clock">2:00</div><div class="moment-body"><span class="tag">Walk</span><h4>Via T. dal Molin → Vicenza station.</h4></div></div>
+<div class="moment"><div class="clock">3:00</div><div class="moment-body"><span class="tag">Train</span><h4>Vicenza → Verona → Trento.</h4><p>~1.5h total. Sit on the right side after Verona — the Adige valley and first Trentino peaks appear.</p></div></div>
+<div class="moment"><div class="clock">4:35</div><div class="moment-body"><span class="tag">Check-in</span><h4>Grand Hotel Trento — Piazza Dante 20.</h4><p>200m from the station. 4-star, 9.0/10 on Booking (2,495 reviews). Drop bags and go immediately — you've got 5 hours of city ahead.</p></div></div>
+<div class="moment"><div class="clock">5:00</div><div class="moment-body"><span class="tag culture">Walk</span><h4>Piazza Duomo.</h4><p>Trento's magnificent cathedral square — frescoed palaces on all four sides, the Neptune fountain, the cathedral itself. Sit at a café and absorb it. Walk the narrow streets behind the cathedral — Via Belenzani is the most beautiful.</p></div></div>
+<div class="moment"><div class="clock">5:45</div><div class="moment-body"><span class="tag culture">Castle</span><h4>Castel Buonconsiglio.</h4><p>The prince-bishops' castle complex on the hill above the city. Outstanding frescoed rooms (the Torre Aquila cycle is one of the finest medieval fresco series in Europe). ~€10 entry. Open until 6 PM — arrive by 5 PM. If you arrive too late, save it for Sunday morning.</p></div></div>
+<div class="moment"><div class="clock">7:00</div><div class="moment-body"><span class="tag">Cable car option</span><h4>Sardagna — free panoramic view.</h4><p>A free cable car from the city center lifts you to the village of Sardagna in 6 minutes. Panoramic view over Trento, the Adige valley, and surrounding Dolomite walls. Free on a multiday city ticket. Runs until ~10 PM.</p></div></div>
+<div class="moment"><div class="clock">8:00</div><div class="moment-body"><span class="tag eat">Dinner</span><h4>Old town dinner.</h4><p><strong>Osteria a Le Due Spade</strong> — one of Italy's oldest restaurants (documented since 1545), Trentino specialties and great wine cellar. Book ahead. Or <strong>Trattoria al Vo'</strong> for a more casual but equally excellent option. Trentino wines: Teroldego and Marzemino are the local reds.</p></div></div>
+</div>
+</div>
+<div class="day-section">
+<div class="day-label"><div class="num">ii.</div><h3>Sunday — MUSE, then home.</h3><div class="sub">Trento → Vicenza</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Breakfast</span><h4>Grand Hotel Trento breakfast.</h4><p>4-star breakfast spread. Eat well — it's the only meal you're paying for today.</p></div></div>
+<div class="moment"><div class="clock">10:00</div><div class="moment-body"><span class="tag culture">MUSE</span><h4>The Renzo Piano science museum.</h4><p>Museum of Sciences — designed by Renzo Piano on the banks of the Adige. Six floors of natural science exhibits from the Dolomites and global ecosystems. A genuine world-class museum, not just for kids. The building itself is an architectural highlight. ~€11 entry. 2 hours well spent.</p></div></div>
+<div class="moment"><div class="clock">12:00</div><div class="moment-body"><span class="tag">Checkout</span><h4>Back to hotel, collect bag.</h4></div></div>
+<div class="moment"><div class="clock">12:30</div><div class="moment-body"><span class="tag eat">Light lunch</span><h4>Adige riverside or old town.</h4><p>Panino and coffee. The MUSE is right on the Adige — there are cafés along the waterfront path.</p></div></div>
+<div class="moment"><div class="clock">1:30</div><div class="moment-body"><span class="tag">Train back</span><h4>Trento → Verona → Vicenza.</h4><p>~1.5h. Home by 3 PM. One of the earliest returns of any trip on the list.</p></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-num">iv.</div>
+<h2>Where you're <em>sleeping.</em></h2>
+<div class="hotel-card">
+<div class="pick-tag">Recommended pick</div>
+<div class="stars">★★★★ · 4-star · 9.0/10</div>
+<h3>Grand Hotel Trento</h3>
+<div class="meta">Piazza Dante 20, Trento · 200m from station · Top-rated area · Piazza Duomo 10-min walk</div>
+<div class="hotel-perks">
+<div>Literally 200m from the train station</div>
+<div>Top-rated 4-star in all of Trento</div>
+<div>Restaurant + bar on site</div>
+<div>Fitness center included</div>
+<div>24-hr front desk, elevator</div>
+<div>Free Wi-Fi everywhere</div>
+</div>
+<div class="price-row">
+<div class="price-num">$$<small> trip total</small></div>
+<div class="review"><div class="score">9.0 / 10</div>2,495 reviews</div>
+</div>
+<div class="alert"><strong>Alternative worth knowing:</strong> Hotel Villa Madruzzo (9.3/10, 4,496 reviews) is the highest-rated hotel in Trento — stunning villa with spa and indoor pool in a forested hillside setting. It's outside the center (requires a taxi/bus), but if you want a more scenic stay over a more central one, it's the upgrade pick.</div>
+</div>
+<div class="feature-row">
+<div class="feat"><div class="icon">M</div><h4>MUSE Museum</h4><p>Renzo Piano natural science museum. 6 floors, Dolomite ecosystems, genuinely excellent. ~€11 entry.</p></div>
+<div class="feat"><div class="icon">B</div><h4>Buonconsiglio Castle</h4><p>Prince-bishops' castle. Medieval frescoes, Torre Aquila cycle, mountain views. ~€10 entry.</p></div>
+<div class="feat"><div class="icon">S</div><h4>Sardagna Cable Car</h4><p>Free 6-minute lift to panoramic valley views. Runs until ~10 PM. Use the city multiday ticket.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">v.</div>
+<h2>The <em>geography.</em></h2>
+<div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Grand+Hotel+Trento+Piazza+Dante&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Grand Hotel Trento" allowfullscreen></iframe></div>
+<div class="map-caption">Grand Hotel Trento, Piazza Dante 20. Piazza Duomo 10-min walk. MUSE museum 15-min walk along the Adige.</div>
+</section>
+
+<section>
+<div class="section-num">vi.</div>
+<h2>Where to <em>eat.</em></h2>
+<div class="eats">
+<div class="eat"><div class="style">Saturday dinner · Historic</div><h4>Osteria a Le Due Spade</h4><div class="where">Via Don Arcangelo Rizzi 11</div><p>Documented since 1545. Trentino specialties done classically — canederli, strangolapreti, venison, trota. Excellent wine cellar. Book ahead.</p></div>
+<div class="eat"><div class="style">Saturday dinner · Casual</div><h4>Trattoria al Vo'</h4><div class="where">Vicolo del Vo' 11</div><p>Good local food, right in the old town. More relaxed than Le Due Spade, equally authentic. Local Teroldego or Marzemino with dinner.</p></div>
+<div class="eat"><div class="style">Coffee · Morning</div><h4>Caffè Roma</h4><div class="where">Piazza Duomo</div><p>Classic Italian caffè on the most beautiful piazza in the Trentino. Stand at the bar for espresso. Required morning ritual.</p></div>
+<div class="eat"><div class="style">Sunday · Riverside</div><h4>MUSE café / Adige waterfront</h4><div class="where">Via Calepina, riverside</div><p>The MUSE has a good café. Or pick up a panino from any of the Adige-side cafés after the museum.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">vii.</div>
+<h2>The <em>budget.</em></h2>
+<div class="budget">
+<table>
+<tr><td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Trento via Verona, Reg. Veloce</span></td><td>included</td></tr>
+<tr><td>Grand Hotel Trento · 1 night, breakfast included<span class="item-note">4-star, 9.0/10 — central Trento</span></td><td>included</td></tr>
+<tr><td>Buonconsiglio Castle entry · 2 people<span class="item-note">~€10/person</span></td><td>included</td></tr>
+<tr><td>MUSE Museum entry · 2 people<span class="item-note">~€11/person</span></td><td>included</td></tr>
+<tr><td>Saturday dinner + drinks</td><td>included</td></tr>
+<tr><td>Sunday light lunch + coffee</td><td>included</td></tr>
+<tr><td>Tourist tax · 2 ppl<span class="item-note">Trentino municipal tax</span></td><td>included</td></tr>
+<tr class="total"><td>Total trip cost</td><td>$$</td></tr>
+</table>
+</div>
+<div class="budget-disclaimer">Trento is the best value city overnight on the list — the train is short, the hotel is well priced for a 4-star, and the two main attractions (castle + MUSE) are under €25 combined for two. Dinner at Le Due Spade will cost more but is worth it once.</div>
+</section>
+
+<section>
+<div class="section-num">viii.</div>
+<h2>Pack the <em>night before.</em></h2>
+<div class="pack-grid">
+<div class="pack-col"><h4>Essentials</h4><ul>
+<li>Passports / military ID<span class="who">In backpack</span></li>
+<li>Phones + chargers<span class="who">In backpack</span></li>
+<li>Cash €50 + cards<span class="who">Castle + museum often card, but buffer for bars</span></li>
+<li>Water bottles<span class="who">Old town has free drinking fountains</span></li>
+<li>Trenitalia app<span class="who">Both phones</span></li>
+<li>Le Due Spade reservation confirmed<span class="who">Book before the trip</span></li>
+</ul></div>
+<div class="pack-col"><h4>Clothes (each)</h4><ul>
+<li>Comfortable walking shoes<span class="who">Old town is extensive cobblestone</span></li>
+<li>Smart casual for dinner<span class="who">Le Due Spade is a serious restaurant</span></li>
+<li>Change of clothes<span class="who">Day 2 outfit</span></li>
+<li>Light layer for evening<span class="who">Trento evenings cool in the valley</span></li>
+<li>Pajamas + underwear<span class="who">Overnight bag</span></li>
+<li>Toiletry kit (shared)<span class="who">In backpack</span></li>
+</ul></div>
+<div class="pack-col"><h4>City Trip</h4><ul>
+<li>Backpack<span class="who">Elijah will carry</span></li>
+<li>Sunscreen SPF 30+<span class="who">In backpack — mountain UV</span></li>
+<li>Compact umbrella<span class="who">Trentino afternoon thunderstorms</span></li>
+<li>Snacks for the train both days<span class="who">Pick up on way to station</span></li>
+<li>Camera or phone mount<span class="who">Piazza Duomo at golden hour is exceptional</span></li>
+<li>Warm jacket (Oct–April)<span class="who">Trento winters are cold</span></li>
+</ul></div>
+</div>
+</section>
+
+<aside class="notes">
+<h2>Things <em>worth knowing</em> — Trento specifics.</h2>
+<ul>
+<li><span><strong>Trento is bilingual.</strong> Italian with Ladin and German influences. All menus and signs in Italian. Most hospitality staff speak English, but Trentino Italian sounds different from standard Italian — a slightly Germanic cadence.</span></li>
+<li><span><strong>Buonconsiglio hours.</strong> Open Tuesday–Sunday. Closed Monday. If your trip is Monday/Tuesday, plan around this — MUSE instead. Check museo.it/buonconsiglio for current hours.</span></li>
+<li><span><strong>MUSE is better than you expect.</strong> Genuinely world-class natural history museum. The architecture (Renzo Piano, 2013) is worth the visit alone. Open every day including Monday. Allow 2 hours minimum.</span></li>
+<li><span><strong>Trentino wine in restaurants.</strong> Teroldego (dark, earthy red from the Rotaliana plain) and Marzemino (aromatic red, mentioned in Don Giovanni) are the signature local grapes. Ask your waiter for a recommendation — they're always proud of the local wines.</span></li>
+<li><span><strong>December Christmas market.</strong> Trento's Christmas market (Mercatino di Natale di Trento) is rated one of the best in Italy. Piazza Fiera transforms completely. If the December timing works for a weekend, it's the best version of this trip.</span></li>
+</ul>
+</aside>
+
+<section>
+<div class="section-num">ix.</div>
+<h2>Quick <em>links.</em></h2>
+<div class="links">
+<a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+<a href="https://www.booking.com/hotel/it/boscolotrento.html" target="_blank" rel="noopener">Grand Hotel Trento ↗</a>
+<a href="https://www.muse.it/en" target="_blank" rel="noopener">MUSE Museum ↗</a>
+<a href="https://www.buonconsiglio.it/en/" target="_blank" rel="noopener">Buonconsiglio Castle ↗</a>
+<a href="https://www.discovertrentino.it/en/" target="_blank" rel="noopener">Visit Trento ↗</a>
+</div>
+</section>
+<footer><div class="glyph">⁂</div><div class="meta">Year-round · Buon viaggio.</div></footer>
+</div>
+</div>
+</body>
+</html>

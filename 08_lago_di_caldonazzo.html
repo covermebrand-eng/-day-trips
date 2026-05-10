@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lago di Caldonazzo — Alpine Swimming Lake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f0;--bg-card:#f8fcfa;--bg-deep:#dde8e3;--ink:#1a1c14;--ink-soft:#45463a;--rule:#c8d8d0;--moss:#2f4a3a;--moss-deep:#1a2b21;--teal:#1a6858;--teal-deep:#0f4838;--lake:#4ab8a0;--terra:#b35a3b;--terra-deep:#8a4128;--gold:#b8893f;--gold-soft:#d4ad6e;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;min-height:100vh}
+.paper{max-width:980px;margin:0 auto;padding:0 0 80px}.inner{padding:0 40px}
+.hero-art{position:relative;width:100%;height:300px;overflow:hidden;background:linear-gradient(180deg,#88c8b8 0%,#a8d8c8 40%,#dde8e3 100%)}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.masthead{position:absolute;top:28px;left:40px;right:40px;display:flex;justify-content:space-between;align-items:baseline;z-index:3}
+.brand{font-family:'Fraunces',serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(248,252,250,.9);padding:6px 14px;border-radius:2px;color:var(--moss-deep);backdrop-filter:blur(4px)}
+.brand span{color:var(--terra-deep)}.issue{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(248,252,250,.9);padding:6px 14px;border-radius:2px;color:var(--ink);backdrop-filter:blur(4px)}
+.hero-title-panel{background:var(--bg-card);margin:-60px 40px 0;padding:44px 44px 40px;border-radius:4px;position:relative;z-index:5;box-shadow:0 -4px 30px -10px rgba(15,72,56,.18);border-left:5px solid var(--teal)}
+.kicker-hero{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:14px;font-weight:600}
+h1.title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,7vw,72px);line-height:.96;letter-spacing:-.02em;color:var(--moss-deep);margin-bottom:16px}
+h1.title em{font-style:italic;font-weight:300;color:var(--teal-deep)}
+.dek-hero{font-family:'Fraunces',serif;font-size:19px;font-weight:300;color:var(--ink-soft);max-width:580px;line-height:1.4}
+.date-badge{display:inline-block;background:var(--teal-deep);color:var(--bg-card);font-family:'Fraunces',serif;font-style:italic;font-size:15px;padding:6px 16px;border-radius:2px;margin-top:18px}
+.date-badge strong{font-weight:500;font-style:normal;color:var(--gold-soft);margin-right:6px;letter-spacing:.06em;font-size:11px;text-transform:uppercase}
+.stats-bar{background:var(--bg-card);margin:40px 40px 56px;padding:22px 32px;border-radius:3px;border:1px solid var(--rule)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.stat{padding:0 18px;border-right:1px solid var(--rule)}.stat:last-child{border-right:none}.stat:first-child{padding-left:0}
+.stat .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;font-weight:600}
+.stat .value{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);line-height:1.1}
+.stat .value small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:2px}
+section{margin:64px 0}.section-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--terra-deep);margin-bottom:8px}
+h2{font-family:'Fraunces',serif;font-weight:400;font-size:38px;letter-spacing:-.01em;margin-bottom:28px;color:var(--ink);line-height:1.05}
+h2 em{font-style:italic;color:var(--teal-deep)}.lead{font-size:16px;color:var(--ink-soft);max-width:640px;margin-bottom:32px}
+.weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+.weather-day{background:linear-gradient(135deg,#80c8b8 0%,#60a898 100%);border-radius:3px;padding:26px 28px;position:relative;overflow:hidden}
+.weather-day::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 70%)}
+.weather-day .day-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--moss-deep);margin-bottom:4px;position:relative}
+.weather-day .day-date{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;font-weight:600;position:relative}
+.weather-day .temps{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;position:relative}
+.weather-day .high{font-family:'Fraunces',serif;font-size:38px;font-weight:500;color:var(--ink);line-height:1}
+.weather-day .low{font-family:'Fraunces',serif;font-size:22px;color:var(--ink-soft);font-weight:400}
+.weather-day .cond{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--moss-deep);line-height:1.45;position:relative}
+.weather-note{font-size:13px;color:var(--ink-soft);background:rgba(184,137,63,.1);padding:14px 18px;border-radius:3px;border-left:3px solid var(--gold);font-style:italic;font-family:'Fraunces',serif}
+.route-vis{margin:32px 0 28px;padding:36px 28px;background:var(--bg-card);border:1px solid var(--rule);border-radius:3px}
+.route-line{position:relative;height:70px}.route-svg{width:100%;height:100%}
+.route-stops{display:flex;justify-content:space-between;margin-top:14px;padding:0 4px}
+.stop{text-align:center;flex:1}.stop .name{font-family:'Fraunces',serif;font-size:13px;font-weight:500;color:var(--ink)}.stop .time{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px}
+.route-legs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.route-leg{padding:14px 18px;border-left:2px solid var(--terra);background:rgba(179,90,59,.04);border-radius:0 2px 2px 0}
+.route-leg .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:4px}
+.route-leg .time{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--moss);margin-bottom:2px}
+.route-leg .meta{font-size:12px;color:var(--ink-soft)}
+.route-callout{background:var(--moss);color:#f5efe2;padding:14px 22px;border-radius:3px;margin-top:18px;font-size:14px;font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.route-callout strong{color:var(--gold);font-style:normal;font-weight:600;display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.day-section{margin-bottom:48px}
+.day-label{display:flex;align-items:baseline;gap:18px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.day-label .num{font-family:'Fraunces',serif;font-style:italic;font-size:48px;color:var(--terra-deep);line-height:1;font-weight:400}
+.day-label h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--ink)}
+.day-label .sub{font-size:12px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-left:auto;font-weight:600}
+.timeline{position:relative}
+.moment{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.moment:last-child{border-bottom:none}
+.clock{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--moss);line-height:1;padding-top:4px;position:relative}
+.clock.small{font-size:13px;font-style:italic;color:var(--ink-soft)}
+.clock::after{content:"";position:absolute;right:-14px;top:10px;width:5px;height:5px;background:var(--terra);border-radius:50%}
+.clock.small::after{display:none}
+.moment-body h4{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:6px;color:var(--ink);line-height:1.2}
+.moment-body p{color:var(--ink-soft);font-size:14.5px;line-height:1.6}.moment-body p+p{margin-top:8px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);background:rgba(179,90,59,.1);padding:2px 9px;border-radius:2px;margin-bottom:8px;font-weight:600}
+.tag.swim{color:var(--teal-deep);background:rgba(26,104,88,.1)}.tag.eat{color:var(--gold);background:rgba(184,137,63,.12)}
+.hotel-card{background:var(--teal-deep);color:#f0e9d8;padding:36px;border-radius:4px;position:relative;overflow:hidden}
+.hotel-card::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%)}
+.hotel-card .pick-tag{display:inline-block;background:var(--gold);color:var(--moss-deep);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:700}
+.hotel-card .stars{font-size:14px;letter-spacing:.12em;color:var(--gold);margin-bottom:6px}
+.hotel-card h3{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1.1;margin-bottom:8px;color:#f5efe2}
+.hotel-card .meta{font-style:italic;color:rgba(240,233,216,.75);font-size:14px;margin-bottom:20px;font-family:'Fraunces',serif}
+.hotel-perks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin:24px 0}
+.hotel-perks div{font-size:13.5px;color:rgba(240,233,216,.92);padding:6px 0;border-bottom:1px solid rgba(245,239,226,.12);display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:baseline}
+.hotel-perks div::before{content:"✓";color:var(--gold);font-weight:600}
+.hotel-card .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;border-top:1px solid rgba(245,239,226,.2)}
+.hotel-card .price-num{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#f5efe2}
+.hotel-card .price-num small{font-size:14px;color:rgba(240,233,216,.7);font-weight:400}
+.hotel-card .review{font-size:12px;color:rgba(240,233,216,.7);text-align:right}
+.hotel-card .review .score{font-family:'Fraunces',serif;font-size:18px;color:var(--gold);font-weight:500}
+.hotel-card .alert{background:rgba(179,90,59,.18);border-left:3px solid var(--terra);padding:14px 18px;margin-top:20px;font-size:13.5px;color:#f5efe2;font-family:'Fraunces',serif;font-style:italic;line-height:1.55;border-radius:0 2px 2px 0}
+.hotel-card .alert strong{color:var(--gold);font-style:normal;font-weight:600}
+.feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.feat{background:var(--bg-card);border:1px solid var(--rule);padding:18px;border-radius:3px;transition:transform .2s}
+.feat:hover{transform:translateY(-2px);border-color:var(--teal)}
+.feat .icon{width:32px;height:32px;background:rgba(26,104,88,.12);border-radius:50%;margin-bottom:12px;display:grid;place-items:center;color:var(--teal-deep);font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:14px}
+.feat h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.feat p{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.map-wrap{position:relative;width:100%;height:380px;border-radius:3px;overflow:hidden;border:1px solid var(--rule)}
+.map-wrap iframe{width:100%;height:100%;border:0}
+.map-caption{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;font-family:'Fraunces',serif}
+.eats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.eat{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px;transition:transform .2s,border-color .2s}
+.eat:hover{transform:translateY(-2px);border-color:var(--moss)}
+.eat .style{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+.eat h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:4px;line-height:1.2}
+.eat .where{font-style:italic;color:var(--ink-soft);font-size:13px;margin-bottom:10px;font-family:'Fraunces',serif}
+.eat p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.budget{border:1px solid var(--rule);background:var(--bg-card);border-radius:3px;overflow:hidden}
+.budget table{width:100%;border-collapse:collapse}
+.budget td{padding:14px 22px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.budget tr:last-child td{border-bottom:none}
+.budget tr.total td{font-family:'Fraunces',serif;font-size:18px;color:var(--moss);font-weight:500;background:rgba(47,74,58,.04)}
+.budget td:last-child{text-align:right;font-family:'Fraunces',serif;font-weight:500;color:var(--ink)}
+.budget td .item-note{font-size:11.5px;color:var(--ink-soft);display:block;margin-top:2px;font-family:'DM Sans',sans-serif;font-weight:400}
+.budget-disclaimer{margin-top:16px;padding:12px 16px;background:rgba(184,137,63,.08);border-left:3px solid var(--gold);font-size:12.5px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;border-radius:0 2px 2px 0}
+.notes{background:var(--teal-deep);color:#f0e9d8;padding:44px 38px;border-radius:3px;margin:56px 0;position:relative;overflow:hidden}
+.notes::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%);pointer-events:none}
+.notes h2{color:#f5efe2;margin-bottom:22px}.notes h2 em{color:var(--gold)}
+.notes ul{list-style:none;counter-reset:notenum}
+.notes li{padding:13px 0;border-bottom:1px solid rgba(245,239,226,.15);font-size:14.5px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.notes li:last-child{border-bottom:none}
+.notes li::before{content:counter(notenum,lower-roman)".";counter-increment:notenum;font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:15px;min-width:28px}
+.notes strong{color:#f5efe2;font-weight:600}
+.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pack-col{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px}
+.pack-col h4{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--moss);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.pack-col ul{list-style:none}
+.pack-col li{padding:6px 0;font-size:13px;color:var(--ink);position:relative;padding-left:18px;line-height:1.45}
+.pack-col li::before{content:"○";position:absolute;left:0;top:6px;color:var(--terra);font-size:10px}
+.pack-col li .who{display:block;font-size:11px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;margin-top:1px}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.links a{font-size:13px;letter-spacing:.05em;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:1px;transition:color .2s,border-color .2s}
+.links a:hover{color:var(--terra-deep);border-color:var(--terra-deep)}
+.data-note{background:var(--bg-deep);border:1px dashed var(--rule);padding:16px 20px;border-radius:2px;margin:20px 0;font-size:12.5px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+.data-note strong{color:var(--moss-deep);font-style:normal;font-weight:600}
+footer{margin-top:80px;padding-top:28px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .glyph{font-family:'Fraunces',serif;font-style:italic;color:var(--terra-deep);font-size:22px}
+footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+@media(max-width:760px){.inner{padding:0 22px}.stats-bar{padding:18px 20px;margin:28px 22px 44px}.masthead{left:22px;right:22px}.hero-title-panel{margin:-50px 22px 0;padding:32px 26px}.stats{grid-template-columns:repeat(2,1fr);gap:14px}.stat{padding:10px 12px;border-right:none;border-bottom:1px solid var(--rule)}.stat:nth-last-child(-n+2){border-bottom:none}h2{font-size:28px}.weather-grid,.eats,.pack-grid,.feature-row{grid-template-columns:1fr}.moment{grid-template-columns:1fr;gap:6px}.clock{font-size:18px;padding-top:0}.clock::after{display:none}.route-legs{grid-template-columns:1fr}.map-wrap{height:280px}.hero-art{height:240px}.hotel-perks{grid-template-columns:1fr;gap:6px}.hotel-card{padding:28px 22px}.day-label .sub{display:none}}
+</style>
+</head>
+<body>
+<div class="paper">
+<div class="hero-art">
+<svg viewBox="0 0 980 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="skyC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#88c8b8"/><stop offset="100%" stop-color="#dde8e3"/></linearGradient>
+<linearGradient id="mtnC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7a8e88"/><stop offset="100%" stop-color="#9aaba8"/></linearGradient>
+<linearGradient id="greenC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a8870"/><stop offset="100%" stop-color="#7aa888"/></linearGradient>
+<linearGradient id="lakeC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#48b8a0"/><stop offset="100%" stop-color="#2a9880"/></linearGradient>
+</defs>
+<rect width="980" height="300" fill="url(#skyC)"/>
+<circle cx="750" cy="55" r="26" fill="#f4e4c8" opacity=".5"/>
+<path d="M 0 180 Q 100 130,220 155 Q 340 110,460 140 Q 580 105,700 135 Q 820 110,980 145 L 980 300 L 0 300 Z" fill="url(#mtnC)" opacity=".7"/>
+<path d="M 220 155 L 235 165 L 250 155 L 242 160" fill="#e0e8e4" opacity=".65"/>
+<path d="M 460 140 L 475 152 L 490 140 L 480 146" fill="#e0e8e4" opacity=".7"/>
+<path d="M 700 135 L 715 147 L 730 135 L 720 141" fill="#e0e8e4" opacity=".6"/>
+<path d="M 0 225 Q 140 185,280 210 Q 420 185,560 208 Q 700 184,840 212 L 980 215 L 980 300 L 0 300 Z" fill="url(#greenC)"/>
+<rect y="248" width="980" height="52" fill="url(#lakeC)"/>
+<path d="M 60 262 Q 140 259,220 262" stroke="#88e0cc" stroke-width="1.5" fill="none" opacity=".5"/>
+<path d="M 320 268 Q 440 265,540 268" stroke="#88e0cc" stroke-width="1.5" fill="none" opacity=".45"/>
+<path d="M 640 272 Q 760 269,880 272" stroke="#88e0cc" stroke-width="1" fill="none" opacity=".4"/>
+<path d="M 440 248 Q 460 238,480 242 L 500 248 Q 480 258,460 256 Z" fill="url(#greenC)" opacity=".8"/>
+<ellipse cx="465" cy="280" rx="18" ry="4" fill="#68d8c0" opacity=".6"/>
+</svg>
+<header class="masthead">
+<div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; VALSUGANA N° 08</div>
+<div class="issue">One Night · Vicenza ↔ Caldonazzo</div>
+</header>
+</div>
+
+<div class="hero-title-panel">
+<div class="kicker-hero">The Valsugana Swimming Lake</div>
+<h1 class="title">Lago di Caldonazzo,<br><em>swim in the Alps.</em></h1>
+<p class="dek-hero">Italy's warmest alpine lake — 24°C in summer, crystal clear, ringed by mountains. One stop before Levico on the same Valsugana line. The beach trip you didn't know you needed.</p>
+<div class="date-badge"><strong>Best season</strong>July – August for swimming · May–Sept for walking</div>
+</div>
+
+<div class="stats-bar">
+<div class="stats">
+<div class="stat"><div class="label">Leave home</div><div class="value">2:00<small>pm</small></div></div>
+<div class="stat"><div class="label">Travel time</div><div class="value">~2<small>h</small></div></div>
+<div class="stat"><div class="label">Transfers</div><div class="value">1<small> @ Bassano</small></div></div>
+<div class="stat"><div class="label">Lake temp</div><div class="value">24°C<small> in summer</small></div></div>
+<div class="stat"><div class="label">Trip cost</div><div class="value">$$</div></div>
+</div>
+</div>
+
+<div class="inner">
+<section>
+<div class="section-num">i.</div>
+<h2>The <em>weather window.</em></h2>
+<p class="lead">Caldonazzo sits at 450m in the Valsugana valley. Warmer than Levico (the lake is bigger and shallower, heats faster), cooler than the Veneto plain. Peak swimming July–August.</p>
+<div class="weather-grid">
+<div class="weather-day"><div class="day-name">Saturday · Summer</div><div class="day-date">July – August</div><div class="temps"><div class="high">80°<small style="font-size:18px;">F</small></div><div class="low">/ 60°F low</div></div><div class="cond">Lake hits 24°C — Italy's warmest alpine swimming. Kayaking, pedalos, jump platforms, lakeside bars. Prime beach season.</div></div>
+<div class="weather-day"><div class="day-name">Saturday · Spring/Autumn</div><div class="day-date">May – June · Sept</div><div class="temps"><div class="high">70°<small style="font-size:18px;">F</small></div><div class="low">/ 52°F low</div></div><div class="cond">Lake cooler (18–20°C) but walkable perimeter is perfect. Less crowded. Mountain views vivid. Fewer tourists.</div></div>
+</div>
+<div class="weather-note"><strong>Caldonazzo vs. Levico:</strong> same train line, one stop earlier. Caldonazzo is bigger, more infrastructure (more beach facilities, kayak rentals, restaurants on the water). Levico is prettier and quieter. Pick Caldonazzo if you want an active beach day; Levico if you want a nature walk.</div>
+</section>
+
+<section>
+<div class="section-num">ii.</div>
+<h2>The <em>route.</em></h2>
+<p class="lead">Identical route to Levico — via Bassano del Grappa, then the Valsugana line. Caldonazzo is one stop earlier on the same train.</p>
+<div class="route-vis">
+<div class="route-line">
+<svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+<line x1="40" y1="35" x2="860" y2="35" stroke="#c8d8d0" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity=".7"><animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/></line>
+<circle cx="40" cy="35" r="9" fill="#f8fcfa" stroke="#2f4a3a" stroke-width="2.5"/>
+<circle cx="430" cy="35" r="7" fill="#b35a3b"/>
+<circle cx="860" cy="35" r="11" fill="#0f4838" stroke="#f8fcfa" stroke-width="2.5"/>
+<circle cx="860" cy="35" r="4" fill="#b8893f"/>
+</svg>
+</div>
+<div class="route-stops">
+<div class="stop"><div class="name">Vicenza</div><div class="time">~3:00 PM</div></div>
+<div class="stop"><div class="name">Bassano del Grappa</div><div class="time">change ~3:50</div></div>
+<div class="stop"><div class="name">Caldonazzo</div><div class="time">~5:05 PM</div></div>
+</div>
+<div class="route-legs">
+<div class="route-leg"><div class="label">Leg i · Regionale</div><div class="time">~50 min</div><div class="meta">Vicenza → Bassano del Grappa · ~€5</div></div>
+<div class="route-leg"><div class="label">Leg ii · Valsugana</div><div class="time">~1h 15min</div><div class="meta">Bassano → Caldonazzo · ~€7 · lake visible from train</div></div>
+</div>
+<div class="route-callout"><strong>Station is 5 minutes from the lake</strong>Walk out of Caldonazzo station, head west toward the water. You'll see the lake in 5 minutes. All hotels and restaurants are between the station and the shoreline.</div>
+</div>
+</section>
+
+<section>
+<div class="section-num">iii.</div>
+<h2>The <em>day, paced.</em></h2>
+<div class="day-section">
+<div class="day-label"><div class="num">i.</div><h3>Saturday — Arrive and swim.</h3><div class="sub">Vicenza → Caldonazzo</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock small">Fri night</div><div class="moment-body"><span class="tag">Pack</span><h4>Pack the night before.</h4><p>Swimsuits are the priority. Beach bag, towel, sunscreen. Small overnight bag otherwise.</p></div></div>
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Wake</span><h4>Slow morning. Breakfast and lunch at home.</h4></div></div>
+<div class="moment"><div class="clock">2:00</div><div class="moment-body"><span class="tag">Walk</span><h4>Via T. dal Molin → Vicenza station.</h4><p>30–40 min. Snacks on the way.</p></div></div>
+<div class="moment"><div class="clock">3:00</div><div class="moment-body"><span class="tag">Train</span><h4>Vicenza → Bassano → Caldonazzo.</h4><p>~2h. The Valsugana line follows the Brenta River then Caldonazzo lake comes into view just before the station.</p></div></div>
+<div class="moment"><div class="clock">5:05</div><div class="moment-body"><span class="tag">Arrive</span><h4>Check in, drop bags.</h4><p>All lakeside accommodation is within easy walking distance of the station.</p></div></div>
+<div class="moment"><div class="clock">5:30</div><div class="moment-body"><span class="tag swim">Lake</span><h4>Straight to the water.</h4><p>The public beach (Lido di Caldonazzo) has free access to the lake, beach bars, kayak and pedalo rentals (~€10/hr), and jump platforms. In July/August the water is warm. Swim until the light changes.</p></div></div>
+<div class="moment"><div class="clock">8:00</div><div class="moment-body"><span class="tag eat">Dinner</span><h4>Lakeside dinner.</h4><p><strong>Ristorante Mio</strong> or any of the lakeside restaurants on Via Lungo Lago. Lake fish (trota, lavarello), fresh pasta, Trentino wines. Most restaurants are steps from the shoreline.</p></div></div>
+<div class="moment"><div class="clock">10:00</div><div class="moment-body"><span class="tag swim">Evening walk</span><h4>Lake perimeter at dusk.</h4><p>The path around the lake is flat and easy. Evening light on the mountains reflecting in the still water. Best moment of the trip.</p></div></div>
+</div>
+</div>
+<div class="day-section">
+<div class="day-label"><div class="num">ii.</div><h3>Sunday — Morning loop, then home.</h3><div class="sub">Caldonazzo → Vicenza</div></div>
+<div class="timeline">
+<div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Breakfast</span><h4>Hotel breakfast or lake bar.</h4></div></div>
+<div class="moment"><div class="clock">10:00</div><div class="moment-body"><span class="tag swim">Walk/swim</span><h4>Lake perimeter loop or morning swim.</h4><p>Full loop around the lake is ~9km, about 2 hours at a relaxed pace. Or just go back to the beach for a final swim before the train. The morning is the best time — flat water, cool air, no crowds.</p><p><em>Consider cycling:</em> Bike rentals available near the station. The flat perimeter cycle path is excellent — full loop in about 45 minutes.</p></div></div>
+<div class="moment"><div class="clock">12:00</div><div class="moment-body"><span class="tag">Checkout</span><h4>Hotel checkout. Collect bag.</h4></div></div>
+<div class="moment"><div class="clock">12:30</div><div class="moment-body"><span class="tag eat">Light bite</span><h4>Gelato by the lake.</h4><p>One last look at the water before the station.</p></div></div>
+<div class="moment"><div class="clock">1:30</div><div class="moment-body"><span class="tag">Train back</span><h4>Caldonazzo → Bassano → Vicenza.</h4><p>~2h. Home by 3:30 PM. Dinner at home.</p></div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="section-num">iv.</div>
+<h2>Where you're <em>sleeping.</em></h2>
+<div class="hotel-card">
+<div class="pick-tag">Recommended area</div>
+<div class="stars">★★★ · Lakeside hotels</div>
+<h3>Lakeside Hotels, Caldonazzo</h3>
+<div class="meta">Via Lungo Lago, Caldonazzo · All options within 5-min walk of beach · Book early for July/August</div>
+<div class="hotel-perks">
+<div>Multiple 3-star lakeside options in budget</div>
+<div>All within walking distance of station</div>
+<div>Most include breakfast</div>
+<div>Lake views from upper rooms at many properties</div>
+<div>Parking available if ever needed</div>
+<div>Low-season prices are excellent value</div>
+</div>
+<div class="price-row">
+<div class="price-num">$$<small> trip total</small></div>
+<div class="review"><div class="score">Good value</div>Check Booking.com for current availability</div>
+</div>
+<div class="alert"><strong>Note on booking:</strong> Caldonazzo has fewer big-name hotel chains — search Booking.com for "Lago di Caldonazzo" or "Caldonazzo" and sort by review score. Filter for breakfast included. July and August book up early — book at least 3–4 weeks ahead for peak summer.</div>
+</div>
+<div class="feature-row">
+<div class="feat"><div class="icon">S</div><h4>Swimming</h4><p>Italy's warmest alpine lake. 24°C in summer. Free public beach plus paid beach clubs with loungers.</p></div>
+<div class="feat"><div class="icon">K</div><h4>Kayak & Pedalo</h4><p>Rentals at the Lido. ~€10/hour. The lake is calm and flat — easy for beginners.</p></div>
+<div class="feat"><div class="icon">C</div><h4>Bike the Perimeter</h4><p>9km flat cycle path around the whole lake. Rental bikes near station. 45-min loop.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">v.</div>
+<h2>The <em>geography.</em></h2>
+<div class="map-wrap"><iframe src="https://maps.google.com/maps?q=Lago+di+Caldonazzo+Trentino&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lago di Caldonazzo" allowfullscreen></iframe></div>
+<div class="map-caption">Lago di Caldonazzo, Trentino. Station at the northeast corner, 5-min walk to the main beach.</div>
+</section>
+
+<section>
+<div class="section-num">vi.</div>
+<h2>Where to <em>eat.</em></h2>
+<div class="eats">
+<div class="eat"><div class="style">Lakeside · Dinner</div><h4>Ristorante Mio</h4><div class="where">Via Lungo Lago</div><p>Lake fish, fresh pasta, Trentino wines on a terrace over the water. Classic lakeside dinner.</p></div>
+<div class="eat"><div class="style">Casual · Beach bar</div><h4>Lido Beach Bar</h4><div class="where">Main beach</div><p>Drinks, light bites, aperitivo. Stay for sunset over the lake. Best seat in Caldonazzo.</p></div>
+<div class="eat"><div class="style">Morning</div><h4>Hotel breakfast</h4><div class="where">Your hotel</div><p>Standard Italian spread. Enough to power a morning swim or lake loop before checkout.</p></div>
+<div class="eat"><div class="style">Sunday · Quick</div><h4>Gelato by the water</div><div class="where">Lakefront</div><p>One last gelato before the station. Walk it down to the shoreline for a final look at the mountains.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-num">vii.</div>
+<h2>The <em>budget.</em></h2>
+<div class="budget">
+<table>
+<tr><td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Caldonazzo via Bassano, regional</span></td><td>included</td></tr>
+<tr><td>Hotel lakeside · 1 night, breakfast included<span class="item-note">3-star lakeside — check Booking for current prices</span></td><td>included</td></tr>
+<tr><td>Lake activities (kayak, pedalo, beach entry)</td><td>included</td></tr>
+<tr><td>Saturday dinner lakeside</td><td>included</td></tr>
+<tr><td>Sunday light bite + gelato</td><td>included</td></tr>
+<tr><td>Tourist tax · 2 ppl</td><td>included</td></tr>
+<tr class="total"><td>Total trip cost</td><td>$$</td></tr>
+</table>
+</div>
+<div class="budget-disclaimer">One of the lower-cost overnights in the collection. Caldonazzo hotels are well priced, activities are cheap (kayak €10/hr), and the restaurant scene is local-priced. Best value beach overnight on the list.</div>
+</section>
+
+<section>
+<div class="section-num">viii.</div>
+<h2>Pack the <em>night before.</em></h2>
+<div class="pack-grid">
+<div class="pack-col"><h4>Essentials</h4><ul>
+<li>Passports / military ID<span class="who">In backpack</span></li>
+<li>Phones + chargers<span class="who">In backpack</span></li>
+<li>Cash €40 + cards<span class="who">Kayak rental + beach often cash</span></li>
+<li>Water bottles<span class="who">Refill at the hotel</span></li>
+<li>Trenitalia app + tickets<span class="who">Both phones</span></li>
+</ul></div>
+<div class="pack-col"><h4>Beach Specific</h4><ul>
+<li>Swimsuit × 2 each<span class="who">One to wear, one to dry</span></li>
+<li>Beach towel<span class="who">Hotel towels are for rooms only</span></li>
+<li>Sunscreen SPF 50<span class="who">Mountain lake UV is intense — in backpack</span></li>
+<li>Sunglasses<span class="who">Worn — lake glare</span></li>
+<li>Flip-flops / sandals<span class="who">Beach is pebbly</span></li>
+</ul></div>
+<div class="pack-col"><h4>Lake Trip</h4><ul>
+<li>Backpack<span class="who">Elijah will carry</span></li>
+<li>Light rain jacket<span class="who">Alpine storms build fast</span></li>
+<li>Evening layer<span class="who">After sunset the lake gets cool</span></li>
+<li>Snacks for the train both days<span class="who">Pick up on way to station</span></li>
+<li>Dry bag / ziplock<span class="who">Phone by the water</span></li>
+<li>Hair tie<span class="who">Wife — for swimming</span></li>
+</ul></div>
+</div>
+</section>
+
+<aside class="notes">
+<h2>Things <em>worth knowing</em> — Caldonazzo specifics.</h2>
+<ul>
+<li><span><strong>Warmest alpine lake in Italy.</strong> Caldonazzo gets shallower toward the south end, heating faster than Levico. By mid-July it's genuinely warm enough to stay in for an hour. April and May it's still cold — wait for summer.</span></li>
+<li><span><strong>Caldonazzo vs. Levico — which to pick.</strong> Same train line. Caldonazzo = beach day, swimming, activities. Levico = nature walk, quieter, Habsburg park. Both are good — pick based on what you want to do.</span></li>
+<li><span><strong>July/August weekend booking.</strong> This is a popular Italian domestic destination in peak summer. Book the hotel at least 3–4 weeks ahead for July/August weekends. Shoulder season (May, June, September) you can often book a week out.</span></li>
+<li><span><strong>Combine with Levico.</strong> If you've already done Levico (trip 03), you can combine the two lakes on a single overnight — morning in Caldonazzo, afternoon in Levico (one stop further on the same train).</span></li>
+</ul>
+</aside>
+
+<section>
+<div class="section-num">ix.</div>
+<h2>Quick <em>links.</em></h2>
+<div class="links">
+<a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+<a href="https://www.visitvalsugana.it/en/" target="_blank" rel="noopener">Visit Valsugana ↗</a>
+<a href="https://www.google.com/maps/place/Lago+di+Caldonazzo" target="_blank" rel="noopener">Lake on Maps ↗</a>
+<a href="https://www.booking.com/searchresults.html?ss=Caldonazzo" target="_blank" rel="noopener">Hotels on Booking ↗</a>
+</div>
+</section>
+<footer><div class="glyph">⁂</div><div class="meta">Best July–August · Buon viaggio.</div></footer>
+</div>
+</div>
+</body>
+</html>
