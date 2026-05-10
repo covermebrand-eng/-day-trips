@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Day Trips — Vicenza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f0e0c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Day Trips">
+  <link rel="apple-touch-icon" href="icons/icon-152.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+<style>
+  :root {
+    --bg: #0f0e0c;
+    --bg2: #161410;
+    --bg3: #1e1b16;
+    --card: #1a1714;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.18);
+    --ink: #f0e8d8;
+    --ink-soft: #9a907e;
+    --ink-faint: #5a5248;
+    --gold: #c8973a;
+    --gold-light: #e0b85a;
+    --terra: #b35a3b;
+    --moss: #4a7a5a;
+    --lake: #3a7080;
+    --city: #6a5a9a;
+    --rule: rgba(200, 151, 58, 0.2);
+
+    /* budget tiers */
+    --tier1: #5a8a5a;
+    --tier2: #9a8020;
+    --tier3: #b35a3b;
+    --tier4: #8a3a6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(200,151,58,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(74,122,90,0.04) 0%, transparent 50%);
+  }
+
+  /* ---- HEADER ---- */
+  .header {
+    padding: 72px 60px 56px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: "VICENZA";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(200,151,58,0.04);
+    letter-spacing: -0.05em;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .header-right {
+    text-align: right;
+    flex-shrink: 0;
+    padding-top: 8px;
+  }
+  .header-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .header-count-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .meta-pill .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ---- KEY ---- */
+  .key-bar {
+    padding: 20px 60px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .key-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+  .key-items {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .key-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .key-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .key-dot.nature { background: var(--moss); }
+  .key-dot.spa { background: var(--lake); }
+  .key-dot.city { background: var(--city); }
+  .key-budget {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .key-budget .sym {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+  .key-budget .sym.t1 { color: var(--tier1); }
+  .key-budget .sym.t2 { color: var(--tier2); }
+  .key-budget .sym.t3 { color: var(--tier3); }
+  .divider-v { width: 1px; height: 20px; background: var(--border); }
+
+  /* ---- GRID ---- */
+  .grid-wrap {
+    padding: 48px 60px 80px;
+  }
+  .grid-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .grid-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+  }
+  .grid-heading::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  /* ---- CARD ---- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 28px 26px 24px;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s, background 0.2s;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .card.nature::before { background: var(--moss); }
+  .card.spa::before { background: var(--lake); }
+  .card.city::before { background: var(--city); }
+  .card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    background: var(--bg3);
+  }
+  .card:hover::before { opacity: 1; }
+
+  .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .card-badges {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .badge.nature { color: var(--moss); background: rgba(74,122,90,0.12); }
+  .badge.spa { color: var(--lake); background: rgba(58,112,128,0.12); }
+  .badge.city { color: var(--city); background: rgba(106,90,154,0.12); }
+  .badge.train { color: var(--ink-faint); background: rgba(255,255,255,0.05); }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .card h3 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .card-subtitle {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .card-train {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+  .card-train span {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .card-budget {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+  }
+  .card-budget.t1 { color: var(--tier1); }
+  .card-budget.t2 { color: var(--tier2); }
+  .card-budget.t3 { color: var(--tier3); }
+
+  .card-status {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .card-status.ready {
+    background: rgba(74,122,90,0.15);
+    color: var(--moss);
+  }
+  .card-status.soon {
+    background: rgba(200,151,58,0.1);
+    color: var(--gold);
+  }
+
+  /* ---- FOOTER ---- */
+  .page-footer {
+    padding: 32px 60px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .page-footer .glyph {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 20px;
+    opacity: 0.5;
+  }
+  .page-footer .note {
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+  }
+
+  /* ---- SEASONAL BANNER ---- */
+  .seasonal {
+    margin: 0 60px 0;
+    padding: 16px 24px;
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 48px;
+  }
+  .seasonal .icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .seasonal-text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+  }
+  .seasonal-text strong { color: var(--gold); font-style: normal; }
+
+  @media (max-width: 860px) {
+    .header, .grid-wrap, .key-bar, .page-footer { padding-left: 24px; padding-right: 24px; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .seasonal { margin-left: 24px; margin-right: 24px; }
+    .header::before { display: none; }
+    .header-count { font-size: 48px; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    .header { padding: 40px 24px 32px; }
+    h1 { font-size: 42px; }
+    .header-top { flex-direction: column; gap: 20px; }
+    .header-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="header-label">From Via Tomasso Dal Molin · All by Train · One Night Each</div>
+      <h1>15 Curated<br><em>Overnights.</em></h1>
+    </div>
+    <div class="header-right">
+      <div class="header-count">15</div>
+      <div class="header-count-label">trips ready to pick</div>
+    </div>
+  </div>
+  <div class="header-meta">
+    <div class="meta-pill"><div class="dot"></div> Wake when ready, lunch at home</div>
+    <div class="meta-pill"><div class="dot"></div> 1–2.5h train max from Vicenza</div>
+    <div class="meta-pill"><div class="dot"></div> Built for two, one night each</div>
+    <div class="meta-pill"><div class="dot"></div> No car needed, ever</div>
+  </div>
+</div>
+
+<!-- KEY -->
+<div class="key-bar">
+  <div class="key-label">Key</div>
+  <div class="key-items">
+    <div class="key-item"><div class="key-dot nature"></div>Nature / lake / mountain</div>
+    <div class="key-item"><div class="key-dot spa"></div>Spa / thermal / wellness</div>
+    <div class="key-item"><div class="key-dot city"></div>City / food / culture</div>
+  </div>
+  <div class="divider-v"></div>
+  <div class="key-items">
+    <div class="key-budget"><div class="sym t1">$$</div> up to $500</div>
+    <div class="key-budget"><div class="sym t3">$$$</div> up to $800</div>
+  </div>
+</div>
+
+<div class="grid-wrap">
+
+  <!-- SEASONAL NOTE -->
+  <div class="seasonal">
+    <div class="icon">🗓</div>
+    <div class="seasonal-text"><strong>How to use this folder:</strong> On a random Friday when you want to get out, open this file, pick a card, open the matching trip file, and go. Every itinerary is already calibrated — late departure (2–3 PM), lunch at home, wife's morning, one night, home for Sunday dinner. Just confirm trains in the Trenitalia app and book the hotel. Done.</div>
+  </div>
+
+  <div class="grid-heading"><h2>Spa & Thermal</h2></div>
+  <div class="grid">
+
+    <!-- 01 -->
+    <a class="card spa" href="01_montegrotto_relilax.html">
+      <div class="card-status ready">✓ Ready</div>
+      <div class="card-num">No. 01</div>
+      <div class="card-badges">
+        <div class="badge spa">Thermal spa</div>
+        <div class="badge train">~45 min</div>
+      </div>
+      <h3>Montegrotto<br><em>Terme di Relilax</em></h3>
+      <div class="card-subtitle">5-star adults-only boutique hotel with thermal pools, saunas, and the best breakfast buffet in the Veneto</div>
+      <div class="card-desc">Three thermal pools open until 11:30 PM. Outdoor Le Palme pool (palm trees, silver-ion water), indoor Ardesia, whirlpool Bolle. Half-board includes dinner at Ginco restaurant. Night swim under stars.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Padova → Terme Euganee <span>~45 min</span></div>
+        <div class="card-budget t3">$$$</div>
+      </div>
+    </a>
+
+    <!-- 02 -->
+    <a class="card spa" href="02_abano_terme.html">
+      <div class="card-status ready">✓ Ready</div>
+      <div class="card-num">No. 02</div>
+      <div class="card-badges">
+        <div class="badge spa">Thermal spa</div>
+        <div class="badge train">~45 min</div>
+      </div>
+      <h3>Abano Terme<br><em>Hotel Savoia Thermae</em></h3>
+      <div class="card-subtitle">Italy's most famous spa town — dozens of hotels with thermal pools, all fed by volcanic springs</div>
+      <div class="card-desc">Smaller and quieter than Relilax but rated 9.4/10. Multiple pools, proper spa circuit, and the entire town is spa-themed so the vibe extends outside the hotel. Walk everywhere.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Padova → Terme Euganee <span>~45 min</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 03 -->
+    <a class="card spa" href="03_levico_terme.html">
+      <div class="card-status ready">✓ Ready</div>
+      <div class="card-num">No. 03</div>
+      <div class="card-badges">
+        <div class="badge spa">Wellness</div>
+        <div class="badge nature">Alpine lake</div>
+        <div class="badge train">~2.5h</div>
+      </div>
+      <h3>Levico Terme<br><em>Bellavista Relax Hotel</em></h3>
+      <div class="card-subtitle">4-star alpine spa hotel on the Valsugana line — the lake is a 10-min walk from your room</div>
+      <div class="card-desc">Pool, spa, sauna complex in a Habsburg-era building. The lake loop walk is flat and beautiful. WWI fort up the hill for a half-day detour. Quieter and more alpine than Abano.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Bassano → Levico <span>~2.5h</span></div>
+        <div class="card-budget t3">$$$</div>
+      </div>
+    </a>
+
+    <!-- 04 -->
+    <a class="card spa" href="04_merano.html">
+      <div class="card-status ready">✓ Ready</div>
+      <div class="card-num">No. 04</div>
+      <div class="card-badges">
+        <div class="badge spa">Thermal spa</div>
+        <div class="badge nature">Alpine town</div>
+        <div class="badge train">~2.5h</div>
+      </div>
+      <h3>Merano<br><em>Terme Merano</em></h3>
+      <div class="card-subtitle">Alpine spa town where palm trees somehow grow under Dolomite peaks — Trauttmansdorff gardens and a legendary thermal complex</div>
+      <div class="card-desc">Terme Merano complex has 25 indoor/outdoor pools. The town itself has a Riviera Mediterranean feel with mountain views. The botanical gardens at Castle Trauttmansdorff are world-class.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Verona → Bolzano → Merano <span>~2.5h</span></div>
+        <div class="card-budget t3">$$$</div>
+      </div>
+    </a>
+
+    <!-- 05 -->
+    <a class="card spa" href="05_desenzano_sirmione.html">
+      <div class="card-status ready">✓ Ready</div>
+      <div class="card-num">No. 05</div>
+      <div class="card-badges">
+        <div class="badge spa">Thermal spa</div>
+        <div class="badge nature">Lake Garda</div>
+        <div class="badge train">~1h</div>
+      </div>
+      <h3>Sirmione<br><em>Villa Cortine Palace</em></h3>
+      <div class="card-subtitle">Lake Garda peninsula with a Scaliger castle at one end and Roman ruins at the other — thermal spa in the water</div>
+      <div class="card-desc">Sirmione has its own thermal spa right on the lake (Aquaria Thermal Spa). The peninsula is entirely walkable. Train to Desenzano, then 10-min bus to Sirmione. Castle views from the pool.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Desenzano → bus <span>~1h 15min</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- NATURE SECTION -->
+  <div class="grid-heading" style="margin-top:56px;"><h2>Nature, Lakes & Mountains</h2></div>
+  <div class="grid">
+
+    <!-- 06 -->
+    <a class="card nature" href="06_lago_di_garda_north.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 06</div>
+      <div class="card-badges">
+        <div class="badge nature">Lake</div>
+        <div class="badge nature">Cliffs</div>
+        <div class="badge train">~2h</div>
+      </div>
+      <h3>Riva del Garda<br><em>Hotel Centrale</em></h3>
+      <div class="card-subtitle">The dramatic north end of Lake Garda, hemmed in by thousand-metre cliffs — completely different feel from the south</div>
+      <div class="card-desc">Lakeside promenade, the Bastione viewpoint hike (45 min, stunning), Cascata del Varone waterfall 2km away, windsurfing. Compact and walkable from the hotel. Best in May–September.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Verona → Rovereto → bus <span>~2h</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 07 -->
+    <a class="card nature" href="07_belluno_dolomites.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 07</div>
+      <div class="card-badges">
+        <div class="badge nature">Dolomites</div>
+        <div class="badge nature">Mountains</div>
+        <div class="badge train">~2h</div>
+      </div>
+      <h3>Belluno<br><em>Gateway to Dolomiti</em></h3>
+      <div class="card-subtitle">Charming alpine city with the Dolomiti Bellunesi National Park starting at the edge of town</div>
+      <div class="card-desc">Historic center with mountain views from every street. Local bus to Feltre, or walk the riverside Piave trail. Quieter and more local than Cortina. Stay at Hotel Delle Alpi in the centro storico.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Conegliano → Belluno <span>~2h</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 08 -->
+    <a class="card nature" href="08_lago_di_caldonazzo.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 08</div>
+      <div class="card-badges">
+        <div class="badge nature">Alpine lake</div>
+        <div class="badge nature">Swimming</div>
+        <div class="badge train">~2h</div>
+      </div>
+      <h3>Lago di Caldonazzo<br><em>Caldonazzo Village</em></h3>
+      <div class="card-subtitle">Bigger sister to Levico — warmer swimming lake in summer, flatter terrain, more beach infrastructure</div>
+      <div class="card-desc">Valsugana line drops you steps from the lake. Clear mountain water, kayak rentals, cycle path around the perimeter. Quieter and more Italian than Garda. Combine with a Trento afternoon.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Bassano → Caldonazzo <span>~2h</span></div>
+        <div class="card-budget t1">$$</div>
+      </div>
+    </a>
+
+    <!-- 09 -->
+    <a class="card nature" href="09_trento_mountains.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 09</div>
+      <div class="card-badges">
+        <div class="badge nature">Mountains</div>
+        <div class="badge city">Alpine city</div>
+        <div class="badge train">~1.5h</div>
+      </div>
+      <h3>Trento<br><em>MUSE & Buonconsiglio</em></h3>
+      <div class="card-subtitle">Italy's most alpine city — frescoed piazzas, Renzo Piano-designed science museum, and mountains visible from every street</div>
+      <div class="card-desc">Walk from the station into a city that feels half-Italian, half-Austrian. The MUSE science museum is genuinely world-class. Buonconsiglio Castle has stunning frescoes. Cable car up to Sardagna for free views.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Verona → Trento <span>~1.5h</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 10 -->
+    <a class="card nature" href="10_peschiera_garda.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 10</div>
+      <div class="card-badges">
+        <div class="badge nature">Lake Garda</div>
+        <div class="badge train">~1.15h</div>
+      </div>
+      <h3>Peschiera del Garda<br><em>Lake &amp; Fortress</em></h3>
+      <div class="card-subtitle">The easiest Lake Garda access — UNESCO Venetian fortress, walkable from the station, ferries to Sirmione and the whole lake</div>
+      <div class="card-desc">Train drops you inside the historic walls. Walk along the lake, catch a ferry to Lazise or Sirmione, eat fish grilled lakeside. Relaxed vibe, not touristy. Hotel right on the lake ramparts.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Peschiera del Garda <span>~1h 15min</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CITY SECTION -->
+  <div class="grid-heading" style="margin-top:56px;"><h2>City, Food & Culture</h2></div>
+  <div class="grid">
+
+    <!-- 11 -->
+    <a class="card city" href="11_bologna.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 11</div>
+      <div class="card-badges">
+        <div class="badge city">Food capital</div>
+        <div class="badge city">UNESCO</div>
+        <div class="badge train">~1.5h</div>
+      </div>
+      <h3>Bologna<br><em>La Grassa</em></h3>
+      <div class="card-subtitle">Italy's food capital — ragu, tortellini in brodo, mortadella, and 60 kilometres of medieval porticoes</div>
+      <div class="card-desc">Climb the Asinelli Tower. Walk 60km of UNESCO porticoes (or just admire them). Eat tagliatelle al ragù at a proper trattoria. Piazza Maggiore at dusk. Best food city in Italy, full stop.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Verona → Bologna AV <span>~1.5h</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 12 -->
+    <a class="card city" href="12_trieste.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 12</div>
+      <div class="card-badges">
+        <div class="badge city">Habsburg port</div>
+        <div class="badge nature">Seafront</div>
+        <div class="badge train">~2h</div>
+      </div>
+      <h3>Trieste<br><em>The Adriatic Edge</em></h3>
+      <div class="card-subtitle">Italy's most un-Italian city — Habsburg coffee houses, Miramare Castle on the Adriatic, and a seafront piazza the size of a football field</div>
+      <div class="card-desc">Piazza Unità d'Italia opens directly to the sea. Miramare Castle on a rocky promontory 15 min by bus. Historic Viennese-style caffès. Slovenia is a 30-min bus ride. Completely different from anything else on this list.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Venice → Trieste <span>~2h 30min</span></div>
+        <div class="card-budget t2">$$</div>
+      </div>
+    </a>
+
+    <!-- 13 -->
+    <a class="card city" href="13_ferrara.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 13</div>
+      <div class="card-badges">
+        <div class="badge city">Renaissance</div>
+        <div class="badge city">UNESCO</div>
+        <div class="badge train">~1.5h</div>
+      </div>
+      <h3>Ferrara<br><em>The Walled City</em></h3>
+      <div class="card-subtitle">A perfectly preserved Renaissance city inside complete medieval walls — everyone rides bikes and nobody crowds it</div>
+      <div class="card-desc">Moated Estense Castle right in the center. Rent bikes and ride the complete city wall circuit (9km, flat). Palazzo dei Diamanti. Almost no tourists. The wife will want to walk every street.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Padova → Ferrara <span>~1.5h</span></div>
+        <div class="card-budget t1">$$</div>
+      </div>
+    </a>
+
+    <!-- 14 -->
+    <a class="card city" href="14_mantova.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 14</div>
+      <div class="card-badges">
+        <div class="badge city">Renaissance</div>
+        <div class="badge nature">Three lakes</div>
+        <div class="badge train">~1.5h</div>
+      </div>
+      <h3>Mantova<br><em>Gonzaga Renaissance</em></h3>
+      <div class="card-subtitle">A UNESCO Renaissance city ringed by three lakes — the Palazzo Ducale and Palazzo Te are among Italy's finest rooms</div>
+      <div class="card-desc">Gonzaga family's Palazzo Ducale is a 500-room palace. Palazzo Te has Giulio Romano's insane frescoed Sala dei Giganti — visually overwhelming in the best way. The whole city sits on lake peninsulas. Quiet.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Verona → Mantova <span>~1.5h</span></div>
+        <div class="card-budget t1">$$</div>
+      </div>
+    </a>
+
+    <!-- 15 -->
+    <a class="card city" href="15_milan.html">
+      <div class="card-status soon">Coming</div>
+      <div class="card-num">No. 15</div>
+      <div class="card-badges">
+        <div class="badge city">Big city</div>
+        <div class="badge city">Food + design</div>
+        <div class="badge train">~1.5h</div>
+      </div>
+      <h3>Milano<br><em>Navigli &amp; the Duomo</em></h3>
+      <div class="card-subtitle">The one big-city pick — Duomo rooftop, Galleria, Sforza Castle, Navigli canal aperitivo, great restaurant scene</div>
+      <div class="card-desc">Frecciarossa gets you there in under 90 minutes. Climb the Duomo rooftop (book ahead). Wander the Galleria. Aperitivo on the Navigli at sunset. Dinner at a proper Milanese osteria. Completely different energy from everything else on this list.</div>
+      <div class="card-footer">
+        <div class="card-train">Train: Vicenza → Milano Centrale AV <span>~1.5h</span></div>
+        <div class="card-budget t3">$$$</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <div class="glyph">⁂</div>
+  <div class="note">All trips pre-calibrated · Late departure · Lunch at home · One night · Home Sunday</div>
+  <div class="note">Trenitalia app for tickets · Booking.com for hotels</div>
+</div>
+
+<div id="install-hint" style="display:none;background:#1a1714;border-top:1px solid rgba(200,151,58,0.25);padding:12px 60px;text-align:center;">
+  <span style="font-size:12px;color:#5a5248;font-family:'DM Sans',sans-serif;">
+    Add to home screen for offline access —
+    <button onclick="installApp()" style="background:none;border:none;color:#c8973a;font-size:12px;cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif;">Install app</button>
+  </span>
+</div>
+
+<!-- UPDATE BANNER -->
+<div id="update-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1714;border-top:1px solid rgba(200,151,58,0.4);padding:14px 24px;display:none;align-items:center;justify-content:space-between;gap:16px;z-index:999;font-family:'DM Sans',sans-serif;">
+  <span style="font-size:13px;color:#9a907e;">New trips available — tap to update.</span>
+  <button onclick="updateApp()" style="background:#c8973a;color:#0f0e0c;border:none;padding:8px 18px;border-radius:2px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Update</button>
+</div>
+
+<script>
+// ---- Service Worker Registration ----
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/day-trips/sw.js', { scope: '/day-trips/' })
+      .then(reg => {
+        console.log('[PWA] Service worker registered:', reg.scope);
+
+        // Check for updates
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // New content available — show banner
+              const banner = document.getElementById('update-banner');
+              if (banner) banner.style.display = 'flex';
+              window._newWorker = newWorker;
+            }
+          });
+        });
+      })
+      .catch(err => console.warn('[PWA] SW registration failed:', err));
+
+    // When new SW takes over, reload
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) {
+        refreshing = true;
+        window.location.reload();
+      }
+    });
+  });
+}
+
+function updateApp() {
+  if (window._newWorker) {
+    window._newWorker.postMessage({ type: 'SKIP_WAITING' });
+  }
+}
+
+// ---- Install prompt (Android) ----
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show a subtle install hint in the footer after 3s
+  setTimeout(() => {
+    const hint = document.getElementById('install-hint');
+    if (hint) hint.style.display = 'block';
+  }, 3000);
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredPrompt = null;
+  const hint = document.getElementById('install-hint');
+  if (hint) hint.style.display = 'none';
+});
+
+function installApp() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+  }
+}
+</script>
+</body>
+</html>

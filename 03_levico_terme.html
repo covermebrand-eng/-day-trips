@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lago di Levico — May 23–24, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4ede0;
+    --bg-card: #fbf7ec;
+    --bg-deep: #ebe2d0;
+    --ink: #1a1c14;
+    --ink-soft: #45463a;
+    --rule: #d9cfb7;
+    --moss: #2f4a3a;
+    --moss-deep: #1a2b21;
+    --lake: #2c5670;
+    --lake-pale: #87a8b8;
+    --terra: #b35a3b;
+    --terra-deep: #8a4128;
+    --gold: #b8893f;
+    --sky: #d6e4ec;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(47, 74, 58, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(44, 86, 112, 0.04) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .paper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 0 80px;
+    position: relative;
+  }
+
+  .inner { padding: 0 40px; }
+
+  /* ---------- HERO: split composition ---------- */
+  .hero-art {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #c9d8df 0%, #d8e4eb 50%, #e0d5be 100%);
+  }
+  .hero-art svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .masthead {
+    position: absolute;
+    top: 28px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    z-index: 3;
+    color: var(--moss-deep);
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(251, 247, 236, 0.85);
+    padding: 6px 14px;
+    border-radius: 2px;
+    color: var(--moss-deep);
+    backdrop-filter: blur(4px);
+  }
+  .brand span { color: var(--terra-deep); }
+  .issue {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: rgba(251, 247, 236, 0.85);
+    padding: 6px 14px;
+    border-radius: 2px;
+    color: var(--ink);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Title panel — clean offset card below illustration */
+  .hero-title-panel {
+    background: var(--bg-card);
+    margin: -50px 40px 0;
+    padding: 44px 44px 40px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 -4px 30px -10px rgba(31, 51, 40, 0.15);
+    border-left: 5px solid var(--terra);
+  }
+  .kicker-hero {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: var(--moss-deep);
+    margin-bottom: 16px;
+  }
+  h1.title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terra-deep);
+  }
+  .dek-hero {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.4;
+  }
+  .date-badge {
+    display: inline-block;
+    background: var(--moss);
+    color: #f5efe2;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+  }
+  .date-badge strong {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--gold);
+    margin-right: 6px;
+    letter-spacing: 0.06em;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats-bar {
+    background: var(--bg-card);
+    margin: 40px 40px 56px;
+    padding: 22px 32px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .stat {
+    padding: 0 18px;
+    border-right: 1px solid var(--rule);
+  }
+  .stat:last-child { border-right: none; }
+  .stat:first-child { padding-left: 0; }
+  .stat .label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .stat .value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stat .value small {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section { margin: 64px 0; }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--terra-deep);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    color: var(--ink);
+    line-height: 1.05;
+  }
+  h2 em { font-style: italic; color: var(--moss); }
+  .lead {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  /* ---------- WEATHER ---------- */
+  .weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .weather-day {
+    background: linear-gradient(135deg, var(--sky) 0%, #c4d6df 100%);
+    border-radius: 3px;
+    padding: 26px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .weather-day::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+  }
+  .weather-day .day-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--moss-deep);
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .weather-day .day-date {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    font-weight: 600;
+    position: relative;
+  }
+  .weather-day .temps {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .weather-day .high {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .weather-day .low {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .weather-day .cond {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--moss-deep);
+    line-height: 1.45;
+    position: relative;
+  }
+  .weather-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: rgba(184, 137, 63, 0.1);
+    padding: 14px 18px;
+    border-radius: 3px;
+    border-left: 3px solid var(--gold);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ---------- ROUTE ---------- */
+  .route-vis {
+    position: relative;
+    margin: 32px 0 28px;
+    padding: 36px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .route-line {
+    position: relative;
+    height: 70px;
+  }
+  .route-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .route-stops {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 0 4px;
+  }
+  .stop {
+    text-align: center;
+    flex: 1;
+  }
+  .stop .name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .stop .time {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .route-legs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .route-leg {
+    padding: 14px 18px;
+    border-left: 2px solid var(--terra);
+    background: rgba(179, 90, 59, 0.04);
+    border-radius: 0 2px 2px 0;
+  }
+  .route-leg .label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .route-leg .time {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--moss);
+    margin-bottom: 2px;
+  }
+  .route-leg .meta {
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .route-callout {
+    background: var(--moss);
+    color: #f5efe2;
+    padding: 14px 22px;
+    border-radius: 3px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .route-callout strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- DAY TIMELINE ---------- */
+  .day-section {
+    margin-bottom: 48px;
+  }
+  .day-label {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .day-label .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 48px;
+    color: var(--terra-deep);
+    line-height: 1;
+    font-weight: 400;
+  }
+  .day-label h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .day-label .sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  .timeline {
+    position: relative;
+  }
+  .moment {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 28px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .moment:last-child { border-bottom: none; }
+  .clock {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--moss);
+    line-height: 1;
+    padding-top: 4px;
+    position: relative;
+  }
+  .clock.small { font-size: 13px; font-style: italic; color: var(--ink-soft); }
+  .clock::after {
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: var(--terra);
+    border-radius: 50%;
+  }
+  .clock.small::after { display: none; }
+  .moment-body h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .moment-body p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .moment-body p + p { margin-top: 8px; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    background: rgba(179, 90, 59, 0.1);
+    padding: 2px 9px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  /* ---------- HOTEL FEATURED ---------- */
+  .hotel-card {
+    background: var(--moss);
+    color: #f0e9d8;
+    padding: 36px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hotel-card::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(184, 137, 63, 0.18) 0%, transparent 70%);
+  }
+  .hotel-card .pick-tag {
+    display: inline-block;
+    background: var(--terra);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .hotel-card .stars {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .hotel-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    color: #f5efe2;
+  }
+  .hotel-card .meta {
+    font-style: italic;
+    color: rgba(240, 233, 216, 0.75);
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'Fraunces', serif;
+  }
+  .hotel-perks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 28px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .hotel-perks div {
+    font-size: 14px;
+    color: rgba(240, 233, 216, 0.9);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(245, 239, 226, 0.12);
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .hotel-perks div::before {
+    content: "✓";
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .hotel-card .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 18px;
+    border-top: 1px solid rgba(245, 239, 226, 0.2);
+    position: relative;
+  }
+  .hotel-card .price-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #f5efe2;
+  }
+  .hotel-card .price-num small {
+    font-size: 14px;
+    color: rgba(240, 233, 216, 0.7);
+    font-weight: 400;
+  }
+  .hotel-card .review .score {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .hotel-card .review {
+    font-size: 12px;
+    color: rgba(240, 233, 216, 0.7);
+    text-align: right;
+  }
+  .hotel-card .alert {
+    background: rgba(179, 90, 59, 0.18);
+    border-left: 3px solid var(--terra);
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: #f5efe2;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.5;
+    border-radius: 0 2px 2px 0;
+    position: relative;
+  }
+  .hotel-card .alert strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ---------- MAP ---------- */
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: #e9e0cc;
+  }
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .map-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ---------- EAT CARDS ---------- */
+  .eats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .eat {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 22px 20px;
+    border-radius: 2px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .eat:hover {
+    transform: translateY(-2px);
+    border-color: var(--moss);
+  }
+  .eat .style {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .eat h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .eat .where {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-family: 'Fraunces', serif;
+  }
+  .eat p {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ---------- BUDGET ---------- */
+  .budget {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .budget table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .budget td {
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14.5px;
+  }
+  .budget tr:last-child td { border-bottom: none; }
+  .budget tr.total td {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--moss);
+    font-weight: 500;
+    background: rgba(47, 74, 58, 0.04);
+  }
+  .budget td:last-child {
+    text-align: right;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .budget td .item-note {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+  }
+  .budget-disclaimer {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(184, 137, 63, 0.08);
+    border-left: 3px solid var(--gold);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* ---------- NOTES ---------- */
+  .notes {
+    background: var(--moss);
+    color: #f0e9d8;
+    padding: 44px 38px;
+    border-radius: 3px;
+    margin: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .notes::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(184, 137, 63, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .notes h2 { color: #f5efe2; margin-bottom: 22px; position: relative; }
+  .notes h2 em { color: var(--gold); }
+  .notes ul { list-style: none; counter-reset: notenum; position: relative; }
+  .notes li {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(245, 239, 226, 0.15);
+    font-size: 14.5px;
+    line-height: 1.55;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .notes li:last-child { border-bottom: none; }
+  .notes li::before {
+    content: counter(notenum, lower-roman) ".";
+    counter-increment: notenum;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 15px;
+    min-width: 28px;
+  }
+  .notes strong { color: #f5efe2; font-weight: 600; }
+
+  /* ---------- PACKING ---------- */
+  .pack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .pack-col {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 22px 20px;
+    border-radius: 2px;
+  }
+  .pack-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--moss);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pack-col ul { list-style: none; }
+  .pack-col li {
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--ink);
+    position: relative;
+    padding-left: 18px;
+    line-height: 1.45;
+  }
+  .pack-col li::before {
+    content: "○";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    color: var(--terra);
+    font-size: 10px;
+  }
+  .pack-col li .who {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    margin-top: 1px;
+  }
+
+  /* ---------- LINKS ---------- */
+  .links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .links a {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--lake);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lake);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .links a:hover {
+    color: var(--terra-deep);
+    border-color: var(--terra-deep);
+  }
+
+  /* ---------- DATA NOTE ---------- */
+  .data-note {
+    background: var(--bg-deep);
+    border: 1px dashed var(--rule);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 20px 0;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .data-note strong {
+    color: var(--moss-deep);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer .glyph {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terra-deep);
+    font-size: 22px;
+  }
+  footer .meta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 760px) {
+    .inner { padding: 0 22px; }
+    .stats-bar { padding: 18px 20px; margin: 28px 22px 44px; }
+    .masthead { left: 22px; right: 22px; }
+    .hero-title-panel { margin: -50px 22px 0; padding: 32px 26px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stat { padding: 10px 12px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    h2 { font-size: 28px; }
+    .weather-grid { grid-template-columns: 1fr; }
+    .eats { grid-template-columns: 1fr; }
+    .pack-grid { grid-template-columns: 1fr; }
+    .moment { grid-template-columns: 1fr; gap: 6px; }
+    .clock { font-size: 18px; padding-top: 0; }
+    .clock::after { display: none; }
+    .route-legs { grid-template-columns: 1fr; }
+    .map-wrap { height: 280px; }
+    .hero-art { height: 220px; }
+    .hotel-perks { grid-template-columns: 1fr; gap: 6px; }
+    .hotel-card { padding: 28px 22px; }
+    .day-label .sub { display: none; }
+  }
+
+  @media print {
+    body { background: white; }
+    .notes, .hotel-card { background: #2f4a3a !important; -webkit-print-color-adjust: exact; }
+    .hero-art { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <!-- HERO illustration -->
+  <div class="hero-art">
+    <svg viewBox="0 0 980 280" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c9d8df"/>
+          <stop offset="100%" stop-color="#e0d5be"/>
+        </linearGradient>
+        <linearGradient id="mountainBack" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7a92a0"/>
+          <stop offset="100%" stop-color="#a8b8c0"/>
+        </linearGradient>
+        <linearGradient id="mountainMid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5a7464"/>
+          <stop offset="100%" stop-color="#7a8e7c"/>
+        </linearGradient>
+        <linearGradient id="mountainFront" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3d5847"/>
+          <stop offset="100%" stop-color="#5a7464"/>
+        </linearGradient>
+        <linearGradient id="lakeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6b8a98"/>
+          <stop offset="60%" stop-color="#5a7484"/>
+          <stop offset="100%" stop-color="#4a6470"/>
+        </linearGradient>
+      </defs>
+      <rect width="980" height="280" fill="url(#skyGrad)"/>
+      <circle cx="780" cy="70" r="34" fill="#f4e4c8" opacity="0.5"/>
+      <circle cx="780" cy="70" r="24" fill="#f0d8b0" opacity="0.6"/>
+      <path d="M 220 60 Q 226 56, 232 60 Q 238 56, 244 60" stroke="#3d4a52" stroke-width="1.5" fill="none" opacity="0.5"/>
+      <path d="M 280 80 Q 285 76, 290 80 Q 295 76, 300 80" stroke="#3d4a52" stroke-width="1.2" fill="none" opacity="0.4"/>
+      <path d="M 0 150 L 80 100 L 160 130 L 240 80 L 320 115 L 400 75 L 480 110 L 560 65 L 640 105 L 720 85 L 800 120 L 880 95 L 980 130 L 980 280 L 0 280 Z" fill="url(#mountainBack)" opacity="0.7"/>
+      <path d="M 0 200 L 60 150 L 140 175 L 220 125 L 300 165 L 380 135 L 460 165 L 540 115 L 620 150 L 700 130 L 780 165 L 860 135 L 980 170 L 980 280 L 0 280 Z" fill="url(#mountainMid)"/>
+      <path d="M 220 125 L 240 132 L 260 125 L 250 130" fill="#e8eef0" opacity="0.7"/>
+      <path d="M 540 115 L 560 124 L 580 115 L 568 120" fill="#e8eef0" opacity="0.7"/>
+      <path d="M 700 130 L 720 138 L 740 130 L 730 135" fill="#e8eef0" opacity="0.6"/>
+      <path d="M 0 240 L 100 205 L 200 220 L 300 188 L 400 215 L 500 183 L 600 213 L 700 186 L 800 215 L 900 188 L 980 213 L 980 280 L 0 280 Z" fill="url(#mountainFront)"/>
+      <path d="M 0 250 L 980 240 L 980 280 L 0 280 Z" fill="url(#lakeGrad)"/>
+      <path d="M 80 263 L 200 263" stroke="#a8c0cc" stroke-width="1" opacity="0.4"/>
+      <path d="M 320 269 L 480 269" stroke="#a8c0cc" stroke-width="1" opacity="0.4"/>
+      <path d="M 580 265 L 720 265" stroke="#a8c0cc" stroke-width="1" opacity="0.4"/>
+      <path d="M 800 273 L 920 273" stroke="#a8c0cc" stroke-width="1" opacity="0.4"/>
+      <g opacity="0.6">
+        <path d="M 50 248 L 53 240 L 56 248 Z" fill="#2f4a3a"/>
+        <path d="M 62 250 L 65 240 L 68 250 Z" fill="#2f4a3a"/>
+        <path d="M 78 249 L 81 238 L 84 249 Z" fill="#2f4a3a"/>
+        <path d="M 845 244 L 848 236 L 851 244 Z" fill="#2f4a3a"/>
+        <path d="M 858 245 L 861 234 L 864 245 Z" fill="#2f4a3a"/>
+        <path d="M 872 244 L 875 232 L 878 244 Z" fill="#2f4a3a"/>
+      </g>
+      <g opacity="0.55">
+        <path d="M 470 256 L 490 256 L 487 260 L 473 260 Z" fill="#3d2a1c"/>
+        <line x1="480" y1="256" x2="480" y2="246" stroke="#3d2a1c" stroke-width="1"/>
+      </g>
+    </svg>
+
+    <header class="masthead">
+      <div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; VENETO N° 04</div>
+      <div class="issue">One Night · Vicenza ↔ Levico</div>
+    </header>
+  </div>
+
+  <!-- HERO TITLE PANEL -->
+  <div class="hero-title-panel">
+    <div class="kicker-hero">An Overnight in the Valsugana</div>
+    <h1 class="title">Lago di Levico,<br><em>slowly.</em></h1>
+    <p class="dek-hero">Late start, one transfer, one night by an alpine lake. Built around a 1 PM lunch at home and a wife who needs her morning.</p>
+    <div class="date-badge"><strong>Dates</strong>Saturday, May 23 — Sunday, May 24, 2026</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Leave home</div>
+        <div class="value">2:00<small>pm</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Travel time</div>
+        <div class="value">2½<small>h</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Transfers</div>
+        <div class="value">1<small> @ Bassano</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Hotel</div>
+        <div class="value">Bellavista</div>
+      </div>
+      <div class="stat">
+        <div class="label">All-in · 2 ppl</div>
+        <div class="value">~€420</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner">
+
+    <!-- WEATHER -->
+    <section>
+      <div class="section-num">i.</div>
+      <h2>The <em>weather window.</em></h2>
+      <p class="lead">Late-May norms for Levico Terme (alpine, ~500m elevation). Live forecasts only go 7 days out — recheck Monday May 18 for the actual outlook.</p>
+
+      <div class="weather-grid">
+        <div class="weather-day">
+          <div class="day-name">Saturday</div>
+          <div class="day-date">May 23, 2026</div>
+          <div class="temps">
+            <div class="high">70°<small style="font-size:18px;">F</small></div>
+            <div class="low">/ 50°F low</div>
+          </div>
+          <div class="cond">Typical: partly sunny, mild afternoons.<br>Spring thunderstorms possible.</div>
+        </div>
+        <div class="weather-day">
+          <div class="day-name">Sunday</div>
+          <div class="day-date">May 24, 2026</div>
+          <div class="temps">
+            <div class="high">71°<small style="font-size:18px;">F</small></div>
+            <div class="low">/ 51°F low</div>
+          </div>
+          <div class="cond">Similar conditions.<br>Lake water still cool — ~63°F.</div>
+        </div>
+      </div>
+
+      <div class="weather-note"><strong>Sunset is ~8:50 PM</strong> — long evening for a post-dinner walk by the lake. Mornings can be cool (sweater weather until ~10 AM).</div>
+    </section>
+
+    <!-- ROUTE -->
+    <section>
+      <div class="section-num">ii.</div>
+      <h2>The <em>route.</em></h2>
+      <p class="lead">Best path is via Bassano del Grappa, not Verona/Trento — fewer transfers, scenic Valsugana line, lake-water all the way in. Buy tickets day-of in the Trenitalia app (regional fares are fixed).</p>
+
+      <div class="route-vis">
+        <div class="route-line">
+          <svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#d9cfb7" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity="0.7">
+              <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <circle cx="40" cy="35" r="9" fill="#fbf7ec" stroke="#2f4a3a" stroke-width="2.5"/>
+            <circle cx="450" cy="35" r="7" fill="#b35a3b"/>
+            <circle cx="860" cy="35" r="11" fill="#2f4a3a" stroke="#fbf7ec" stroke-width="2.5"/>
+            <circle cx="860" cy="35" r="4" fill="#b8893f"/>
+          </svg>
+        </div>
+        <div class="route-stops">
+          <div class="stop"><div class="name">Vicenza</div><div class="time">~2:50 PM</div></div>
+          <div class="stop"><div class="name">Bassano del Grappa</div><div class="time">change</div></div>
+          <div class="stop"><div class="name">Levico Terme</div><div class="time">~5:30 PM</div></div>
+        </div>
+        <div class="route-legs">
+          <div class="route-leg">
+            <div class="label">Leg i · Regionale</div>
+            <div class="time">~50 min</div>
+            <div class="meta">Vicenza → Bassano del Grappa · ~€5</div>
+          </div>
+          <div class="route-leg">
+            <div class="label">Leg ii · Regionale (direct)</div>
+            <div class="time">1h 16 min</div>
+            <div class="meta">Bassano → Levico Terme (no change) · ~€7</div>
+          </div>
+        </div>
+        <div class="route-callout">
+          <strong>Last train back</strong>Levico → Bassano runs until ~7:52 PM weekends. Plenty of room for a Sunday afternoon return — or a later return after dinner if you want.
+        </div>
+      </div>
+
+      <div class="data-note"><strong>How I'm pulling this:</strong> Trenitalia doesn't have a live API connector available, so train times are based on web searches of their published schedule + Trainline/Virail. Verify exact times via the <strong>Trenitalia app</strong> a few days before — schedules can shift slightly weekend-to-weekend. Hotel data is live from Booking.com.</div>
+    </section>
+
+    <!-- DAY 1 -->
+    <section>
+      <div class="section-num">iii.</div>
+      <h2>The <em>day, paced.</em></h2>
+      <p class="lead">Built around your real morning, the 30–40 min walk to the station, and a 1 PM lunch at home before leaving.</p>
+
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">i.</div>
+          <h3>Saturday — May 23.</h3>
+          <div class="sub">Vicenza → Levico</div>
+        </div>
+        <div class="timeline">
+
+          <div class="moment">
+            <div class="clock small">Fri night</div>
+            <div class="moment-body">
+              <span class="tag">Pack</span>
+              <h4>Pack the bag the night before.</h4>
+              <p>One small overnight bag for the two of you — see the packing section below. Tickets stay on the phone. Backpack ready by the door.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">9:00</div>
+            <div class="moment-body">
+              <span class="tag">Wake</span>
+              <h4>Slow morning at home.</h4>
+              <p>Breakfast at home. Coffee. No clock pressure — the train doesn't matter until afternoon.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">1:00</div>
+            <div class="moment-body">
+              <span class="tag">Lunch</span>
+              <h4>Lunch at home.</h4>
+              <p>Eat properly so the only food worry on the road is snacks. No need to stress about restaurant timing in Levico — you'll arrive after lunch hours anyway.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:00</div>
+            <div class="moment-body">
+              <span class="tag">Out the door</span>
+              <h4>Walk from Via T. dal Molin → Vicenza Stazione.</h4>
+              <p>30–40 min walk. Stop for snacks at a bar or alimentari on the way (panini, dry crackers, bottled water for the train).</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:40</div>
+            <div class="moment-body">
+              <span class="tag">Station</span>
+              <h4>Arrive Vicenza Stazione.</h4>
+              <p>Buffer time before the train. Validate paper tickets at the platform machines if you printed any (digital app tickets don't need it).</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:00</div>
+            <div class="moment-body">
+              <span class="tag">Depart</span>
+              <h4>Vicenza → Bassano del Grappa.</h4>
+              <p>Regional train, ~50 min. Quick comfortable run through Veneto countryside.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:50</div>
+            <div class="moment-body">
+              <span class="tag">Transfer</span>
+              <h4>Change at Bassano del Grappa.</h4>
+              <p>Allow ~20 min for the connection. Bassano is a small clean station — easy to navigate. The Valsugana train to Levico departs from here.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">4:15</div>
+            <div class="moment-body">
+              <span class="tag">Direct ride</span>
+              <h4>Bassano → Levico Terme.</h4>
+              <p>1h 16 min, no more changes. The Valsugana line follows the Brenta River up into the mountains — increasingly beautiful as you climb.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">5:30</div>
+            <div class="moment-body">
+              <span class="tag">Arrive</span>
+              <h4>Levico Terme.</h4>
+              <p>Out of the station, walk ~10–15 min west on Viale Stazione to reach Bellavista at Viale Vittorio Emanuele III, 7. Mostly flat. Through the leafy spa-park area.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">6:00</div>
+            <div class="moment-body">
+              <span class="tag">Settle</span>
+              <h4>Check in at Bellavista. Drop bags. Freshen up.</h4>
+              <p>Habsburg-era building, recently renovated, family-run by the Galvan family for 60+ years. Pool is open (heated, runs May 15–Sept 15). The spa center is yours if you booked anything other than the Economy room.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">7:00</div>
+            <div class="moment-body">
+              <span class="tag">Walk + aperitivo</span>
+              <h4>Stroll to the lake while it's still light.</h4>
+              <p>~10 min walk down to the Lido. Sunset isn't until ~8:50 PM — plenty of golden-hour. Aperitivo at one of the lakeside bars. Spritz, olives, the works.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">8:30</div>
+            <div class="moment-body">
+              <span class="tag">Dinner</span>
+              <h4>Dinner in town.</h4>
+              <p>Try canederli (bread dumplings), carne salada, or freshwater lake fish. <strong>La Taverna — Levico Lake</strong> on the water if you booked ahead, or <strong>Pizzeria Al Conte</strong> for casual. Pair with a Trento DOC sparkling.</p>
+              <p><em>Bellavista's restaurant is also a real option</em> — guests rate the dinner buffet highly, and you don't need to walk anywhere afterward.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">ii.</div>
+          <h3>Sunday — May 24.</h3>
+          <div class="sub">Levico → home for dinner</div>
+        </div>
+        <div class="timeline">
+
+          <div class="moment">
+            <div class="clock">9:00</div>
+            <div class="moment-body">
+              <span class="tag">Wake</span>
+              <h4>Get downstairs by 9:30 — breakfast cuts off at 10:00.</h4>
+              <p>Bellavista's breakfast is the highlight per every review. Bacon &amp; eggs cooked fresh, Trentino cured meats and cheeses, homemade cakes, fruit, a chocolate fountain. Take your time — it's the best meal of the trip.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">10:30</div>
+            <div class="moment-body">
+              <span class="tag">Walk</span>
+              <h4>Strada dei Pescatori.</h4>
+              <p>The Fishermen's Path along the lake. Flat naturalistic trail, water on one side, mountains on the other. The full loop is 8.5 km (~2½ hours) — probably too much for the time you have. Walk the prettiest stretch (north shore), turn back when you feel like it.</p>
+              <p><em>Alternative:</em> Forte Colle delle Benne — restored WWI Austro-Hungarian fort, ~45 min uphill walk, ~€4 entry, audio guides, panoramic rooftop. Probably more your speed than your wife's.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">12:30</div>
+            <div class="moment-body">
+              <span class="tag">Snack</span>
+              <h4>Light bite by the lake.</h4>
+              <p>Coffee, panino, gelato. Don't go heavy — you've got the train and dinner at home tonight.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">1:30</div>
+            <div class="moment-body">
+              <span class="tag">Hotel checkout</span>
+              <h4>Back to Bellavista, grab the bag.</h4>
+              <p>Standard checkout is by 11:00 at most Italian hotels — call/ask the front desk Saturday to <em>hold the bag</em> after checkout if you want to stay until afternoon. They almost always will.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:15</div>
+            <div class="moment-body">
+              <span class="tag">Walk to station</span>
+              <h4>10–15 min back to the train station.</h4>
+              <p>Same path you walked in on, reversed.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:45</div>
+            <div class="moment-body">
+              <span class="tag">Train back</span>
+              <h4>Levico → Bassano → Vicenza.</h4>
+              <p>Same route, reversed. ~2½ hours total with the Bassano change.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">5:15</div>
+            <div class="moment-body">
+              <span class="tag">Arrive</span>
+              <h4>Vicenza Stazione. Walk home.</h4>
+              <p>30–40 min back to Via T. dal Molin. Or grab a taxi from the station rank if you're tired (~€8–12).</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">6:00</div>
+            <div class="moment-body">
+              <span class="tag">Home</span>
+              <h4>Home. Dinner at home.</h4>
+              <p>Whole evening in your own kitchen. Way more relaxing than another restaurant meal after a travel day.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="data-note"><strong>Sunday alternative:</strong> If you'd rather eat one more meal in Levico, a 7:30 PM dinner in town → 7:52 PM is the last train you can realistically catch from Levico, which lands you in Bassano around 9:08 PM and home around 10:00 PM. Doable but late. The "back home for dinner" plan above is more relaxed.</div>
+      </div>
+    </section>
+
+    <!-- HOTEL FEATURED -->
+    <section>
+      <div class="section-num">iv.</div>
+      <h2>Where you're <em>sleeping.</em></h2>
+      <p class="lead">Live data pulled from Booking.com. Pinned per your pick.</p>
+
+      <div class="hotel-card">
+        <div class="pick-tag">Your pick</div>
+        <div class="stars">★★★★ · 4-star</div>
+        <h3>Bellavista Relax Hotel</h3>
+        <div class="meta">Viale Vittorio Emanuele III, 7 · Levico Terme · 800m to lake · 10-min walk from station</div>
+
+        <div class="hotel-perks">
+          <div>Habsburg-era building, family-run 60+ yrs</div>
+          <div>Outdoor heated pool (open May 15–Sept 15)</div>
+          <div>Spa &amp; wellness center, sauna, steam room</div>
+          <div>Free parking &amp; free Wi-Fi</div>
+          <div>"BellaVita" wellness center included</div>
+          <div>Beauty bag with bathrobe, slippers, pool towel</div>
+          <div>Dinner buffet on site (well-rated)</div>
+          <div>10-min walk to lakeshore</div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-num">€154<small>/night</small></div>
+          <div class="review"><div class="score">8.8 / 10</div>3,579 reviews</div>
+        </div>
+
+        <div class="alert"><strong>Two booking warnings:</strong> &nbsp;<strong>1.</strong> Breakfast is often <em>not included</em> in the base rate (~€25/person extra). When you book, pick a "rate with breakfast" — saves €50 vs paying at checkout. &nbsp;<strong>2.</strong> Don't book the "Economy" room — spa access becomes €20/person/day extra. Standard room and up includes spa.</div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section>
+      <div class="section-num">v.</div>
+      <h2>The <em>geography.</em></h2>
+      <p class="lead">Train station on the east, hotel just west of the spa park, lake another 800m further west. Everything walkable.</p>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Bellavista+Relax+Hotel+Levico+Terme&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Bellavista Relax Hotel & Lago di Levico"
+          allowfullscreen></iframe>
+      </div>
+      <div class="map-caption">Bellavista Relax Hotel, with Lago di Levico to the west.</div>
+    </section>
+
+    <!-- WHERE TO EAT -->
+    <section>
+      <div class="section-num">vi.</div>
+      <h2>Where to <em>eat.</em></h2>
+      <p class="lead">Trentino specialties to try: <em>canederli</em> (bread dumplings), <em>carne salada</em>, lake fish, Trento DOC sparkling wines.</p>
+
+      <div class="eats">
+        <div class="eat">
+          <div class="style">Saturday dinner · Refined</div>
+          <h4>La Taverna — Levico Lake</h4>
+          <div class="where">Lakeside, panoramic terrace</div>
+          <p>Steps from the water. Trentino specialties done well. Worth booking a day or two ahead in May.</p>
+        </div>
+        <div class="eat">
+          <div class="style">Saturday dinner · Easy</div>
+          <h4>Bellavista's restaurant</h4>
+          <div class="where">In the hotel, no walking needed</div>
+          <p>Highly-rated dinner buffet with rotating menu. The convenient option after a travel day.</p>
+        </div>
+        <div class="eat">
+          <div class="style">Casual · In town</div>
+          <h4>Pizzeria Al Conte</h4>
+          <div class="where">Piazza Venezia, ~15 min walk</div>
+          <p>40+ pizzas, Trentino &amp; Tyrolean specialties, family-friendly, walk-in. Good prices.</p>
+        </div>
+        <div class="eat">
+          <div class="style">Sunday light bite</div>
+          <h4>Lakeside snack bars</h4>
+          <div class="where">Spiaggia Lido di Levico</div>
+          <p>Coffee, panini, gelato, drinks. Open during lake season. Quick, no commitment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUDGET -->
+    <section>
+      <div class="section-num">vii.</div>
+      <h2>The <em>budget.</em></h2>
+      <p class="lead">For two people, with Bellavista + breakfast included + dinner out Saturday + light Sunday lunch.</p>
+
+      <div class="budget">
+        <table>
+          <tr>
+            <td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Levico via Bassano, regional Trenitalia</span></td>
+            <td>~€50</td>
+          </tr>
+          <tr>
+            <td>Bellavista 1-night, 2 ppl<span class="item-note">Standard room with spa access included</span></td>
+            <td>~€154</td>
+          </tr>
+          <tr>
+            <td>Sunday breakfast at Bellavista · 2 ppl<span class="item-note">If not included in rate; book a rate that includes it</span></td>
+            <td>~€50</td>
+          </tr>
+          <tr>
+            <td>Saturday aperitivo + dinner out</td>
+            <td>~€80</td>
+          </tr>
+          <tr>
+            <td>Sunday light lunch + snacks · both days</td>
+            <td>~€30</td>
+          </tr>
+          <tr>
+            <td>Tourist tax · 2 ppl × 1 night<span class="item-note">Italian municipal tax, paid at checkout</span></td>
+            <td>~€4</td>
+          </tr>
+          <tr>
+            <td>Forte Colle delle Benne · 2 ppl (optional)</td>
+            <td>~€8</td>
+          </tr>
+          <tr>
+            <td>Coffee, gelato, buffer</td>
+            <td>~€20</td>
+          </tr>
+          <tr class="total">
+            <td>Total</td>
+            <td>≈ €396 / $430</td>
+          </tr>
+        </table>
+      </div>
+      <div class="budget-disclaimer"><strong>Real talk on the train portion:</strong> I'm using web search + Trenitalia's published Ordinaria fares. Without a live train API connector, exact fare for May 23 isn't pullable in real time. Confirm in the Trenitalia app — should be within a few euros of this estimate.</div>
+    </section>
+
+    <!-- PACKING -->
+    <section>
+      <div class="section-num">viii.</div>
+      <h2>Pack the <em>night before.</em></h2>
+      <p class="lead">One small bag covers two people for one night. Built around late-May Levico — mild days, cool evenings, possible thunderstorms.</p>
+
+      <div class="pack-grid">
+        <div class="pack-col">
+          <h4>Essentials</h4>
+          <ul>
+            <li>Passports / military ID<span class="who">In backpack</span></li>
+            <li>Phones &amp; chargers<span class="who">In backpack</span></li>
+            <li>Cash €50 buffer + cards<span class="who">In backpack — Elijah</span></li>
+            <li>Reusable water bottles<span class="who">Fill at Vicenza station</span></li>
+            <li>Sunglasses<span class="who">Worn / on head</span></li>
+            <li>Trenitalia app login confirmed<span class="who">Both phones</span></li>
+            <li>Bellavista booking PDF saved offline<span class="who">In backpack — Elijah</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Clothes (each)</h4>
+          <ul>
+            <li>One change of clothes<span class="who">Wife's bag / Elijah's bag</span></li>
+            <li>Light sweater or light jacket<span class="who">For evening — Trentino is cool at night</span></li>
+            <li>Comfortable walking shoes<span class="who">Worn</span></li>
+            <li>Pajamas + extra underwear<span class="who">Wife's bag / Elijah's bag</span></li>
+            <li>Toiletry kit (one shared)<span class="who">In backpack</span></li>
+            <li>Swimsuit<span class="who">Hotel pool open and heated</span></li>
+            <li>Slippers<span class="who">Hotel provides bathrobe + slippers — skip these</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Late-May Specifics</h4>
+          <ul>
+            <li>Backpack<span class="who">Elijah will carry</span></li>
+            <li>Sunscreen SPF 30+<span class="who">In backpack</span></li>
+            <li>Compact umbrella OR light rain shell<span class="who">Spring thunderstorms possible — in backpack</span></li>
+            <li>Snacks for the train both days<span class="who">Dry snacks — pick up on the way to the station</span></li>
+            <li>Bug spray<span class="who">Lakeside in May = some mosquitoes at dusk</span></li>
+            <li>Phone for lake-walk photos<span class="who">Already with you</span></li>
+            <li>Book / podcast for the train<span class="who">On phone</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTES -->
+    <aside class="notes">
+      <h2>Things <em>worth knowing</em> — for May 23–24.</h2>
+      <ul>
+        <li><span><strong>Pentecost Sunday is May 24.</strong> Not a public holiday in Italy, but Levico can be slightly busier with Italian and German-speaking weekenders. Book La Taverna ahead if you want it.</span></li>
+        <li><span><strong>Bellavista pool opens May 15.</strong> Heated outdoor, ~24°C. Yours is the second weekend after opening — should be quiet, fully operational.</span></li>
+        <li><span><strong>Lake water still cold.</strong> ~17°C / 63°F in late May. Sit by it, walk by it — swimming in the actual lake is for July onwards.</span></li>
+        <li><span><strong>Bellavista breakfast 7:30–10:00 AM.</strong> Be down by 9:30 to not feel rushed. Worth setting a soft alarm.</span></li>
+        <li><span><strong>Hotel checkout by 11:00.</strong> Ask Saturday at check-in if they'll hold your bag until ~2 PM Sunday — they almost always will at this kind of property.</span></li>
+        <li><span><strong>Last weekend train Levico → Bassano: 7:52 PM.</strong> If you ever decide to stay later for dinner, this is the wall.</span></li>
+        <li><span><strong>Tourist tax</strong> at Italian hotels is a few euros per person per night, paid in cash at checkout, separate from your Booking total.</span></li>
+        <li><span><strong>Apps to install:</strong> <em>Trenitalia</em> for tickets (validate by buying in-app), <em>Booking</em> for the hotel record, <em>Google Maps</em> with offline data downloaded for Levico in case mountain signal drops.</span></li>
+      </ul>
+    </aside>
+
+    <!-- LINKS -->
+    <section>
+      <div class="section-num">ix.</div>
+      <h2>Quick <em>links.</em></h2>
+      <div class="links">
+        <a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+        <a href="https://bellavistarelax.it/en/home-english/" target="_blank" rel="noopener">Bellavista direct booking ↗</a>
+        <a href="https://www.booking.com/hotel/it/grand-bellavista.html" target="_blank" rel="noopener">Bellavista on Booking ↗</a>
+        <a href="https://www.visitvalsugana.it/en/" target="_blank" rel="noopener">Visit Valsugana ↗</a>
+        <a href="https://www.google.com/maps/place/Lago+di+Levico" target="_blank" rel="noopener">Lake on Maps ↗</a>
+        <a href="https://www.google.com/maps/place/Forte+Colle+delle+Benne" target="_blank" rel="noopener">Forte Colle delle Benne ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="glyph">⁂</div>
+      <div class="meta">May 23–24, 2026 · Buon viaggio.</div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

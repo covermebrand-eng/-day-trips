@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terme di Relilax — May 23–24, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f1ebde;
+    --bg-card: #fbf7ec;
+    --bg-deep: #e7decb;
+    --ink: #1a1c14;
+    --ink-soft: #45463a;
+    --rule: #d6cab0;
+    --moss: #2f4a3a;
+    --moss-deep: #1a2b21;
+    --teal: #2a5d63;
+    --teal-deep: #1d484d;
+    --teal-pale: #8fb5b9;
+    --terra: #b35a3b;
+    --terra-deep: #8a4128;
+    --gold: #b8893f;
+    --gold-soft: #d4ad6e;
+    --steam: #e8eaec;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(42, 93, 99, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(184, 137, 63, 0.05) 0%, transparent 40%);
+    min-height: 100vh;
+  }
+
+  .paper { max-width: 980px; margin: 0 auto; padding: 0 0 80px; position: relative; }
+  .inner { padding: 0 40px; }
+
+  /* ---------- HERO ---------- */
+  .hero-art {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #c3d4d6 0%, #d8dfe1 50%, #e7decb 100%);
+  }
+  .hero-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .masthead {
+    position: absolute;
+    top: 28px; left: 40px; right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    z-index: 3;
+  }
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(251, 247, 236, 0.9);
+    padding: 6px 14px;
+    border-radius: 2px;
+    color: var(--moss-deep);
+    backdrop-filter: blur(4px);
+  }
+  .brand span { color: var(--terra-deep); }
+  .issue {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: rgba(251, 247, 236, 0.9);
+    padding: 6px 14px;
+    border-radius: 2px;
+    color: var(--ink);
+    backdrop-filter: blur(4px);
+  }
+
+  .hero-title-panel {
+    background: var(--bg-card);
+    margin: -60px 40px 0;
+    padding: 44px 44px 40px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 -4px 30px -10px rgba(31, 51, 40, 0.15);
+    border-left: 5px solid var(--gold);
+  }
+  .kicker-hero {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+    color: var(--moss-deep);
+    margin-bottom: 16px;
+  }
+  h1.title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--teal-deep);
+  }
+  .dek-hero {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 580px;
+    line-height: 1.4;
+  }
+  .date-badge {
+    display: inline-block;
+    background: var(--teal-deep);
+    color: var(--bg-card);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-top: 18px;
+    letter-spacing: 0.02em;
+  }
+  .date-badge strong {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--gold-soft);
+    margin-right: 6px;
+    letter-spacing: 0.06em;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- STATS ---------- */
+  .stats-bar {
+    background: var(--bg-card);
+    margin: 40px 40px 56px;
+    padding: 22px 32px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+  }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+  .stat { padding: 0 18px; border-right: 1px solid var(--rule); }
+  .stat:last-child { border-right: none; }
+  .stat:first-child { padding-left: 0; }
+  .stat .label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .stat .value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .stat .value small {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section { margin: 64px 0; }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--terra-deep);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    color: var(--ink);
+    line-height: 1.05;
+  }
+  h2 em { font-style: italic; color: var(--teal-deep); }
+  .lead {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  /* ---------- WEATHER ---------- */
+  .weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .weather-day {
+    background: linear-gradient(135deg, var(--teal-pale) 0%, #b3cdd0 100%);
+    border-radius: 3px;
+    padding: 26px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .weather-day::before {
+    content: "";
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+  }
+  .weather-day .day-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--moss-deep);
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .weather-day .day-date {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    font-weight: 600;
+    position: relative;
+  }
+  .weather-day .temps {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .weather-day .high {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .weather-day .low {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .weather-day .cond {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--moss-deep);
+    line-height: 1.45;
+    position: relative;
+  }
+  .weather-note {
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: rgba(184, 137, 63, 0.1);
+    padding: 14px 18px;
+    border-radius: 3px;
+    border-left: 3px solid var(--gold);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ---------- ROUTE ---------- */
+  .route-vis {
+    margin: 32px 0 28px;
+    padding: 36px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  .route-line { position: relative; height: 70px; }
+  .route-svg { width: 100%; height: 100%; }
+  .route-stops {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 0 4px;
+  }
+  .stop { text-align: center; flex: 1; }
+  .stop .name {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .stop .time {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .route-legs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .route-leg {
+    padding: 14px 18px;
+    border-left: 2px solid var(--terra);
+    background: rgba(179, 90, 59, 0.04);
+    border-radius: 0 2px 2px 0;
+  }
+  .route-leg .label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .route-leg .time {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--moss);
+    margin-bottom: 2px;
+  }
+  .route-leg .meta { font-size: 12px; color: var(--ink-soft); }
+  .route-callout {
+    background: var(--moss);
+    color: #f5efe2;
+    padding: 14px 22px;
+    border-radius: 3px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .route-callout strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ---------- DAY TIMELINE ---------- */
+  .day-section { margin-bottom: 48px; }
+  .day-label {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .day-label .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 48px;
+    color: var(--terra-deep);
+    line-height: 1;
+    font-weight: 400;
+  }
+  .day-label h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .day-label .sub {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  .timeline { position: relative; }
+  .moment {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 28px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .moment:last-child { border-bottom: none; }
+  .clock {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--moss);
+    line-height: 1;
+    padding-top: 4px;
+    position: relative;
+  }
+  .clock.small { font-size: 13px; font-style: italic; color: var(--ink-soft); }
+  .clock::after {
+    content: "";
+    position: absolute;
+    right: -14px; top: 10px;
+    width: 5px; height: 5px;
+    background: var(--terra);
+    border-radius: 50%;
+  }
+  .clock.small::after { display: none; }
+  .moment-body h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .moment-body p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .moment-body p + p { margin-top: 8px; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terra-deep);
+    background: rgba(179, 90, 59, 0.1);
+    padding: 2px 9px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .tag.spa {
+    color: var(--teal-deep);
+    background: rgba(42, 93, 99, 0.1);
+  }
+  .tag.eat {
+    color: var(--gold);
+    background: rgba(184, 137, 63, 0.12);
+  }
+
+  /* ---------- HOTEL ---------- */
+  .hotel-card {
+    background: var(--moss);
+    color: #f0e9d8;
+    padding: 36px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hotel-card::before {
+    content: "";
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(184, 137, 63, 0.18) 0%, transparent 70%);
+  }
+  .hotel-card .pick-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--moss-deep);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .hotel-card .stars {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .hotel-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    color: #f5efe2;
+  }
+  .hotel-card .meta {
+    font-style: italic;
+    color: rgba(240, 233, 216, 0.75);
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'Fraunces', serif;
+  }
+  .hotel-perks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 28px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .hotel-perks div {
+    font-size: 13.5px;
+    color: rgba(240, 233, 216, 0.92);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(245, 239, 226, 0.12);
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .hotel-perks div::before {
+    content: "✓";
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .hotel-card .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 18px;
+    border-top: 1px solid rgba(245, 239, 226, 0.2);
+    position: relative;
+  }
+  .hotel-card .price-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #f5efe2;
+  }
+  .hotel-card .price-num small {
+    font-size: 14px;
+    color: rgba(240, 233, 216, 0.7);
+    font-weight: 400;
+  }
+  .hotel-card .review .score {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .hotel-card .review {
+    font-size: 12px;
+    color: rgba(240, 233, 216, 0.7);
+    text-align: right;
+  }
+  .hotel-card .alert {
+    background: rgba(179, 90, 59, 0.18);
+    border-left: 3px solid var(--terra);
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 13.5px;
+    color: #f5efe2;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.55;
+    border-radius: 0 2px 2px 0;
+    position: relative;
+  }
+  .hotel-card .alert strong {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ---------- SPA AT-A-GLANCE ---------- */
+  .spa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .spa-feat {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 18px 18px 16px;
+    border-radius: 3px;
+    transition: transform 0.2s;
+  }
+  .spa-feat:hover {
+    transform: translateY(-2px);
+    border-color: var(--teal);
+  }
+  .spa-feat .icon {
+    width: 32px; height: 32px;
+    background: var(--teal-pale);
+    border-radius: 50%;
+    margin-bottom: 12px;
+    display: grid;
+    place-items: center;
+    color: var(--teal-deep);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .spa-feat h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .spa-feat p {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* ---------- MAP ---------- */
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: #e9e0cc;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+  .map-caption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ---------- BUDGET ---------- */
+  .budget {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .budget table { width: 100%; border-collapse: collapse; }
+  .budget td {
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14.5px;
+  }
+  .budget tr:last-child td { border-bottom: none; }
+  .budget tr.total td {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: var(--moss);
+    font-weight: 500;
+    background: rgba(47, 74, 58, 0.04);
+  }
+  .budget tr.optional td {
+    background: rgba(184, 137, 63, 0.04);
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+  .budget td:last-child {
+    text-align: right;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .budget td .item-note {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .budget-disclaimer {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(184, 137, 63, 0.08);
+    border-left: 3px solid var(--gold);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* ---------- NOTES ---------- */
+  .notes {
+    background: var(--teal-deep);
+    color: #f0e9d8;
+    padding: 44px 38px;
+    border-radius: 3px;
+    margin: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .notes::before {
+    content: "";
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(184, 137, 63, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .notes h2 { color: #f5efe2; margin-bottom: 22px; position: relative; }
+  .notes h2 em { color: var(--gold); }
+  .notes ul { list-style: none; counter-reset: notenum; position: relative; }
+  .notes li {
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(245, 239, 226, 0.15);
+    font-size: 14.5px;
+    line-height: 1.55;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+  .notes li:last-child { border-bottom: none; }
+  .notes li::before {
+    content: counter(notenum, lower-roman) ".";
+    counter-increment: notenum;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 15px;
+    min-width: 28px;
+  }
+  .notes strong { color: #f5efe2; font-weight: 600; }
+
+  /* ---------- PACKING ---------- */
+  .pack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .pack-col {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 22px 20px;
+    border-radius: 2px;
+  }
+  .pack-col h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--moss);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .pack-col ul { list-style: none; }
+  .pack-col li {
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--ink);
+    position: relative;
+    padding-left: 18px;
+    line-height: 1.45;
+  }
+  .pack-col li::before {
+    content: "○";
+    position: absolute;
+    left: 0; top: 6px;
+    color: var(--terra);
+    font-size: 10px;
+  }
+  .pack-col li .who {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    margin-top: 1px;
+  }
+
+  /* ---------- LINKS ---------- */
+  .links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .links a {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .links a:hover { color: var(--terra-deep); border-color: var(--terra-deep); }
+
+  /* ---------- DATA NOTE ---------- */
+  .data-note {
+    background: var(--bg-deep);
+    border: 1px dashed var(--rule);
+    padding: 16px 20px;
+    border-radius: 2px;
+    margin: 20px 0;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .data-note strong { color: var(--moss-deep); font-style: normal; font-weight: 600; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  footer .glyph {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terra-deep);
+    font-size: 22px;
+  }
+  footer .meta {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 760px) {
+    .inner { padding: 0 22px; }
+    .stats-bar { padding: 18px 20px; margin: 28px 22px 44px; }
+    .masthead { left: 22px; right: 22px; }
+    .hero-title-panel { margin: -50px 22px 0; padding: 32px 26px; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stat { padding: 10px 12px; border-right: none; border-bottom: 1px solid var(--rule); }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    h2 { font-size: 28px; }
+    .weather-grid { grid-template-columns: 1fr; }
+    .pack-grid, .spa-grid { grid-template-columns: 1fr; }
+    .moment { grid-template-columns: 1fr; gap: 6px; }
+    .clock { font-size: 18px; padding-top: 0; }
+    .clock::after { display: none; }
+    .route-legs { grid-template-columns: 1fr; }
+    .map-wrap { height: 280px; }
+    .hero-art { height: 240px; }
+    .hotel-perks { grid-template-columns: 1fr; gap: 6px; }
+    .hotel-card { padding: 28px 22px; }
+    .day-label .sub { display: none; }
+  }
+
+  @media print {
+    body { background: white; }
+    .notes, .hotel-card { background: #2f4a3a !important; -webkit-print-color-adjust: exact; }
+    .hero-art { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <!-- HERO illustration: spa pool / Euganean Hills -->
+  <div class="hero-art">
+    <svg viewBox="0 0 980 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c3d4d6"/>
+          <stop offset="100%" stop-color="#e0d5be"/>
+        </linearGradient>
+        <linearGradient id="hillsBack" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7a8e8a"/>
+          <stop offset="100%" stop-color="#9aab9e"/>
+        </linearGradient>
+        <linearGradient id="hillsMid" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5a7464"/>
+          <stop offset="100%" stop-color="#7a8e7c"/>
+        </linearGradient>
+        <linearGradient id="poolGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7ab0b6"/>
+          <stop offset="60%" stop-color="#5d9097"/>
+          <stop offset="100%" stop-color="#3d7077"/>
+        </linearGradient>
+        <linearGradient id="steamGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Sky -->
+      <rect width="980" height="320" fill="url(#skyGrad)"/>
+
+      <!-- Sun -->
+      <circle cx="780" cy="80" r="36" fill="#f4e4c8" opacity="0.55"/>
+      <circle cx="780" cy="80" r="26" fill="#f0d8b0" opacity="0.65"/>
+
+      <!-- Euganean Hills (rolling, distinctive shape) -->
+      <path d="M 0 170 Q 80 130, 180 145 Q 280 100, 380 130 Q 480 95, 580 125 Q 680 105, 780 135 Q 880 110, 980 145 L 980 320 L 0 320 Z" fill="url(#hillsBack)" opacity="0.7"/>
+      <path d="M 0 220 Q 100 180, 200 200 Q 300 165, 420 195 Q 540 170, 660 200 Q 780 175, 880 205 Q 940 195, 980 210 L 980 320 L 0 320 Z" fill="url(#hillsMid)"/>
+
+      <!-- Cypress trees -->
+      <g opacity="0.75">
+        <ellipse cx="120" cy="218" rx="4" ry="14" fill="#3d5847"/>
+        <ellipse cx="135" cy="220" rx="4" ry="12" fill="#3d5847"/>
+        <ellipse cx="450" cy="200" rx="4" ry="14" fill="#3d5847"/>
+        <ellipse cx="465" cy="202" rx="4" ry="12" fill="#3d5847"/>
+        <ellipse cx="700" cy="208" rx="4" ry="14" fill="#3d5847"/>
+        <ellipse cx="715" cy="210" rx="4" ry="12" fill="#3d5847"/>
+      </g>
+
+      <!-- Foreground: pool deck -->
+      <rect y="245" width="980" height="20" fill="#e7decb"/>
+
+      <!-- Pool -->
+      <path d="M 0 265 L 980 265 L 980 320 L 0 320 Z" fill="url(#poolGrad)"/>
+
+      <!-- Pool ripples -->
+      <path d="M 60 280 Q 100 277, 160 280" stroke="#a8d0d4" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M 240 285 Q 280 282, 360 285" stroke="#a8d0d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+      <path d="M 480 290 Q 540 287, 620 290" stroke="#a8d0d4" stroke-width="1.5" fill="none" opacity="0.5"/>
+      <path d="M 720 295 Q 780 292, 860 295" stroke="#a8d0d4" stroke-width="1.5" fill="none" opacity="0.6"/>
+      <path d="M 100 305 Q 180 302, 280 305" stroke="#a8d0d4" stroke-width="1" fill="none" opacity="0.4"/>
+      <path d="M 380 308 Q 460 305, 560 308" stroke="#a8d0d4" stroke-width="1" fill="none" opacity="0.4"/>
+      <path d="M 660 310 Q 740 307, 840 310" stroke="#a8d0d4" stroke-width="1" fill="none" opacity="0.4"/>
+
+      <!-- Steam rising from pool -->
+      <ellipse cx="180" cy="248" rx="36" ry="6" fill="url(#steamGrad)" opacity="0.5"/>
+      <ellipse cx="420" cy="245" rx="44" ry="7" fill="url(#steamGrad)" opacity="0.45"/>
+      <ellipse cx="700" cy="247" rx="40" ry="6" fill="url(#steamGrad)" opacity="0.5"/>
+
+      <!-- Two palm trees (Le Palme pool callout) -->
+      <g>
+        <line x1="60" y1="245" x2="60" y2="180" stroke="#5a4232" stroke-width="3"/>
+        <path d="M 60 180 Q 40 170, 28 175" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 60 180 Q 80 170, 92 175" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 60 180 Q 50 165, 45 158" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 60 180 Q 70 165, 75 158" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 60 180 Q 35 178, 25 184" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 60 180 Q 85 178, 95 184" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <g>
+        <line x1="920" y1="245" x2="920" y2="170" stroke="#5a4232" stroke-width="3"/>
+        <path d="M 920 170 Q 900 158, 888 162" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 920 170 Q 940 158, 952 162" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 920 170 Q 910 152, 905 145" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 920 170 Q 930 152, 935 145" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 920 170 Q 895 168, 885 174" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 920 170 Q 945 168, 955 174" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+
+    <header class="masthead">
+      <div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; VENETO N° 04</div>
+      <div class="issue">One Night · Vicenza ↔ Montegrotto Terme</div>
+    </header>
+  </div>
+
+  <!-- HERO TITLE -->
+  <div class="hero-title-panel">
+    <div class="kicker-hero">A Wellness Overnight in the Euganean Hills</div>
+    <h1 class="title">Terme di Relilax,<br><em>nothing to do but soak.</em></h1>
+    <p class="dek-hero">Forty-five minutes from your front door to a thermal pool. Three full afternoon hours of spa before dinner. The trip your brief actually wanted.</p>
+    <div class="date-badge"><strong>Dates</strong>Saturday, May 23 — Sunday, May 24, 2026</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Leave home</div>
+        <div class="value">2:00<small>pm</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Travel time</div>
+        <div class="value">~2<small>h door-to-door</small></div>
+      </div>
+      <div class="stat">
+        <div class="label">Hotel</div>
+        <div class="value">Relilax</div>
+      </div>
+      <div class="stat">
+        <div class="label">Spa hours</div>
+        <div class="value">9am–11:30pm</div>
+      </div>
+      <div class="stat">
+        <div class="label">Trip cost</div>
+        <div class="value">$$$</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner">
+
+    <!-- WEATHER -->
+    <section>
+      <div class="section-num">i.</div>
+      <h2>The <em>weather window.</em></h2>
+      <p class="lead">Late-May norms for Montegrotto Terme (Po valley, ~25m elevation, slightly warmer than alpine destinations). Live forecasts only go 7 days out — recheck Monday May 18 for the actual outlook.</p>
+
+      <div class="weather-grid">
+        <div class="weather-day">
+          <div class="day-name">Saturday</div>
+          <div class="day-date">May 23, 2026</div>
+          <div class="temps">
+            <div class="high">73°<small style="font-size:18px;">F</small></div>
+            <div class="low">/ 56°F low</div>
+          </div>
+          <div class="cond">Typical: warm and sunny.<br>Possible afternoon thunderstorm.</div>
+        </div>
+        <div class="weather-day">
+          <div class="day-name">Sunday</div>
+          <div class="day-date">May 24, 2026</div>
+          <div class="temps">
+            <div class="high">74°<small style="font-size:18px;">F</small></div>
+            <div class="low">/ 57°F low</div>
+          </div>
+          <div class="cond">Similar conditions.<br>Warm enough for outdoor pool.</div>
+        </div>
+      </div>
+
+      <div class="weather-note"><strong>Sunset is ~8:50 PM</strong> — you can swim outdoors under the stars at Le Palme. The pool is heated regardless of air temp, so even an evening thunderstorm doesn't kill the day. Mornings can be cool — light layer needed before 10 AM.</div>
+    </section>
+
+    <!-- ROUTE -->
+    <section>
+      <div class="section-num">ii.</div>
+      <h2>The <em>route.</em></h2>
+      <p class="lead">Vicenza → Padova → Terme Euganee–Abano-Montegrotto. One transfer, both legs short. Buy regional tickets day-of in the Trenitalia app — fares are fixed Ordinaria.</p>
+
+      <div class="route-vis">
+        <div class="route-line">
+          <svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#d6cab0" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity="0.7">
+              <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <circle cx="40" cy="35" r="9" fill="#fbf7ec" stroke="#2f4a3a" stroke-width="2.5"/>
+            <circle cx="450" cy="35" r="7" fill="#b35a3b"/>
+            <circle cx="860" cy="35" r="11" fill="#2a5d63" stroke="#fbf7ec" stroke-width="2.5"/>
+            <circle cx="860" cy="35" r="4" fill="#b8893f"/>
+          </svg>
+        </div>
+        <div class="route-stops">
+          <div class="stop"><div class="name">Vicenza</div><div class="time">3:00 PM</div></div>
+          <div class="stop"><div class="name">Padova</div><div class="time">change ~3:30</div></div>
+          <div class="stop"><div class="name">Terme Euganee</div><div class="time">~3:55 PM</div></div>
+        </div>
+        <div class="route-legs">
+          <div class="route-leg">
+            <div class="label">Leg i · Reg. Veloce</div>
+            <div class="time">~25 min</div>
+            <div class="meta">Vicenza → Padova · ~€5</div>
+          </div>
+          <div class="route-leg">
+            <div class="label">Transfer at Padova</div>
+            <div class="time">~10–15 min</div>
+            <div class="meta">Same station, easy walk between platforms</div>
+          </div>
+          <div class="route-leg">
+            <div class="label">Leg ii · Regionale</div>
+            <div class="time">~7 min</div>
+            <div class="meta">Padova → Terme Euganee · ~€2</div>
+          </div>
+        </div>
+        <div class="route-callout">
+          <strong>Hotel is 400m from the station</strong>The Terme Euganee–Abano-Montegrotto station drops you 5 minutes' walk from Relilax's front door. Skip the "Padova transfer" upsell — there's a direct train onward, no taxi needed.
+        </div>
+      </div>
+
+      <div class="data-note"><strong>How I'm pulling this:</strong> Trenitalia doesn't have a live API connector, so train times are based on web searches of their published schedule + Trainline data. The Padova → Terme Euganee leg runs ~16 trains/day, fastest 6 min. Verify exact times via the <strong>Trenitalia app</strong> a few days before. Hotel data confirmed live from Booking.com + the hotel's own website.</div>
+    </section>
+
+    <!-- DAY 1 -->
+    <section>
+      <div class="section-num">iii.</div>
+      <h2>The <em>day, paced.</em></h2>
+      <p class="lead">Built around your real morning, the 30–40 min walk to the station, lunch at home before leaving, and arriving early enough to actually use the spa.</p>
+
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">i.</div>
+          <h3>Saturday — May 23.</h3>
+          <div class="sub">Vicenza → Montegrotto</div>
+        </div>
+        <div class="timeline">
+
+          <div class="moment">
+            <div class="clock small">Fri night</div>
+            <div class="moment-body">
+              <span class="tag">Pack</span>
+              <h4>Pack the bag the night before.</h4>
+              <p>One small overnight bag for the two of you. Tickets stay on the phone. Backpack ready by the door. See packing section below.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">9:00</div>
+            <div class="moment-body">
+              <span class="tag">Wake</span>
+              <h4>Slow morning at home.</h4>
+              <p>Breakfast at home. Coffee. No clock pressure — train doesn't matter until 3 PM.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">1:00</div>
+            <div class="moment-body">
+              <span class="tag eat">Lunch</span>
+              <h4>Lunch at home.</h4>
+              <p>Eat properly. Dinner is at Ginco at the hotel tonight, so a real lunch + a snack on the train is the right rhythm.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:00</div>
+            <div class="moment-body">
+              <span class="tag">Out the door</span>
+              <h4>Walk Via T. dal Molin → Vicenza Stazione.</h4>
+              <p>30–40 min walk. Stop at a bar or alimentari on the way for water + dry snacks for the train.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:40</div>
+            <div class="moment-body">
+              <span class="tag">Station</span>
+              <h4>Arrive Vicenza Stazione.</h4>
+              <p>Buffer time before the train. Validate paper tickets at the platform machines if you printed them (digital app tickets don't need it).</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:00</div>
+            <div class="moment-body">
+              <span class="tag">Depart</span>
+              <h4>Vicenza → Padova.</h4>
+              <p>Regionale Veloce, ~25 min. Direct, no changes, frequent service.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:30</div>
+            <div class="moment-body">
+              <span class="tag">Transfer</span>
+              <h4>Change platforms at Padova.</h4>
+              <p>Same station — just walk to a different platform. Look at the departure board for "Terme Euganee–Abano-Montegrotto." Allow 10–15 min for the change.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:45</div>
+            <div class="moment-body">
+              <span class="tag">Final leg</span>
+              <h4>Padova → Terme Euganee.</h4>
+              <p>Just 6–7 minutes on the train. Quick stop in Abano, then your station.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:55</div>
+            <div class="moment-body">
+              <span class="tag">Arrive</span>
+              <h4>Terme Euganee–Abano-Montegrotto.</h4>
+              <p>Out of the station, walk 5 minutes to Piazza Roma 19 — Relilax is right there. Mostly flat, easy with the small bag.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">4:00</div>
+            <div class="moment-body">
+              <span class="tag">Check-in</span>
+              <h4>Hotel check-in.</h4>
+              <p>Standard check-in is 2:30 PM, so you're well within window. Drop bags. Meet the Guest Relations Manager at the spa reception (Giardino Fiorito) — they'll walk you through the wellness areas.</p>
+              <p><em>Bathrobe and slippers are in the room.</em> Save the bathrobe for the breakfast room only — not a wear-around-the-hotel garment.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">4:30</div>
+            <div class="moment-body">
+              <span class="tag spa">Spa</span>
+              <h4>Three full hours in the wellness area.</h4>
+              <p>Hit the rotation — soak in <strong>Le Palme</strong> (outdoor, palm-tree pool), then the indoor <strong>Ardesia</strong> thermal pool, then <strong>Le Bolle</strong> minipool whirlpool. When you've had enough water, cycle through the saunas: Finnish, bio, steam bath, and the aromatherapy showers. Relaxation room between sessions.</p>
+              <p><em>Hydrate.</em> Thermal pools dehydrate faster than you think.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">7:30</div>
+            <div class="moment-body">
+              <span class="tag eat">Dinner</span>
+              <h4>Dinner at Ginco — included in your half-board.</h4>
+              <p>The hotel's restaurant. Italian local cuisine. You'll want a clothes change first (no bathrobe in the dining room). Wine pairings extra; ask about Colli Euganei DOC — they're the local wines from these very hills.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">9:30</div>
+            <div class="moment-body">
+              <span class="tag spa">Night swim</span>
+              <h4>Back to the pool, under the stars.</h4>
+              <p>Le Palme is open until <strong>11:30 PM</strong>. Outdoor pool, heated, palm trees, much quieter at night. This is the part of the trip Levico can't give you.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">11:00</div>
+            <div class="moment-body">
+              <span class="tag">Sleep</span>
+              <h4>Bed.</h4>
+              <p>You'll sleep harder than you have in weeks. That's the thermal water doing its job.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">ii.</div>
+          <h3>Sunday — May 24.</h3>
+          <div class="sub">Spa morning → home for dinner</div>
+        </div>
+        <div class="timeline">
+
+          <div class="moment">
+            <div class="clock">9:00</div>
+            <div class="moment-body">
+              <span class="tag">Wake</span>
+              <h4>Down to breakfast by 9:30.</h4>
+              <p>Buffet style — local cheeses, cured meats, freshly baked croissants, organic options. Take your time.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">10:30</div>
+            <div class="moment-body">
+              <span class="tag spa">Round 2</span>
+              <h4>Morning spa session.</h4>
+              <p>The pools are at their quietest mid-morning. One last soak before checkout — the wellness area opens at 9 AM, so you've got the window.</p>
+              <p><em>Or:</em> grab one of the free Relilax bicycles and ride 15–20 min to Villa Draghi park, the Roman Villa di Via Neroniana, or Butterfly Arc (botanical garden + butterfly house). Easy flat ride.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">11:30</div>
+            <div class="moment-body">
+              <span class="tag">Checkout</span>
+              <h4>Standard checkout.</h4>
+              <p>Ask reception to <em>hold the bag</em> until early afternoon — they'll do it without question. Pay any room charges (treatment add-ons, drinks, tourist tax).</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">12:30</div>
+            <div class="moment-body">
+              <span class="tag eat">Light bite</span>
+              <h4>Lunch in town or at the hotel bar.</h4>
+              <p>Don't go heavy — train and dinner at home tonight. Coffee, panino, gelato. The lounge bar at Relilax is a clean option if you don't feel like leaving.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:00</div>
+            <div class="moment-body">
+              <span class="tag">Walk to station</span>
+              <h4>5 minutes back to Terme Euganee.</h4>
+              <p>Pick up bag from reception. Quick walk. No transit stress.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">2:30</div>
+            <div class="moment-body">
+              <span class="tag">Train back</span>
+              <h4>Terme Euganee → Padova → Vicenza.</h4>
+              <p>Same route reversed. ~45 min total including the Padova change.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">3:30</div>
+            <div class="moment-body">
+              <span class="tag">Arrive</span>
+              <h4>Vicenza Stazione.</h4>
+              <p>Walk 30–40 min home, or grab a station-rank taxi (~€8–12) if you're ready to be done walking.</p>
+            </div>
+          </div>
+
+          <div class="moment">
+            <div class="clock">4:15</div>
+            <div class="moment-body">
+              <span class="tag">Home</span>
+              <h4>Back at Via T. dal Molin.</h4>
+              <p>Plenty of time to settle in. Dinner at home tonight. The post-spa nap is mandatory.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTEL -->
+    <section>
+      <div class="section-num">iv.</div>
+      <h2>Where you're <em>sleeping.</em></h2>
+      <p class="lead">5-star boutique adults-only spa hotel. 130 years old, family-run by the Braggion family since 1890.</p>
+
+      <div class="hotel-card">
+        <div class="pick-tag">Your pick</div>
+        <div class="stars">★★★★★ · 5-star · Adults only (16+)</div>
+        <h3>Terme di Relilax Boutique Hotel & Spa</h3>
+        <div class="meta">Piazza Roma 19, 35036 Montegrotto Terme · 400m / 5-min walk from station · Maison Relilax Queen room</div>
+
+        <div class="hotel-perks">
+          <div>Half-board: breakfast + dinner at Ginco</div>
+          <div>3 thermal pools: Le Palme, Ardesia, Le Bolle</div>
+          <div>Finnish sauna, bio sauna, steam bath</div>
+          <div>Aromatherapy showers, river-stone path</div>
+          <div>Spa access 9 AM – 11:30 PM</div>
+          <div>Free Relilax bicycle rental</div>
+          <div>Bathrobe, slippers, beauty bag in room</div>
+          <div>Marble bathroom · Gessi designer fixtures</div>
+          <div>Coffee pod machine · 50-channel Sky TV</div>
+          <div>In-room safe + reception safe</div>
+          <div>Free Wi-Fi everywhere · Free parking</div>
+          <div>Technogym fitness center</div>
+        </div>
+
+        <div class="price-row">
+          <div class="price-num">$$$<small> half-board, all-in</small></div>
+          <div class="review"><div class="score">8.9 / 10</div>696 Booking reviews</div>
+        </div>
+
+        <div class="alert"><strong>Three things to know before you book:</strong> &nbsp;<strong>1.</strong> The base rate covers room + breakfast + dinner at Ginco. <em>The optional spa treatment package is a separate add-on</em> — skip it unless you specifically want a 75-min massage on the trip, since the pools and saunas are already included. &nbsp;<strong>2.</strong> Skip the bouquet/candle/Padova transfer upsells — pure margin. The train goes directly to Montegrotto. &nbsp;<strong>3.</strong> Booking.com sometimes shows a lower rate for B&B only (no dinner). If you'd rather eat out, that route is slightly cheaper. Direct half-board is the cleaner choice and dinner is a real meal.</div>
+      </div>
+
+      <div class="spa-grid">
+        <div class="spa-feat">
+          <div class="icon">L</div>
+          <h4>Le Palme</h4>
+          <p>Outdoor thermal pool with palm trees, silver-ion water coating.</p>
+        </div>
+        <div class="spa-feat">
+          <div class="icon">A</div>
+          <h4>Ardesia</h4>
+          <p>Indoor thermal pool, slate-walled, naturally heated.</p>
+        </div>
+        <div class="spa-feat">
+          <div class="icon">B</div>
+          <h4>Le Bolle</h4>
+          <p>Hydromassage minipool — bubbles, jets, the works.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section>
+      <div class="section-num">v.</div>
+      <h2>The <em>geography.</em></h2>
+      <p class="lead">Hotel and station basically next door. Euganean Hills regional park starts within bike-rental range.</p>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Terme+di+Relilax+Boutique+Hotel+Piazza+Roma+19+Montegrotto+Terme&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Terme di Relilax & Montegrotto Terme"
+          allowfullscreen></iframe>
+      </div>
+      <div class="map-caption">Terme di Relilax, Piazza Roma 19, Montegrotto Terme.</div>
+    </section>
+
+    <!-- BUDGET -->
+    <section>
+      <div class="section-num">vi.</div>
+      <h2>The <em>budget.</em></h2>
+      <p class="lead">Half-board direct from Relilax with all upsells skipped. Includes travel, food, and tourist tax.</p>
+
+      <div class="budget">
+        <table>
+          <tr>
+            <td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Terme Euganee via Padova, regional Trenitalia</span></td>
+            <td>included</td>
+          </tr>
+          <tr>
+            <td>Relilax half-board, 1 night, 2 adults<span class="item-note">Maison Relilax Queen + breakfast + dinner at Ginco</span></td>
+            <td>included</td>
+          </tr>
+          <tr>
+            <td>Saturday lunch at home + train snacks<span class="item-note">Picked up on the way to the station</span></td>
+            <td>included</td>
+          </tr>
+          <tr>
+            <td>Sunday light lunch + Saturday drinks</td>
+            <td>included</td>
+          </tr>
+          <tr>
+            <td>Wine at Ginco dinner</td>
+            <td>included</td>
+          </tr>
+          <tr>
+            <td>Tourist tax · 2 ppl × 1 night<span class="item-note">Italian municipal tax, paid in cash at checkout</span></td>
+            <td>included</td>
+          </tr>
+          <tr class="total">
+            <td>Total trip cost</td>
+            <td>$$$</td>
+          </tr>
+          <tr class="optional">
+            <td>Optional: Relilax One Night treatment package · 2 ppl<span class="item-note">75 min of body treatment + massage each. Add-on, not included</span></td>
+            <td>+ tier</td>
+          </tr>
+          <tr class="optional">
+            <td>Total with treatment package</td>
+            <td>$$$$</td>
+          </tr>
+        </table>
+      </div>
+      <div class="budget-disclaimer"><strong>Read:</strong> Without treatments this is a 5-star half-board weekend in <strong>$$$</strong> territory. Adding the treatment package pushes it into <strong>$$$$</strong> — closer to anniversary/birthday occasion spending. Both fit the trip, depends on the moment.</div>
+    </section>
+
+    <!-- PACKING -->
+    <section>
+      <div class="section-num">vii.</div>
+      <h2>Pack the <em>night before.</em></h2>
+      <p class="lead">One small bag for two, one night. Built around late-May Veneto plus a 5-star spa with a dress code at dinner.</p>
+
+      <div class="pack-grid">
+        <div class="pack-col">
+          <h4>Essentials</h4>
+          <ul>
+            <li>Passports / military ID<span class="who">In backpack</span></li>
+            <li>Phones &amp; chargers<span class="who">In backpack</span></li>
+            <li>Cash €50 buffer + cards<span class="who">In backpack — Elijah</span></li>
+            <li>Reusable water bottles<span class="who">Fill at Vicenza station</span></li>
+            <li>Sunglasses<span class="who">Worn / on head</span></li>
+            <li>Trenitalia app login confirmed<span class="who">Both phones</span></li>
+            <li>Relilax booking PDF saved offline<span class="who">In backpack — Elijah</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Clothes (each)</h4>
+          <ul>
+            <li>Smart-casual outfit for Ginco dinner<span class="who">Slacks + button-down for him; dress for her</span></li>
+            <li>One change of clothes<span class="who">Day 2 walk-around outfit</span></li>
+            <li>Comfortable walking shoes<span class="who">Worn</span></li>
+            <li>Pajamas + extra underwear<span class="who">Wife's bag / Elijah's bag</span></li>
+            <li>Toiletry kit (one shared)<span class="who">In backpack</span></li>
+            <li>Swimsuit · 2 each<span class="who">You'll want a dry one for Sunday morning</span></li>
+            <li>Light sweater or jacket<span class="who">For evening, late-May AC, train</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Late-May Specifics</h4>
+          <ul>
+            <li>Backpack<span class="who">Elijah will carry</span></li>
+            <li>Sunscreen SPF 30+<span class="who">In backpack</span></li>
+            <li>Compact umbrella OR light rain shell<span class="who">Spring thunderstorms possible — in backpack</span></li>
+            <li>Snacks for the train both days<span class="who">Dry snacks — pick up on the way to the station</span></li>
+            <li>Bug spray<span class="who">Spa garden + Euganean Hills = mosquitoes at dusk</span></li>
+            <li>Phone for pool photos<span class="who">Already with you</span></li>
+            <li>Book / podcast for the train<span class="who">On phone</span></li>
+            <li>Hair tie for spa pools<span class="who">Wife</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="data-note"><strong>What you can leave home:</strong> bathrobe, slippers, pool flip-flops, pool towels, beauty bag — all provided in the room. Hairdryer in the bathroom. No need to pack any of it.</div>
+    </section>
+
+    <!-- NOTES -->
+    <aside class="notes">
+      <h2>Things <em>worth knowing</em> — for May 23–24.</h2>
+      <ul>
+        <li><span><strong>Pentecost Sunday is May 24.</strong> Not a public holiday in Italy, but the Veneto can be slightly busier with Italian and Austrian/German weekenders. Book Relilax early; they're popular with the German-speaking spa crowd.</span></li>
+        <li><span><strong>Adults only — 16+.</strong> Quieter spa, more couples, more romantic vibe. No kids running around the pool, ever.</span></li>
+        <li><span><strong>Bathrobe etiquette.</strong> The hotel allows bathrobes only in the breakfast room and spa areas, never in common areas or restaurant. Pack a real outfit for dinner.</span></li>
+        <li><span><strong>Treatment cancellations</strong> require 24 hours notice. If you book the optional €152 package, lock in your treatment slot before arrival via email — popular times sell out.</span></li>
+        <li><span><strong>Dress code at Ginco.</strong> Smart casual — collared shirt for him, dress or smart pants for her. Not formal, but no shorts or pool wear.</span></li>
+        <li><span><strong>Tourist tax</strong> at Italian hotels is a few euros per person per night, paid in cash at checkout, separate from your Relilax total.</span></li>
+        <li><span><strong>Apps to install:</strong> <em>Trenitalia</em> for tickets (validate by buying in-app), <em>Google Maps</em> with offline data downloaded for Montegrotto.</span></li>
+        <li><span><strong>If you want a treatment but didn't pre-book the package</strong> — walk-in availability for single massages is usually fine; ask the Guest Relations Manager at check-in. Single 50-min massage is ~€80–100 and you can charge it to the room.</span></li>
+        <li><span><strong>Free bikes</strong> are first-come, first-served at reception. Ask Saturday afternoon if you want to ride Sunday morning, so they're held for you.</span></li>
+        <li><span><strong>Hydrate before, during, after.</strong> Thermal water is mineral-heavy and warm — easy to overdo. The lounge bar has free water; refill at the saunas too.</span></li>
+      </ul>
+    </aside>
+
+    <!-- LINKS -->
+    <section>
+      <div class="section-num">viii.</div>
+      <h2>Quick <em>links.</em></h2>
+      <div class="links">
+        <a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+        <a href="https://www.relilax.com/" target="_blank" rel="noopener">Relilax direct ↗</a>
+        <a href="https://www.simplebooking.it/ibe2/hotel/5766?lang=EN&cur=EUR" target="_blank" rel="noopener">Relilax booking widget ↗</a>
+        <a href="https://www.booking.com/hotel/it/terme-relilax-boutique-hotel.html" target="_blank" rel="noopener">Relilax on Booking ↗</a>
+        <a href="mailto:info@relilax.com" target="_blank" rel="noopener">Email Relilax ↗</a>
+        <a href="tel:+390498911755" target="_blank" rel="noopener">Call +39 049 8911755 ↗</a>
+        <a href="https://www.visitabanomontegrotto.com/en/" target="_blank" rel="noopener">Visit Abano-Montegrotto ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="glyph">⁂</div>
+      <div class="meta">May 23–24, 2026 · Buon viaggio.</div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

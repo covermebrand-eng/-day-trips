@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abano Terme — Hotel Savoia Thermae & SPA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f2ede3;--bg-card:#faf6ec;--bg-deep:#e8e0cc;--ink:#1a1c14;--ink-soft:#45463a;
+    --rule:#d6cab0;--moss:#2f4a3a;--moss-deep:#1a2b21;--teal:#2a6870;--teal-deep:#1a4850;
+    --terra:#b35a3b;--terra-deep:#8a4128;--gold:#b8893f;--gold-soft:#d4ad6e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;background-image:radial-gradient(circle at 15% 20%,rgba(42,104,112,.05) 0%,transparent 40%),radial-gradient(circle at 85% 80%,rgba(184,137,63,.04) 0%,transparent 40%);min-height:100vh}
+  .paper{max-width:980px;margin:0 auto;padding:0 0 80px}
+  .inner{padding:0 40px}
+
+  /* HERO */
+  .hero-art{position:relative;width:100%;height:300px;overflow:hidden;background:linear-gradient(180deg,#b8d8dc 0%,#cfe0e3 50%,#e6dbc8 100%)}
+  .hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+  .masthead{position:absolute;top:28px;left:40px;right:40px;display:flex;justify-content:space-between;align-items:baseline;z-index:3}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(250,246,236,.9);padding:6px 14px;border-radius:2px;color:var(--moss-deep);backdrop-filter:blur(4px)}
+  .brand span{color:var(--terra-deep)}
+  .issue{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:rgba(250,246,236,.9);padding:6px 14px;border-radius:2px;color:var(--ink);backdrop-filter:blur(4px)}
+  .hero-title-panel{background:var(--bg-card);margin:-60px 40px 0;padding:44px 44px 40px;border-radius:4px;position:relative;z-index:5;box-shadow:0 -4px 30px -10px rgba(26,72,80,.15);border-left:5px solid var(--teal)}
+  .kicker-hero{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:14px;font-weight:600}
+  h1.title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(40px,7vw,72px);line-height:.96;letter-spacing:-.02em;color:var(--moss-deep);margin-bottom:16px}
+  h1.title em{font-style:italic;font-weight:300;color:var(--teal-deep)}
+  .dek-hero{font-family:'Fraunces',serif;font-size:19px;font-weight:300;color:var(--ink-soft);max-width:580px;line-height:1.4}
+  .date-badge{display:inline-block;background:var(--teal-deep);color:var(--bg-card);font-family:'Fraunces',serif;font-style:italic;font-size:15px;padding:6px 16px;border-radius:2px;margin-top:18px}
+  .date-badge strong{font-weight:500;font-style:normal;color:var(--gold-soft);margin-right:6px;letter-spacing:.06em;font-size:11px;text-transform:uppercase}
+
+  /* STATS */
+  .stats-bar{background:var(--bg-card);margin:40px 40px 56px;padding:22px 32px;border-radius:3px;border:1px solid var(--rule)}
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .stat{padding:0 18px;border-right:1px solid var(--rule)}
+  .stat:last-child{border-right:none}
+  .stat:first-child{padding-left:0}
+  .stat .label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;font-weight:600}
+  .stat .value{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--ink);line-height:1.1}
+  .stat .value small{font-size:12px;color:var(--ink-soft);font-weight:400;margin-left:2px}
+
+  /* SECTIONS */
+  section{margin:64px 0}
+  .section-num{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--terra-deep);margin-bottom:8px}
+  h2{font-family:'Fraunces',serif;font-weight:400;font-size:38px;letter-spacing:-.01em;margin-bottom:28px;color:var(--ink);line-height:1.05}
+  h2 em{font-style:italic;color:var(--teal-deep)}
+  .lead{font-size:16px;color:var(--ink-soft);max-width:640px;margin-bottom:32px}
+
+  /* WEATHER */
+  .weather-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+  .weather-day{background:linear-gradient(135deg,#a8ccd0 0%,#8ab4ba 100%);border-radius:3px;padding:26px 28px;position:relative;overflow:hidden}
+  .weather-day::before{content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.4) 0%,transparent 70%)}
+  .weather-day .day-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--moss-deep);margin-bottom:4px;position:relative}
+  .weather-day .day-date{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;font-weight:600;position:relative}
+  .weather-day .temps{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;position:relative}
+  .weather-day .high{font-family:'Fraunces',serif;font-size:38px;font-weight:500;color:var(--ink);line-height:1}
+  .weather-day .low{font-family:'Fraunces',serif;font-size:22px;color:var(--ink-soft);font-weight:400}
+  .weather-day .cond{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--moss-deep);line-height:1.45;position:relative}
+  .weather-note{font-size:13px;color:var(--ink-soft);background:rgba(184,137,63,.1);padding:14px 18px;border-radius:3px;border-left:3px solid var(--gold);font-style:italic;font-family:'Fraunces',serif}
+
+  /* ROUTE */
+  .route-vis{margin:32px 0 28px;padding:36px 28px;background:var(--bg-card);border:1px solid var(--rule);border-radius:3px}
+  .route-line{position:relative;height:70px}
+  .route-svg{width:100%;height:100%}
+  .route-stops{display:flex;justify-content:space-between;margin-top:14px;padding:0 4px}
+  .stop{text-align:center;flex:1}
+  .stop .name{font-family:'Fraunces',serif;font-size:13px;font-weight:500;color:var(--ink)}
+  .stop .time{font-size:11px;letter-spacing:.06em;color:var(--ink-soft);margin-top:2px}
+  .route-legs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .route-leg{padding:14px 18px;border-left:2px solid var(--terra);background:rgba(179,90,59,.04);border-radius:0 2px 2px 0}
+  .route-leg .label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);font-weight:600;margin-bottom:4px}
+  .route-leg .time{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--moss);margin-bottom:2px}
+  .route-leg .meta{font-size:12px;color:var(--ink-soft)}
+  .route-callout{background:var(--moss);color:#f5efe2;padding:14px 22px;border-radius:3px;margin-top:18px;font-size:14px;font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+  .route-callout strong{color:var(--gold);font-style:normal;font-weight:600;display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+
+  /* TIMELINE */
+  .day-section{margin-bottom:48px}
+  .day-label{display:flex;align-items:baseline;gap:18px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+  .day-label .num{font-family:'Fraunces',serif;font-style:italic;font-size:48px;color:var(--terra-deep);line-height:1;font-weight:400}
+  .day-label h3{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--ink)}
+  .day-label .sub{font-size:12px;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase;margin-left:auto;font-weight:600}
+  .timeline{position:relative}
+  .moment{display:grid;grid-template-columns:100px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+  .moment:last-child{border-bottom:none}
+  .clock{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:var(--moss);line-height:1;padding-top:4px;position:relative}
+  .clock.small{font-size:13px;font-style:italic;color:var(--ink-soft)}
+  .clock::after{content:"";position:absolute;right:-14px;top:10px;width:5px;height:5px;background:var(--terra);border-radius:50%}
+  .clock.small::after{display:none}
+  .moment-body h4{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:6px;color:var(--ink);line-height:1.2}
+  .moment-body p{color:var(--ink-soft);font-size:14.5px;line-height:1.6}
+  .moment-body p+p{margin-top:8px}
+  .tag{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-deep);background:rgba(179,90,59,.1);padding:2px 9px;border-radius:2px;margin-bottom:8px;font-weight:600}
+  .tag.spa{color:var(--teal-deep);background:rgba(42,104,112,.1)}
+  .tag.eat{color:var(--gold);background:rgba(184,137,63,.12)}
+
+  /* HOTEL */
+  .hotel-card{background:var(--teal-deep);color:#f0e9d8;padding:36px;border-radius:4px;position:relative;overflow:hidden}
+  .hotel-card::before{content:"";position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%)}
+  .hotel-card .pick-tag{display:inline-block;background:var(--gold);color:var(--moss-deep);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:700}
+  .hotel-card .stars{font-size:14px;letter-spacing:.12em;color:var(--gold);margin-bottom:6px}
+  .hotel-card h3{font-family:'Fraunces',serif;font-size:32px;font-weight:500;line-height:1.1;margin-bottom:8px;color:#f5efe2}
+  .hotel-card .meta{font-style:italic;color:rgba(240,233,216,.75);font-size:14px;margin-bottom:20px;font-family:'Fraunces',serif}
+  .hotel-perks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin:24px 0;position:relative}
+  .hotel-perks div{font-size:13.5px;color:rgba(240,233,216,.92);padding:6px 0;border-bottom:1px solid rgba(245,239,226,.12);display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:baseline}
+  .hotel-perks div::before{content:"✓";color:var(--gold);font-weight:600}
+  .hotel-card .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;border-top:1px solid rgba(245,239,226,.2);position:relative}
+  .hotel-card .price-num{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#f5efe2}
+  .hotel-card .price-num small{font-size:14px;color:rgba(240,233,216,.7);font-weight:400}
+  .hotel-card .review .score{font-family:'Fraunces',serif;font-size:18px;color:var(--gold);font-weight:500}
+  .hotel-card .review{font-size:12px;color:rgba(240,233,216,.7);text-align:right}
+  .hotel-card .alert{background:rgba(179,90,59,.18);border-left:3px solid var(--terra);padding:14px 18px;margin-top:20px;font-size:13.5px;color:#f5efe2;font-family:'Fraunces',serif;font-style:italic;line-height:1.55;border-radius:0 2px 2px 0;position:relative}
+  .hotel-card .alert strong{color:var(--gold);font-style:normal;font-weight:600}
+
+  /* SPA GRID */
+  .spa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .spa-feat{background:var(--bg-card);border:1px solid var(--rule);padding:18px 18px 16px;border-radius:3px;transition:transform .2s}
+  .spa-feat:hover{transform:translateY(-2px);border-color:var(--teal)}
+  .spa-feat .icon{width:32px;height:32px;background:rgba(42,104,112,.15);border-radius:50%;margin-bottom:12px;display:grid;place-items:center;color:var(--teal-deep);font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:14px}
+  .spa-feat h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--ink);margin-bottom:4px}
+  .spa-feat p{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+
+  /* MAP */
+  .map-wrap{position:relative;width:100%;height:380px;border-radius:3px;overflow:hidden;border:1px solid var(--rule);background:#e9e0cc}
+  .map-wrap iframe{width:100%;height:100%;border:0}
+  .map-caption{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:10px;font-style:italic;font-family:'Fraunces',serif}
+
+  /* EAT */
+  .eats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .eat{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px;transition:transform .2s,border-color .2s}
+  .eat:hover{transform:translateY(-2px);border-color:var(--moss)}
+  .eat .style{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:600}
+  .eat h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:4px;line-height:1.2}
+  .eat .where{font-style:italic;color:var(--ink-soft);font-size:13px;margin-bottom:10px;font-family:'Fraunces',serif}
+  .eat p{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+
+  /* BUDGET */
+  .budget{border:1px solid var(--rule);background:var(--bg-card);border-radius:3px;overflow:hidden}
+  .budget table{width:100%;border-collapse:collapse}
+  .budget td{padding:14px 22px;border-bottom:1px solid var(--rule);font-size:14.5px}
+  .budget tr:last-child td{border-bottom:none}
+  .budget tr.total td{font-family:'Fraunces',serif;font-size:18px;color:var(--moss);font-weight:500;background:rgba(47,74,58,.04)}
+  .budget td:last-child{text-align:right;font-family:'Fraunces',serif;font-weight:500;color:var(--ink)}
+  .budget td .item-note{font-size:11.5px;color:var(--ink-soft);display:block;margin-top:2px;font-family:'DM Sans',sans-serif;font-weight:400}
+  .budget-disclaimer{margin-top:16px;padding:12px 16px;background:rgba(184,137,63,.08);border-left:3px solid var(--gold);font-size:12.5px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;border-radius:0 2px 2px 0}
+
+  /* NOTES */
+  .notes{background:var(--teal-deep);color:#f0e9d8;padding:44px 38px;border-radius:3px;margin:56px 0;position:relative;overflow:hidden}
+  .notes::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(184,137,63,.18) 0%,transparent 70%);pointer-events:none}
+  .notes h2{color:#f5efe2;margin-bottom:22px;position:relative}
+  .notes h2 em{color:var(--gold)}
+  .notes ul{list-style:none;counter-reset:notenum;position:relative}
+  .notes li{padding:13px 0;border-bottom:1px solid rgba(245,239,226,.15);font-size:14.5px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+  .notes li:last-child{border-bottom:none}
+  .notes li::before{content:counter(notenum,lower-roman)".";counter-increment:notenum;font-family:'Fraunces',serif;font-style:italic;color:var(--gold);font-size:15px;min-width:28px}
+  .notes strong{color:#f5efe2;font-weight:600}
+
+  /* PACKING */
+  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pack-col{background:var(--bg-card);border:1px solid var(--rule);padding:22px 20px;border-radius:2px}
+  .pack-col h4{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:var(--moss);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+  .pack-col ul{list-style:none}
+  .pack-col li{padding:6px 0;font-size:13px;color:var(--ink);position:relative;padding-left:18px;line-height:1.45}
+  .pack-col li::before{content:"○";position:absolute;left:0;top:6px;color:var(--terra);font-size:10px}
+  .pack-col li .who{display:block;font-size:11px;color:var(--ink-soft);font-style:italic;font-family:'Fraunces',serif;margin-top:1px}
+
+  /* LINKS */
+  .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .links a{font-size:13px;letter-spacing:.05em;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:1px;transition:color .2s,border-color .2s}
+  .links a:hover{color:var(--terra-deep);border-color:var(--terra-deep)}
+
+  .data-note{background:var(--bg-deep);border:1px dashed var(--rule);padding:16px 20px;border-radius:2px;margin:20px 0;font-size:12.5px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;line-height:1.5}
+  .data-note strong{color:var(--moss-deep);font-style:normal;font-weight:600}
+
+  footer{margin-top:80px;padding-top:28px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  footer .glyph{font-family:'Fraunces',serif;font-style:italic;color:var(--terra-deep);font-size:22px}
+  footer .meta{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+  @media(max-width:760px){
+    .inner{padding:0 22px}.stats-bar{padding:18px 20px;margin:28px 22px 44px}
+    .masthead{left:22px;right:22px}.hero-title-panel{margin:-50px 22px 0;padding:32px 26px}
+    .stats{grid-template-columns:repeat(2,1fr);gap:14px}
+    .stat{padding:10px 12px;border-right:none;border-bottom:1px solid var(--rule)}
+    .stat:nth-last-child(-n+2){border-bottom:none}h2{font-size:28px}
+    .weather-grid,.eats,.pack-grid,.spa-grid{grid-template-columns:1fr}
+    .moment{grid-template-columns:1fr;gap:6px}.clock{font-size:18px;padding-top:0}
+    .clock::after{display:none}.route-legs{grid-template-columns:1fr}
+    .map-wrap{height:280px}.hero-art{height:240px}
+    .hotel-perks{grid-template-columns:1fr;gap:6px}.hotel-card{padding:28px 22px}
+    .day-label .sub{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <!-- HERO -->
+  <div class="hero-art">
+    <svg viewBox="0 0 980 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d8dc"/><stop offset="100%" stop-color="#e0d4b8"/></linearGradient>
+        <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7aa08a"/><stop offset="100%" stop-color="#9ab8a0"/></linearGradient>
+        <linearGradient id="poolA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#68b0b8"/><stop offset="100%" stop-color="#3d8890"/></linearGradient>
+        <linearGradient id="steamA" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity=".7"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect width="980" height="300" fill="url(#skyA)"/>
+      <circle cx="800" cy="75" r="32" fill="#f4e4c8" opacity=".55"/>
+      <circle cx="800" cy="75" r="22" fill="#f0d8b0" opacity=".65"/>
+      <!-- Euganean hills - gentle rounded -->
+      <path d="M 0 180 Q 120 140,240 160 Q 360 120,480 150 Q 600 125,720 155 Q 840 135,980 165 L 980 300 L 0 300 Z" fill="url(#hillA)" opacity=".65"/>
+      <path d="M 0 220 Q 150 185,300 205 Q 450 175,600 200 Q 750 178,900 208 L 980 215 L 980 300 L 0 300 Z" fill="#4a7460"/>
+      <!-- Thermal pool -->
+      <rect x="0" y="245" width="980" height="55" fill="url(#poolA)"/>
+      <!-- Pool ripples -->
+      <path d="M 60 260 Q 120 257,180 260" stroke="#a8d8dc" stroke-width="1.5" fill="none" opacity=".6"/>
+      <path d="M 280 265 Q 360 262,440 265" stroke="#a8d8dc" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M 540 268 Q 630 265,710 268" stroke="#a8d8dc" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M 780 272 Q 860 269,940 272" stroke="#a8d8dc" stroke-width="1" fill="none" opacity=".4"/>
+      <!-- Steam puffs -->
+      <ellipse cx="150" cy="242" rx="40" ry="6" fill="url(#steamA)" opacity=".55"/>
+      <ellipse cx="420" cy="240" rx="50" ry="7" fill="url(#steamA)" opacity=".5"/>
+      <ellipse cx="720" cy="242" rx="44" ry="6" fill="url(#steamA)" opacity=".55"/>
+      <!-- Palm trees -->
+      <g><line x1="55" y1="245" x2="55" y2="185" stroke="#5a4232" stroke-width="3"/>
+        <path d="M55 185 Q38 175,26 180" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M55 185 Q72 175,84 180" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M55 185 Q45 168,40 160" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M55 185 Q65 168,70 160" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+      <g><line x1="925" y1="245" x2="925" y2="178" stroke="#5a4232" stroke-width="3"/>
+        <path d="M925 178 Q908 166,896 171" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M925 178 Q942 166,954 171" stroke="#3d5847" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M925 178 Q915 160,910 152" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M925 178 Q935 160,940 152" stroke="#3d5847" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <header class="masthead">
+      <div class="brand">FIELD<span>GUIDE</span> &nbsp;·&nbsp; VENETO N° 02</div>
+      <div class="issue">One Night · Vicenza ↔ Abano Terme</div>
+    </header>
+  </div>
+
+  <!-- TITLE PANEL -->
+  <div class="hero-title-panel">
+    <div class="kicker-hero">Italy's Most Famous Thermal Spa Town</div>
+    <h1 class="title">Abano Terme,<br><em>pools all day.</em></h1>
+    <p class="dek-hero">45 minutes from your front door. More thermal pools per block than anywhere else in Italy. No planning required — just soak.</p>
+    <div class="date-badge"><strong>Pick any weekend</strong>Year-round · Pools heated regardless of weather</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats">
+      <div class="stat"><div class="label">Leave home</div><div class="value">2:00<small>pm</small></div></div>
+      <div class="stat"><div class="label">Door-to-pool</div><div class="value">~1<small>hr total</small></div></div>
+      <div class="stat"><div class="label">Transfers</div><div class="value">1<small> @ Padova</small></div></div>
+      <div class="stat"><div class="label">Pools open</div><div class="value">Year-round</div></div>
+      <div class="stat"><div class="label">Trip cost</div><div class="value">$$</div></div>
+    </div>
+  </div>
+
+  <div class="inner">
+
+    <!-- WEATHER -->
+    <section>
+      <div class="section-num">i.</div>
+      <h2>The <em>weather.</em></h2>
+      <p class="lead">Abano sits in the Po valley at 15m elevation — warmer and flatter than any alpine destination. Pick any weekend, the pools are heated regardless. Summer is ideal, spring and autumn are fine, even winter works.</p>
+      <div class="weather-grid">
+        <div class="weather-day">
+          <div class="day-name">Saturday · Typical Summer</div>
+          <div class="day-date">June – August</div>
+          <div class="temps"><div class="high">82°<small style="font-size:18px;">F</small></div><div class="low">/ 64°F low</div></div>
+          <div class="cond">Warm, sunny, outdoor pools perfect.<br>Humidity higher than alpine — embrace it.</div>
+        </div>
+        <div class="weather-day">
+          <div class="day-name">Sunday · Typical Spring/Autumn</div>
+          <div class="day-date">April – May, Sept – Oct</div>
+          <div class="temps"><div class="high">68°<small style="font-size:18px;">F</small></div><div class="low">/ 52°F low</div></div>
+          <div class="cond">Mild. Outdoor pool still great — water heated.<br>Indoor pools are a bonus in cooler weather.</div>
+        </div>
+      </div>
+      <div class="weather-note"><strong>This trip is weather-proof.</strong> All thermal pools are heated 30–34°C year-round from volcanic springs. A rainy Saturday in Abano is still a great spa day — rain just keeps it quieter.</div>
+    </section>
+
+    <!-- ROUTE -->
+    <section>
+      <div class="section-num">ii.</div>
+      <h2>The <em>route.</em></h2>
+      <p class="lead">One transfer at Padova. Trains run roughly every 30 minutes all day — extremely flexible, no need to plan around a specific train.</p>
+      <div class="route-vis">
+        <div class="route-line">
+          <svg class="route-svg" viewBox="0 0 900 70" preserveAspectRatio="none">
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#d6cab0" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="40" y1="35" x2="860" y2="35" stroke="#b35a3b" stroke-width="2" stroke-dasharray="6 8" opacity=".7">
+              <animate attributeName="stroke-dashoffset" from="0" to="-28" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <circle cx="40" cy="35" r="9" fill="#faf6ec" stroke="#2f4a3a" stroke-width="2.5"/>
+            <circle cx="450" cy="35" r="7" fill="#b35a3b"/>
+            <circle cx="860" cy="35" r="11" fill="#2a6870" stroke="#faf6ec" stroke-width="2.5"/>
+            <circle cx="860" cy="35" r="4" fill="#b8893f"/>
+          </svg>
+        </div>
+        <div class="route-stops">
+          <div class="stop"><div class="name">Vicenza</div><div class="time">~3:00 PM</div></div>
+          <div class="stop"><div class="name">Padova</div><div class="time">change ~3:25</div></div>
+          <div class="stop"><div class="name">Terme Euganee</div><div class="time">~3:55 PM</div></div>
+        </div>
+        <div class="route-legs">
+          <div class="route-leg">
+            <div class="label">Leg i · Reg. Veloce</div>
+            <div class="time">~25 min</div>
+            <div class="meta">Vicenza → Padova · ~€5</div>
+          </div>
+          <div class="route-leg">
+            <div class="label">Transfer at Padova</div>
+            <div class="time">~15 min</div>
+            <div class="meta">Easy platform change, same station</div>
+          </div>
+          <div class="route-leg">
+            <div class="label">Leg ii · Regionale</div>
+            <div class="time">~20 min</div>
+            <div class="meta">Padova → Terme Euganee-Abano · ~€3</div>
+          </div>
+        </div>
+        <div class="route-callout">
+          <strong>Hotel is 5 minutes from the station</strong>Terme Euganee–Abano-Montegrotto station puts you in the heart of the spa zone. Hotel Savoia is a short flat walk. Don't let anyone sell you a taxi — you won't need it.
+        </div>
+      </div>
+      <div class="data-note"><strong>On train data:</strong> Times based on Trenitalia published schedules. Padova → Abano runs roughly every 30–60 min depending on time of day. Confirm exact times in the Trenitalia app — Vicenza to Padova is one of the most frequent connections in the Veneto.</div>
+    </section>
+
+    <!-- DAY 1 -->
+    <section>
+      <div class="section-num">iii.</div>
+      <h2>The <em>day, paced.</em></h2>
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">i.</div>
+          <h3>Saturday — Arrival day.</h3>
+          <div class="sub">Vicenza → Abano</div>
+        </div>
+        <div class="timeline">
+          <div class="moment"><div class="clock small">Fri night</div><div class="moment-body"><span class="tag">Pack</span><h4>Pack the bag the night before.</h4><p>Small overnight bag. Swimsuit is the priority item. Hotel provides robes, slippers, pool towels. See packing section.</p></div></div>
+          <div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Wake</span><h4>Slow morning at home. Breakfast at home.</h4><p>No rush. This is the closest trip on the list — you have all day.</p></div></div>
+          <div class="moment"><div class="clock">1:00</div><div class="moment-body"><span class="tag eat">Lunch</span><h4>Lunch at home.</h4><p>Eat properly before leaving. Dinner is at the hotel tonight.</p></div></div>
+          <div class="moment"><div class="clock">2:00</div><div class="moment-body"><span class="tag">Out the door</span><h4>Walk Via T. dal Molin → Vicenza Stazione.</h4><p>30–40 min walk. Stop for dry snacks on the way.</p></div></div>
+          <div class="moment"><div class="clock">3:00</div><div class="moment-body"><span class="tag">Train</span><h4>Vicenza → Padova → Terme Euganee.</h4><p>~55 min total including the Padova change. Easy, frequent service.</p></div></div>
+          <div class="moment"><div class="clock">4:00</div><div class="moment-body"><span class="tag">Check-in</span><h4>Hotel Savoia Thermae & SPA. Drop bags. Change.</h4><p>Via Pietro D'Abano 53. 4-star, 8.5/10 on Booking. Full spa circuit opens immediately on check-in.</p></div></div>
+          <div class="moment"><div class="clock">4:30</div><div class="moment-body"><span class="tag spa">Spa</span><h4>Straight to the pools.</h4><p>Savoia has multiple indoor and outdoor thermal pools (year-round), Finnish sauna, Turkish steam bath, hot tub/jacuzzi, beauty salon, and massage menu. Rotation: outdoor pool first while the light is good, then indoor, then sauna circuit. Relax room between rounds.</p><p><em>Hydrate. Thermal water depletes you faster than you expect.</em></p></div></div>
+          <div class="moment"><div class="clock">7:30</div><div class="moment-body"><span class="tag eat">Dinner</span><h4>Hotel restaurant or town.</h4><p>Savoia has a restaurant on site — convenient after a spa session. Or walk 10 min into the tree-lined spa town center: <strong>Ristorante L'Anfora</strong> for proper Italian, or any of the Abano trattorias along Viale delle Terme.</p></div></div>
+          <div class="moment"><div class="clock">9:30</div><div class="moment-body"><span class="tag spa">Night swim</span><h4>Back to the outdoor pool.</h4><p>Quieter at night. Warm water, cooler air, no crowd. The thing about thermal pools at night: you won't want to leave.</p></div></div>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-section">
+        <div class="day-label">
+          <div class="num">ii.</div>
+          <h3>Sunday — Morning soak, then home.</h3>
+          <div class="sub">Abano → Vicenza</div>
+        </div>
+        <div class="timeline">
+          <div class="moment"><div class="clock">9:00</div><div class="moment-body"><span class="tag">Breakfast</span><h4>Hotel breakfast buffet.</h4><p>Abano hotels do a proper spread. Eat well — this is the best meal of the day.</p></div></div>
+          <div class="moment"><div class="clock">10:00</div><div class="moment-body"><span class="tag spa">Round 2</span><h4>Morning pool session.</h4><p>The pools before the weekend checkout crowd are the quietest time. One final soak. Or a 20-min walk around the spa-town streets — Abano has a lovely thermal promenade.</p></div></div>
+          <div class="moment"><div class="clock">11:30</div><div class="moment-body"><span class="tag">Checkout</span><h4>Ask to hold the bag until 1 PM.</h4><p>Most hotels will hold luggage — gives you one more loop before leaving.</p></div></div>
+          <div class="moment"><div class="clock">12:30</div><div class="moment-body"><span class="tag eat">Light bite</span><h4>Coffee and pastry in town.</h4><p>Don't go heavy — dinner at home tonight. Gelato from one of the spa-town cafes, then collect the bag.</p></div></div>
+          <div class="moment"><div class="clock">1:30</div><div class="moment-body"><span class="tag">Train back</span><h4>Terme Euganee → Padova → Vicenza.</h4><p>~55 min total. Home by 2:30–3:00 PM. Full afternoon left at home.</p></div></div>
+          <div class="moment"><div class="clock">3:00</div><div class="moment-body"><span class="tag">Home</span><h4>Back at Via T. dal Molin.</h4><p>Dinner at home. You'll sleep better than you have in months — thermal water does something to you.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOTEL -->
+    <section>
+      <div class="section-num">iv.</div>
+      <h2>Where you're <em>sleeping.</em></h2>
+      <p class="lead">Live data from Booking.com. Best-value pick in the top-rated Abano area with the full spa circuit included.</p>
+      <div class="hotel-card">
+        <div class="pick-tag">Recommended pick</div>
+        <div class="stars">★★★★ · 4-star</div>
+        <h3>Hotel Savoia Thermae & SPA</h3>
+        <div class="meta">Via Pietro D'Abano 53, Abano Terme · Top-rated spa area · 5-min walk from station</div>
+        <div class="hotel-perks">
+          <div>Multiple indoor + outdoor thermal pools (year-round)</div>
+          <div>Finnish sauna, Turkish/steam bath, hot tub</div>
+          <div>Full beauty salon on site</div>
+          <div>Complete massage menu (couples available)</div>
+          <div>Yoga classes, fitness center</div>
+          <div>Free Wi-Fi, free parking</div>
+          <div>Restaurant + bar on site</div>
+          <div>Hot spring bath — volcanic thermal water</div>
+        </div>
+        <div class="price-row">
+          <div class="price-num">$$<small> trip total</small></div>
+          <div class="review"><div class="score">8.5 / 10</div>1,286 Booking reviews</div>
+        </div>
+        <div class="alert"><strong>Booking tip:</strong> Always pick a rate that includes breakfast. Abano hotels often show room-only rates by default. Filter for "breakfast included" before booking — saves a meaningful amount at checkout. Also check for half-board (colazione + cena) rates, which cover dinner too.</div>
+      </div>
+
+      <div class="spa-grid">
+        <div class="spa-feat"><div class="icon">T</div><h4>Thermal Pools</h4><p>Indoor + outdoor, year-round, volcanic-spring heated to 30–34°C.</p></div>
+        <div class="spa-feat"><div class="icon">S</div><h4>Sauna Circuit</h4><p>Finnish sauna, Turkish steam bath, hot tub/jacuzzi, relaxation lounge.</p></div>
+        <div class="spa-feat"><div class="icon">M</div><h4>Beauty & Massage</h4><p>Full massage menu, facial treatments, body wraps, salon on site.</p></div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <p style="font-size:13px;color:var(--ink-soft);font-family:'Fraunces',serif;font-style:italic;">Also strong: <strong>Hotel Ritz Terme</strong> (5-star, 8.3/10, larger pool complex), <strong>Hotel Columbia Terme</strong> (3-star, great value, 4 pools), <strong>Hotel Terme Leonardo</strong> (4-star, 8.6/10, infinity pool). All within 5 min of the station.</p>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section>
+      <div class="section-num">v.</div>
+      <h2>The <em>geography.</em></h2>
+      <p class="lead">Abano Terme: flat spa town in the Euganean Hills. Train station, hotel, and all amenities within easy walking distance.</p>
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=Hotel+Savoia+Thermae+Abano+Terme&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hotel Savoia Abano Terme" allowfullscreen></iframe>
+      </div>
+      <div class="map-caption">Hotel Savoia Thermae & SPA, Abano Terme. Train station 400m to the west.</div>
+    </section>
+
+    <!-- EAT -->
+    <section>
+      <div class="section-num">vi.</div>
+      <h2>Where to <em>eat.</em></h2>
+      <p class="lead">Most Abano spa hotels include a restaurant — after a full spa session you usually don't want to go far. But the town has good options if you want to explore.</p>
+      <div class="eats">
+        <div class="eat"><div class="style">In hotel · Convenient</div><h4>Savoia Hotel Restaurant</h4><div class="where">On site — no walking needed</div><p>Most spa hotel guests eat in. Rotating menu, good quality. Easiest call after a long soak.</p></div>
+        <div class="eat"><div class="style">Town · Italian</div><h4>Ristorante L'Anfora</h4><div class="where">Viale delle Terme, ~10 min walk</div><p>Classic Italian trattoria on the main spa promenade. Good pasta, local wines, no tourist trap pricing.</p></div>
+        <div class="eat"><div class="style">Town · Casual</div><h4>Caffè del Centro</h4><div class="where">Piazza Repubblica</div><p>Coffee, pastries, light lunch. Perfect for a Sunday morning quick bite before the train home.</p></div>
+        <div class="eat"><div class="style">Sunday · Gelato</div><h4>Gelato on Viale delle Terme</h4><div class="where">Main promenade</div><p>Multiple gelaterias on the main boulevard. Walk and eat before heading to the station.</p></div>
+      </div>
+    </section>
+
+    <!-- BUDGET -->
+    <section>
+      <div class="section-num">vii.</div>
+      <h2>The <em>budget.</em></h2>
+      <div class="budget">
+        <table>
+          <tr><td>Round-trip trains, two people<span class="item-note">Vicenza ↔ Abano via Padova, regional Trenitalia</span></td><td>included</td></tr>
+          <tr><td>Hotel · 1 night, 2 adults, breakfast included<span class="item-note">Hotel Savoia 4-star with full spa access</span></td><td>included</td></tr>
+          <tr><td>Lunch at home + train snacks</td><td>included</td></tr>
+          <tr><td>Saturday dinner (hotel or town)</td><td>included</td></tr>
+          <tr><td>Sunday coffee, gelato, light bite</td><td>included</td></tr>
+          <tr><td>Tourist tax · 2 ppl × 1 night<span class="item-note">Italian municipal tax, paid at checkout in cash</span></td><td>included</td></tr>
+          <tr class="total"><td>Total trip cost</td><td>$$</td></tr>
+        </table>
+      </div>
+      <div class="budget-disclaimer">The <strong>$$</strong> rating reflects the full trip for two. This is the most affordable spa overnight on the list — Abano's thermal hotels are excellent value vs. alpine or lake alternatives at similar quality.</div>
+    </section>
+
+    <!-- PACKING -->
+    <section>
+      <div class="section-num">viii.</div>
+      <h2>Pack the <em>night before.</em></h2>
+      <div class="pack-grid">
+        <div class="pack-col">
+          <h4>Essentials</h4>
+          <ul>
+            <li>Passports / military ID<span class="who">In backpack</span></li>
+            <li>Phones &amp; chargers<span class="who">In backpack</span></li>
+            <li>Cash €40 buffer + cards<span class="who">In backpack — Elijah</span></li>
+            <li>Reusable water bottles<span class="who">Fill before pools — hydration critical</span></li>
+            <li>Trenitalia app open + tickets<span class="who">Both phones</span></li>
+            <li>Hotel booking offline<span class="who">Screenshot or PDF</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Clothes (each)</h4>
+          <ul>
+            <li>Swimsuit × 2 each<span class="who">One to wear, one to dry</span></li>
+            <li>Smart-casual for dinner<span class="who">Spa towns have dress codes at dinner</span></li>
+            <li>Change of clothes<span class="who">Day 2 outfit</span></li>
+            <li>Pajamas + underwear<span class="who">In bag</span></li>
+            <li>Comfortable flip-flops<span class="who">Hotel has spa flip-flops but personal ones are better</span></li>
+            <li>Toiletry kit (shared)<span class="who">In backpack</span></li>
+          </ul>
+        </div>
+        <div class="pack-col">
+          <h4>Spa Trip Specifics</h4>
+          <ul>
+            <li>Backpack<span class="who">Elijah will carry</span></li>
+            <li>Sunscreen SPF 30+<span class="who">In backpack — outdoor pool</span></li>
+            <li>Snacks for the train both days<span class="who">Dry snacks — pick up on the way to station</span></li>
+            <li>Hair tie<span class="who">Wife — for pool</span></li>
+            <li>Small waterproof bag<span class="who">Phone by the pool</span></li>
+            <li>Light layer for evening<span class="who">Spa towns cool down after sunset</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="data-note"><strong>Leave home:</strong> robes, slippers, pool towels — hotel provides all of these. Don't pack them.</div>
+    </section>
+
+    <!-- NOTES -->
+    <aside class="notes">
+      <h2>Things <em>worth knowing.</em></h2>
+      <ul>
+        <li><span><strong>Weather-proof trip.</strong> This is the only overnight on the list that works equally well in November or July. Pools are volcanic spring-fed and heated year-round.</span></li>
+        <li><span><strong>Hydrate constantly.</strong> Thermal water at 33°C depletes you fast, especially in summer. Drink water before, during, and after every pool session.</span></li>
+        <li><span><strong>Check-in is 2:30–3:00 PM</strong> at most Abano hotels. You can arrive earlier and use the spa from check-in — just ask at reception.</span></li>
+        <li><span><strong>Abano vs. Montegrotto.</strong> Both are on the same train line (same station "Terme Euganee–Abano-Montegrotto"). Abano is the bigger, slightly posher town. Montegrotto is quieter. Both are walkable from the station.</span></li>
+        <li><span><strong>Tourist tax</strong> at Italian hotels: a few euros per person per night, paid in cash at checkout. Keep coins on you.</span></li>
+        <li><span><strong>Thermal pool etiquette:</strong> shower before entering any pool, no running, no shaving in pools (they'll ask you to leave), no food poolside.</span></li>
+        <li><span><strong>Booking breakfast rate:</strong> always filter for "breakfast included" before booking — it's not always the default displayed option.</span></li>
+      </ul>
+    </aside>
+
+    <!-- LINKS -->
+    <section>
+      <div class="section-num">ix.</div>
+      <h2>Quick <em>links.</em></h2>
+      <div class="links">
+        <a href="https://www.trenitalia.com" target="_blank" rel="noopener">Trenitalia ↗</a>
+        <a href="https://www.booking.com/hotel/it/terme-savoia.html" target="_blank" rel="noopener">Hotel Savoia on Booking ↗</a>
+        <a href="https://www.visitabanomontegrotto.com/en/" target="_blank" rel="noopener">Visit Abano Terme ↗</a>
+        <a href="https://www.google.com/maps/place/Abano+Terme" target="_blank" rel="noopener">Abano on Maps ↗</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="glyph">⁂</div>
+      <div class="meta">Pick any weekend · Buon viaggio.</div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
