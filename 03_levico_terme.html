@@ -1227,7 +1227,8 @@
   };
 
   // Init: set dates to next weekend and load
-  document.addEventListener('DOMContentLoaded', function(){
+    // Init: elements are already in DOM above this script, call directly
+  (function initWeather(){
     var fi = document.getElementById('trip-date-from');
     var ti = document.getElementById('trip-date-to');
     if(!fi) return;
@@ -1236,9 +1237,9 @@
     var sat=new Date(now); sat.setDate(now.getDate()+toSat);
     var sun=new Date(sat); sun.setDate(sat.getDate()+1);
     fi.value = toISO(sat);
-    ti.value = toISO(sun);
+    ti.value   = toISO(sun);
     loadTripWeather();
-  });
+  })();
 })();
 </script>
 <!-- WEATHER COMPONENT END -->
